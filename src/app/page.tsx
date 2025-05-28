@@ -1,102 +1,125 @@
-import Image from "next/image";
+import Image from 'next/image';
 
+import Header from '@/components/ui/Header';
+import SocialProofSection from '@/components/ui/SocialProofSection';
+import TokenPurchaseSection from '@/components/ui/TokenPurchaseSection';
+import WalkingCharacter from '@/components/ui/WalkingMiner';
+
+//
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-[#3f3033]">
+      <section className="bg-[url('/assets/images/background.png')] bg-cover bg-left h-[80vh] w-full relative">
+        <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Hero Section */}
+        <section className="container mx-auto px-4 py-8 md:py-14 flex flex-col items-center  opacity-0  animate-[fadeIn_0.8s_ease-out_forwards]">
+          <h1 className="text-yellow-50 ml-4 mythic-text-shadow text-4xl md:text-6xl font-bold mb-4 font-ceaser">
+            ICO Mythic Miners
+          </h1>
+          <p className="hidden sm:block text-xl mt-2 mb-12 text-gray-900 text-center max-w-[700px]">
+            Embarque em uma aventura épica e torne-se um dos donos de $AMZ token
+            do jogo Mythic Miners, o inovador jogo cripto onde estratégia,
+            mineração e tesouros míticos se encontram. Garanta seu lugar nessa
+            lenda participando da nossa Oferta Inicial de Moedas (ICO) e
+            conquiste os primeiros tokens $AMZ.
+          </p>
+          <p className="sm:hidden block text-xl mt-2 mb-12 text-gray-900 text-center max-w-[700px]">
+            Participe da Oferta Inicial de Moedas (ICO) e seja dono dos
+            primeiros tokens $AMZ
+          </p>
+        </section>
+        <div className="absolute bottom-[5px] left-0 right-0">
+          <WalkingCharacter />
+          <div className="bg-[url('/assets/images/ground.png')] bg-left bg-size-[70px] h-[71px] w-full absolute "></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      <TokenPurchaseSection />
+
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
+      {/* Footer */}
+      <footer className="bg-gray-900 py-12">
+        <div className="container mx-auto px-6 md:px-4">
+          <div className="flex flex-col md:flex-row justify-between md:items-center">
+            <div className="mb-6 md:mb-0">
+              <div className="flex items-center ">
+                <Image
+                  src="/assets/images/logo.webp"
+                  alt="Mythic Miners"
+                  width={40}
+                  height={40}
+                />
+                <h1 className="text-2xl font-bold text-yellow-50 font-ceaser ml-2 mythic-text-shadow">
+                  Mythic Miners
+                </h1>
+              </div>
+              <p className="text-gray-400 mt-4 max-w-xs">
+                Minere, colete e troque artefatos lendários em um mundo de
+                aventura
+              </p>
+            </div>
+            <div className="flex flex-col md:flex-row md:space-x-12 space-y-4 md:space-y-0">
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Links Rápidos
+                </h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li>
+                    <a
+                      href="#"
+                      className="hover:text-amber-400 transition-colors"
+                    >
+                      Whitepaper
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="hover:text-amber-400 transition-colors"
+                    >
+                      Documento ICO
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="hover:text-amber-400 transition-colors"
+                    >
+                      Jogo
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-3">Legal</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li>
+                    <a
+                      href="#"
+                      className="hover:text-amber-400 transition-colors"
+                    >
+                      Termos de Serviço
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="hover:text-amber-400 transition-colors"
+                    >
+                      Política de Privacidade
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+            <p>&copy; 2024 Mythic Miners. Todos os direitos reservados.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
