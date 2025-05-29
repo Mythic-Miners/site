@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 interface NFTCardProps {
   title: string;
-  description: (percentage: number) => string;
+  description: (percentag?: number) => string;
   image?: string;
   minAmount: number;
   isActive: boolean;
   index: number;
-  stageBonus: number;
+  bonus?: number;
 }
 
 export default function NFTCard({
@@ -17,7 +17,7 @@ export default function NFTCard({
   minAmount,
   isActive,
   index,
-  stageBonus,
+  bonus,
 }: NFTCardProps) {
   console.log(isActive);
   return (
@@ -49,7 +49,7 @@ export default function NFTCard({
             {title}
           </h3>
           <p className="text-gray-300 max-w-md px-8 mt-4 mb-10">
-            {description(stageBonus)}
+            {description(bonus)}
           </p>
           <p className="text-sm text-gray-400 mt-2">
             {minAmount === 0

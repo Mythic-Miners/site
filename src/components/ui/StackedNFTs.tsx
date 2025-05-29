@@ -2,7 +2,7 @@ import NFTCard from './NFTCard';
 
 interface BonusBox {
   title: string;
-  description: (percentage: number) => string;
+  description: (percentag?: number) => string;
   image?: string;
   minAmount: number;
   maxAmount: number;
@@ -11,15 +11,14 @@ interface BonusBox {
 interface StackedNFTsProps {
   bonusBoxes: Record<string, BonusBox>;
   currentTier: string;
-  stageBonus: number;
+  bonus?: number;
 }
 
 export default function StackedNFTs({
   bonusBoxes,
   currentTier,
-  stageBonus,
+  bonus,
 }: StackedNFTsProps) {
-  // Sort tiers based on current selection
   const sortedTiers = Object.entries(bonusBoxes).sort(([a], [b]) => {
     if (a === currentTier) return -1;
     if (b === currentTier) return 1;
@@ -30,7 +29,7 @@ export default function StackedNFTs({
     <div className="relative flex w-full items-center justify-center">
       {sortedTiers.map(([tier, box], index) => (
         <NFTCard
-          stageBonus={stageBonus}
+          bonus={bonus}
           key={tier}
           {...box}
           isActive={currentTier === tier}

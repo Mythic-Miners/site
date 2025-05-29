@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
+import useIcoStatusQuery from '@/api/status';
+
 import StackedNFTs from './StackedNFTs';
 import TokenPurchaseForm from './TokenPurchaseForm';
 
@@ -17,28 +19,10 @@ interface FormErrors {
   wallet?: string;
 }
 
-export interface Stage {
-  stage: number;
-  bonus: number;
-  vestingPeriod: number;
-  description: string;
-  totalRaised: number;
-  apr: number;
-}
-
-const currentStage: Stage = {
-  stage: 1,
-  bonus: 60,
-  vestingPeriod: 6,
-  description: 'Limited time offer with maximum bonus',
-  totalRaised: 900,
-  apr: 10,
-};
-
 const BONUS_BOXES = {
   tier1: {
     title: 'Pioneiro Mítico',
-    description: (percentage: number) =>
+    description: (percentage?: number) =>
       `Ganhe ${percentage}% de bônus na compra e faça parte do grupo exclusivo que vai surfar na alta do token!`,
     image: '/assets/images/tokens.png',
     minAmount: 0,
@@ -46,7 +30,7 @@ const BONUS_BOXES = {
   },
   tier2: {
     title: 'Explorador Épico',
-    description: (percentage: number) =>
+    description: (percentage?: number) =>
       `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia épica, que aumenta em 10% sua transferência diária de tokens no jogo`,
     image: '/assets/images/relic-t4.png',
     minAmount: 430,
@@ -54,7 +38,7 @@ const BONUS_BOXES = {
   },
   tier3: {
     title: 'Visionário Lendário',
-    description: (percentage: number) =>
+    description: (percentage?: number) =>
       `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia lendária, que aumenta em 20% sua transferência diária de tokens no jogo`,
     image: '/assets/images/relic-t5.png',
     minAmount: 2150,
@@ -62,7 +46,7 @@ const BONUS_BOXES = {
   },
   tier4: {
     title: 'Guardião Atemporal',
-    description: (percentage: number) =>
+    description: (percentage?: number) =>
       `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia atemporal, que aumenta em 40% sua transferência diária de tokens no jogo`,
     image: '/assets/images/relic-t6.png',
     minAmount: 4300,
@@ -82,6 +66,9 @@ export default function TokenPurchaseSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentTier, setCurrentTier] =
     useState<keyof typeof BONUS_BOXES>('tier1');
+
+  const { data: icoStatus, isPending: isIcoStatusLoading } =
+    useIcoStatusQuery();
 
   useEffect(() => {
     const amount = parseFloat(formData.amount) || 0;
@@ -162,16 +149,16 @@ export default function TokenPurchaseSection() {
           formData={formData}
           errors={errors}
           isSubmitting={isSubmitting}
-          currentStage={currentStage}
+          icoStatus={icoStatus?.data}
+          isLoading={isIcoStatusLoading}
         />
       </div>
 
-      {/* Right Side - Dynamic Boxes */}
       <div className="lg:w-1/2 flex">
         <StackedNFTs
           bonusBoxes={BONUS_BOXES}
           currentTier={currentTier}
-          stageBonus={currentStage.bonus}
+          bonus={icoStatus?.data.bonus}
         />
       </div>
     </section>
