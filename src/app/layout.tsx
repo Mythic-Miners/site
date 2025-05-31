@@ -7,6 +7,7 @@ import localFont from 'next/font/local';
 import { HeroUIProvider } from '@/components/context/HeroUI';
 import QueryProvider from '@/components/context/QueryProvider';
 import { ThirdwebProvider } from '@/components/context/Thirdweb';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 const ceaserfont = localFont({
   src: '../fonts/CaesarDressing-Regular.ttf',
@@ -38,7 +39,9 @@ export default function RootLayout({
       <body className={`${ceaserfont.variable} ${senFont.className}`}>
         <ThirdwebProvider>
           <QueryProvider>
-            <HeroUIProvider>{children}</HeroUIProvider>
+            <LanguageProvider>
+              <HeroUIProvider>{children}</HeroUIProvider>
+            </LanguageProvider>
           </QueryProvider>
         </ThirdwebProvider>
       </body>

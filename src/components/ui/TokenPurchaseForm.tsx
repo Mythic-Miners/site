@@ -1,13 +1,12 @@
 import { Skeleton } from '@heroui/skeleton';
 import { Slider } from '@heroui/slider';
 import React from 'react';
-import { prepareContractCall } from 'thirdweb';
+import { useTranslation } from 'react-i18next';
 import { hardhat } from 'thirdweb/chains';
 import { ConnectButton } from 'thirdweb/react';
 import { createWallet, inAppWallet } from 'thirdweb/wallets';
 
 import type { IcoStatus } from '@/api/status';
-import { icoManagerContract } from '@/contracts/ico';
 import { client } from '@/lib/thirdweb/client';
 
 import TransferTokensButton from './TransferTokensButton';
@@ -24,7 +23,7 @@ interface FormErrors {
   wallet?: string;
 }
 
-const STAGE_MAX_RAISE = 1000;
+const STAGE_MAX_RAISE = 10000;
 
 const POL_TO_AMZ_RATE = 0.15;
 
@@ -72,26 +71,26 @@ export default function TokenPurchaseForm({
   icoStatus,
   isLoading,
 }: TokenPurchaseFormProps) {
+  const { t } = useTranslation();
   const stage = icoStatus?.stage ?? 1;
   const totalRaised = icoStatus?.totalRaised ?? 500;
   const bonus = icoStatus?.bonus ?? 60;
   const stagePercentage =
     100 - ((STAGE_MAX_RAISE * stage - totalRaised) / STAGE_MAX_RAISE) * 100;
-  const amzAmount = Number(formData.amount) * POL_TO_AMZ_RATE;
+  const amzAmount = Number(
+    (Number(formData.amount) * POL_TO_AMZ_RATE).toFixed(2),
+  );
   const bonusAmzAmount = bonus
-    ? (Number(formData.amount) * bonus * POL_TO_AMZ_RATE) / 100
+    ? Number(
+        ((Number(formData.amount) * bonus * POL_TO_AMZ_RATE) / 100).toFixed(2),
+      )
     : 0;
-
-  const transaction = prepareContractCall({
-    contract: icoManagerContract,
-    method: 'buyWithETH',
-    params: [Number(formData.amount)],
-  }) as any;
+  const totalAmzAmount = Number((amzAmount + bonusAmzAmount).toFixed(2));
 
   return (
     <div className="bg-linear-to-b from-blue-950/80 to-gray-900/80 p-4 md:p-8 rounded-xl shadow-xl border-2 border-neutral-950">
       <h2 className="text-3xl font-bold mb-6 text-center text-cyan-500 mythic-text-shadow">
-        $AMZ Pré-venda
+        {t('tokenPurchase.title')}
       </h2>
       <div className="mb-8 bg-gray-800/50 p-3 md:p-6 rounded-lg border border-neutral-950">
         <div className="flex justify-between items-center mb-4">
@@ -99,14 +98,16 @@ export default function TokenPurchaseForm({
             className="rounded-sm bg-cyan-500 before:bg-gradient-to-r before:from-cyan-500 before:via-[#ffffff40] before:to-cyan-500"
             isLoaded={!isLoading}
           >
-            <h3 className="text-xl font-bold text-cyan-500">Fase: {stage}</h3>
+            <h3 className="text-xl font-bold text-cyan-500">
+              {t('tokenPurchase.stage.label')}: {stage}
+            </h3>
           </Skeleton>
           <Skeleton
             className="rounded-full bg-emerald-400 before:bg-gradient-to-r before:from-emerald-400 before:via-[#ffffff40] before:to-emerald-400"
             isLoaded={!isLoading}
           >
             <div className="bg-emerald-400 text-emerald-100 px-3 py-1 rounded-full text-sm font-medium">
-              {bonus}% Bônus
+              {bonus}% {t('tokenPurchase.bonus.label')}
             </div>
           </Skeleton>
         </div>
@@ -120,13 +121,12 @@ export default function TokenPurchaseForm({
             ></div>
           </div>
           <div className="flex justify-between text-xs text-gray-400">
-            <span>0%</span>
-            <span>100%</span>
+            <span>{(stage - 1) * STAGE_MAX_RAISE} POL</span>
+            <span>{stage * STAGE_MAX_RAISE} POL</span>
           </div>
         </div>
         <p className="text-gray-300 mb-4 text-sm">
-          Cada fase tem um valor de 1000 POL, compre logo para garantir os
-          melhores benefícios.
+          {t('tokenPurchase.stage.description')}
         </p>
         <div className="flex items-center text-gray-400 text-sm mb-1">
           <svg
@@ -142,8 +142,9 @@ export default function TokenPurchaseForm({
             />
           </svg>
           <span>
-            Tokens Bônus: Ganhe {icoStatus?.bonus ?? 'X'}% de tokens em cima da
-            sua compra
+            {t('tokenPurchase.bonus.description', {
+              bonus: icoStatus?.bonus ?? 'X',
+            })}
           </span>
         </div>
         <div className="flex items-center text-gray-400 text-sm mb-1">
@@ -160,7 +161,9 @@ export default function TokenPurchaseForm({
             />
           </svg>
           <span>
-            Staking APR: {icoStatus?.apr ?? 'X'}% Anual Percentage Rate
+            {t('tokenPurchase.staking.description', {
+              apr: icoStatus?.apr ?? 'X',
+            })}
           </span>
         </div>
         <div className="flex items-center text-gray-400 text-sm mb-1">
@@ -177,8 +180,9 @@ export default function TokenPurchaseForm({
             />
           </svg>
           <span>
-            Vesting Period: {icoStatus?.vestingPeriod ?? 'X'} months linear
-            vesting
+            {t('tokenPurchase.vesting.period', {
+              period: icoStatus?.vestingPeriod ?? 'X',
+            })}
           </span>
         </div>
         <div className="flex items-center text-gray-400 text-sm mb-1">
@@ -194,7 +198,7 @@ export default function TokenPurchaseForm({
               clipRule="evenodd"
             />
           </svg>
-          <span>Cliff Period: 1 month</span>
+          <span>{t('tokenPurchase.vesting.cliff')}</span>
         </div>
         <div className="flex items-center text-gray-400 text-sm">
           <svg
@@ -209,14 +213,14 @@ export default function TokenPurchaseForm({
               clipRule="evenodd"
             />
           </svg>
-          <span>1 POL = {POL_TO_AMZ_RATE} Amazonite</span>
+          <span>{t('tokenPurchase.tokenRate', { rate: POL_TO_AMZ_RATE })}</span>
         </div>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            Quantidade
+            {t('tokenPurchase.form.amount.label')}
           </label>
           <div className="mt-1 relative rounded-md shadow-sm">
             <input
@@ -225,14 +229,16 @@ export default function TokenPurchaseForm({
               value={formData.amount}
               onChange={handleChange}
               className={`bg-gray-800 border-neutral-950 outline-none block w-full pl-4 pr-12 py-3 sm:text-sm border ${errors.amount ? 'border-red-500' : 'border-gray-700'} rounded-md text-white`}
-              placeholder="100"
+              placeholder={t('tokenPurchase.form.amount.placeholder')}
               min="15"
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <span className="text-gray-400 sm:text-sm">POL</span>
             </div>
           </div>
-          <p className="text-xs text-gray-400 mt-2">Mínimo de 15 POL</p>
+          <p className="text-xs text-gray-400 mt-2">
+            {t('tokenPurchase.form.amount.minAmount')}
+          </p>
           {errors.amount && (
             <p className="mt-2 text-sm text-red-500">{errors.amount}</p>
           )}
@@ -265,7 +271,7 @@ export default function TokenPurchaseForm({
         <div className="mb-4 md:mb-8 bg-gray-800/50 p-3 md:p-6 rounded-lg border border-neutral-950">
           <div className="flex justify-between items-center mb-1">
             <h4 className="text-sm md:text-md font-bold text-gray-300">
-              Amazonite comprados:
+              {t('tokenPurchase.form.summary.purchased')}
             </h4>
             <div className="text-md md:text-lg font-bold text-gray-300">
               {amzAmount} $AMZ
@@ -273,7 +279,7 @@ export default function TokenPurchaseForm({
           </div>
           <div className="flex justify-between items-center mb-1">
             <h4 className="text-sm md:text-md font-bold text-gray-300">
-              Amazonite bônus:
+              {t('tokenPurchase.form.summary.bonus')}
             </h4>
             <Skeleton
               className="rounded-sm bg-emerald-400 before:bg-gradient-to-r before:from-emerald-400 before:via-[#ffffff40] before:to-emerald-400"
@@ -286,14 +292,14 @@ export default function TokenPurchaseForm({
           </div>
           <div className="flex justify-between items-center">
             <h4 className="text-sm md:text-md font-bold text-gray-300">
-              Total de Amazonite:
+              {t('tokenPurchase.form.summary.total')}
             </h4>
             <Skeleton
               className="rounded-sm bg-amber-400 before:bg-gradient-to-r before:from-amber-400 before:via-[#ffffff40] before:to-amber-400"
               isLoaded={!isLoading}
             >
               <div className="text-md md:text-lg font-bold text-amber-400 mythic-text-shadow">
-                {amzAmount + bonusAmzAmount} $AMZ
+                {totalAmzAmount} $AMZ
               </div>
             </Skeleton>
           </div>
@@ -305,12 +311,12 @@ export default function TokenPurchaseForm({
             chain={hardhat}
             client={client}
             signInButton={{
-              label: 'Conectar Carteira',
+              label: t('tokenPurchase.form.connectWallet'),
               className:
                 'min-h-[48px]! max-h-[48px]! flex-1! py-1! md:py-3! px-2! md:px-4! rounded-md! transition-colors! border-neutral-950! border-2! bg-cyan-500! hover:bg-cyan-400! text-black! font-bold!',
             }}
             connectButton={{
-              label: 'Conectar Carteira',
+              label: t('tokenPurchase.form.connectWallet'),
               className:
                 'min-h-[48px]! max-h-[48px]! flex-1! py-1! md:py-3! px-2! md:px-4! rounded-md! transition-colors! border-neutral-950! border-2! bg-cyan-500! hover:bg-cyan-400! text-black! font-bold!',
             }}
@@ -361,6 +367,7 @@ export default function TokenPurchaseForm({
                     headers: {
                       'Content-Type': 'application/json',
                     },
+                    credentials: 'include',
                     body: JSON.stringify({ address }),
                   },
                 );

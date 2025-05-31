@@ -2,8 +2,13 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 export default function Header() {
+  const { t } = useTranslation();
+
   return (
     <header className="container mx-auto px-4 py-6 flex justify-between items-center">
       <div className="flex items-center opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
@@ -18,12 +23,15 @@ export default function Header() {
         </h1>
       </div>
 
-      <button
-        className="border-2 border-black hover:bg-[#fefce9b5]  bg-[#fefce996] cursor-pointer text-black font-bold py-2 px-4 rounded-md transition-colors opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
-        style={{ animationDelay: '0ms' }}
-      >
-        Ver meus tokens
-      </button>
+      <div className="flex items-center gap-2">
+        <LanguageSwitcher />
+        <button
+          className="border-2 border-black hover:bg-[#fefce9b5]  bg-[#fefce996] cursor-pointer text-black font-bold py-2 px-4 rounded-md transition-colors opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+          style={{ animationDelay: '0ms' }}
+        >
+          {t('common.viewMyTokens')}
+        </button>
+      </div>
     </header>
   );
 }

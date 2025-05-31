@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import useIcoStatusQuery from '@/api/status';
 
@@ -21,40 +22,33 @@ interface FormErrors {
 
 const BONUS_BOXES = {
   tier1: {
-    title: 'Pioneiro Mítico',
-    description: (percentage?: number) =>
-      `Ganhe ${percentage}% de bônus na compra e faça parte do grupo exclusivo que vai surfar na alta do token!`,
+    title: 'tokenPurchase.tiers.tier1.title',
+    description: 'tokenPurchase.tiers.tier1.description',
     image: '/assets/images/tokens.png',
-    minAmount: 0,
-    maxAmount: 430,
+    minAmount: 'tokenPurchase.tiers.tier1.minAmount',
   },
   tier2: {
-    title: 'Explorador Épico',
-    description: (percentage?: number) =>
-      `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia épica, que aumenta em 10% sua transferência diária de tokens no jogo`,
+    title: 'tokenPurchase.tiers.tier2.title',
+    description: 'tokenPurchase.tiers.tier2.description',
     image: '/assets/images/relic-t4.png',
-    minAmount: 430,
-    maxAmount: 2150,
+    minAmount: 'tokenPurchase.tiers.tier2.minAmount',
   },
   tier3: {
-    title: 'Visionário Lendário',
-    description: (percentage?: number) =>
-      `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia lendária, que aumenta em 20% sua transferência diária de tokens no jogo`,
+    title: 'tokenPurchase.tiers.tier3.title',
+    description: 'tokenPurchase.tiers.tier3.description',
     image: '/assets/images/relic-t5.png',
-    minAmount: 2150,
-    maxAmount: 4300,
+    minAmount: 'tokenPurchase.tiers.tier3.minAmount',
   },
   tier4: {
-    title: 'Guardião Atemporal',
-    description: (percentage?: number) =>
-      `${percentage}% de bônus nos tokens do ICO + NFT de uma relíquia atemporal, que aumenta em 40% sua transferência diária de tokens no jogo`,
+    title: 'tokenPurchase.tiers.tier4.title',
+    description: 'tokenPurchase.tiers.tier4.description',
     image: '/assets/images/relic-t6.png',
-    minAmount: 4300,
-    maxAmount: Infinity,
+    minAmount: 'tokenPurchase.tiers.tier4.minAmount',
   },
 };
 
 export default function TokenPurchaseSection() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     amount: '',
     payment: 'POL',
@@ -87,7 +81,7 @@ export default function TokenPurchaseSection() {
     const newErrors: FormErrors = {};
 
     if (!formData.amount || parseInt(formData.amount) <= 0) {
-      newErrors.amount = 'Please enter a valid amount of tokens';
+      newErrors.amount = t('errors.general');
     }
 
     if (
@@ -96,7 +90,7 @@ export default function TokenPurchaseSection() {
         !formData.wallet.startsWith('0x') ||
         formData.wallet.length !== 42)
     ) {
-      newErrors.wallet = 'Please enter a valid wallet address';
+      newErrors.wallet = t('errors.general');
     }
 
     setErrors(newErrors);
@@ -154,7 +148,7 @@ export default function TokenPurchaseSection() {
         />
       </div>
 
-      <div className="lg:w-1/2 flex">
+      <div className="lg:w-1/2 flex justify-center items-center">
         <StackedNFTs
           bonusBoxes={BONUS_BOXES}
           currentTier={currentTier}

@@ -2,6 +2,8 @@
 
 import { Tooltip } from '@heroui/react';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { parseEventLogs, prepareEvent } from 'thirdweb/event';
 import {
   TransactionButton,
   useActiveAccount,
@@ -16,6 +18,7 @@ export default function TransferTokensButton({
 }: {
   isSubmitting: boolean;
 }) {
+  const { t } = useTranslation();
   const account = useActiveAccount();
   const wallet = useActiveWallet();
   const address = useMemo(() => account?.address, [account]);
@@ -23,7 +26,7 @@ export default function TransferTokensButton({
 
   return (
     <Tooltip
-      content="Conecte a sua carteira para adquirir $AMZ"
+      content={t('transferTokens.tooltip')}
       showArrow={true}
       isDisabled={!!address}
       placement="bottom"
@@ -40,7 +43,7 @@ export default function TransferTokensButton({
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           if (wallet?.id === 'inApp') {
             const confirmed = window.confirm(
-              'Are you sure you want to send this transaction?',
+              t('transferTokens.confirmTransaction'),
             );
             if (!confirmed) {
               // Prevent the transaction from being sent
@@ -51,7 +54,7 @@ export default function TransferTokensButton({
         transaction={() =>
           prepareContractCall({
             contract: icoManagerContract,
-            method: 'buyWithETH',
+            method: 'purchase',
             params: [],
             value: BigInt(1e18), // 1 ETH
           })
@@ -59,11 +62,41 @@ export default function TransferTokensButton({
         onError={(error) => {
           console.log('ERROR!', error);
         }}
-        onTransactionConfirmed={(result) => {
-          console.log('BANAN called!', result);
+        onTransactionConfirmed={async (result) => {
+          const purchasedEvent = prepareEvent({
+            signature:
+              'event Purchased(address indexed user, uint256 amountPaid, uint256 earnedTokens, uint8 stage, uint256 nftId)',
+          });
+
+          const events = parseEventLogs({
+            logs: result.logs,
+            events: [purchasedEvent],
+          });
+
+          const purchased = events.find((e) => e.eventName === 'Purchased');
+          if (purchased) {
+            const nftId = purchased.args.nftId;
+
+            const response = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/nfts/metadata/relics/${nftId.toString()}`,
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+              },
+            );
+
+            const data = await response.json();
+            console.log('data', data);
+            console.log('Returned nftId:', nftId.toString());
+          }
         }}
       >
-        {isSubmitting ? 'Processando...' : 'Adquirir $AMZ'}
+        {isSubmitting
+          ? t('transferTokens.button.processing')
+          : t('transferTokens.button.default')}
       </TransactionButton>
     </Tooltip>
   );

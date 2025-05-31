@@ -1,0 +1,119 @@
+{
+    "common": {
+        "welcome": "Welcome",
+        "language": "Language",
+        "english": "English",
+        "portuguese": "Portuguese",
+        "viewMyTokens": "View my tokens"
+    },
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "errors": {
+        "general": "Something went wrong",
+        "notFound": "Page not found"
+    },
+    "hero": {
+        "title": "Mythic Miners ICO",
+        "description": {
+            "desktop": "Embark on an epic adventure and become one of the owners of $AMZ token from Mythic Miners, the innovative crypto game where strategy, mining, and mythical treasures meet. Secure your place in this legend by participating in our Initial Coin Offering (ICO) and get the first $AMZ tokens.",
+            "mobile": "Participate in the Initial Coin Offering (ICO) and own the first $AMZ tokens"
+        }
+    },
+    "tokenPurchase": {
+        "title": "$AMZ Presale",
+        "stage": {
+            "label": "Stage",
+            "description": "Each stage has a value of 1000 POL, buy now to secure the best benefits."
+        },
+        "bonus": {
+            "label": "Bonus",
+            "description": "Bonus Tokens: Get {{bonus}}% extra tokens on your purchase"
+        },
+        "staking": {
+            "label": "Staking APR",
+            "description": "{{apr}}% Annual Percentage Rate"
+        },
+        "vesting": {
+            "period": "Vesting Period: {{period}} months linear vesting",
+            "cliff": "Cliff Period: 1 month"
+        },
+        "tokenRate": "1 POL = {{rate}} Amazonite",
+        "form": {
+            "amount": {
+                "label": "Amount",
+                "placeholder": "100",
+                "minAmount": "Minimum of 15 POL"
+            },
+            "summary": {
+                "purchased": "Amazonite purchased:",
+                "bonus": "Amazonite bonus:",
+                "total": "Total Amazonite:"
+            },
+            "connectWallet": "Connect Wallet"
+        },
+        "tiers": {
+            "tier1": {
+                "title": "Mythic Pioneer",
+                "description": "Get {{percentage}}% bonus on your purchase and be part of the exclusive group that will ride the token's rise!",
+                "minAmount": "Minimum of 15 POL"
+            },
+            "tier2": {
+                "title": "Epic Explorer",
+                "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game by 10%",
+                "minAmount": "Minimum of 430 POL"
+            },
+            "tier3": {
+                "title": "Legendary Visionary",
+                "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game by 20%",
+                "minAmount": "Minimum of 2150 POL"
+            },
+            "tier4": {
+                "title": "Timeless Guardian",
+                "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game by 40%",
+                "minAmount": "Minimum of 4300 POL"
+            }
+        }
+    },
+    "socialProof": {
+        "technologies": {
+            "title": "Our Technologies"
+        },
+        "community": {
+            "title": "Join Our Community",
+            "description": "Stay updated with the latest news, participate in exclusive events, and connect with other Miners through our social media channels."
+        },
+        "socialLinks": {
+            "twitter": "Twitter",
+            "discord": "Discord",
+            "game": "Game",
+            "instagram": "Instagram",
+            "email": "Email"
+        }
+    },
+    "footer": {
+        "description": "Mine, collect, and trade legendary artifacts in a world of adventure",
+        "quickLinks": {
+            "title": "Quick Links",
+            "whitepaper": "Whitepaper",
+            "icoDocument": "ICO Document",
+            "game": "Game"
+        },
+        "legal": {
+            "title": "Legal",
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy"
+        },
+        "copyright": "© 2024 Mythic Miners. All rights reserved."
+    },
+    "transferTokens": {
+        "tooltip": "Connect your wallet to purchase $AMZ",
+        "button": {
+            "default": "Purchase $AMZ",
+            "processing": "Processing..."
+        },
+        "confirmTransaction": "Are you sure you want to send this transaction?"
+    }
+}

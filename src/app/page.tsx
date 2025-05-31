@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 import Header from '@/components/ui/Header';
 import SocialProofSection from '@/components/ui/SocialProofSection';
@@ -7,6 +10,8 @@ import WalkingCharacter from '@/components/ui/WalkingMiner';
 
 //
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-[#3f3033]">
       <section className="bg-[url('/assets/images/background.png')] bg-cover bg-left h-[80vh] w-full relative">
@@ -15,18 +20,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-8 md:py-14 flex flex-col items-center  opacity-0  animate-[fadeIn_0.8s_ease-out_forwards]">
           <h1 className="text-yellow-50 ml-4 mythic-text-shadow text-4xl md:text-6xl font-bold mb-4 font-ceaser">
-            ICO Mythic Miners
+            {t('hero.title')}
           </h1>
           <p className="hidden sm:block text-xl mt-2 mb-12 text-gray-900 text-center max-w-[700px]">
-            Embarque em uma aventura épica e torne-se um dos donos de $AMZ token
-            do jogo Mythic Miners, o inovador jogo cripto onde estratégia,
-            mineração e tesouros míticos se encontram. Garanta seu lugar nessa
-            lenda participando da nossa Oferta Inicial de Moedas (ICO) e
-            conquiste os primeiros tokens $AMZ.
+            {t('hero.description.desktop')}
           </p>
           <p className="sm:hidden block text-xl mt-2 mb-12 text-gray-900 text-center max-w-[700px]">
-            Participe da Oferta Inicial de Moedas (ICO) e seja dono dos
-            primeiros tokens $AMZ
+            {t('hero.description.mobile')}
           </p>
         </section>
         <div className="absolute bottom-[5px] left-0 right-0">
@@ -57,14 +57,13 @@ export default function Home() {
                 </h1>
               </div>
               <p className="text-gray-400 mt-4 max-w-xs">
-                Minere, colete e troque artefatos lendários em um mundo de
-                aventura
+                {t('footer.description')}
               </p>
             </div>
             <div className="flex flex-col md:flex-row md:space-x-12 space-y-4 md:space-y-0">
               <div>
                 <h3 className="text-lg font-semibold text-white mb-3">
-                  Links Rápidos
+                  {t('footer.quickLinks.title')}
                 </h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>
@@ -72,7 +71,7 @@ export default function Home() {
                       href="#"
                       className="hover:text-amber-400 transition-colors"
                     >
-                      Whitepaper
+                      {t('footer.quickLinks.whitepaper')}
                     </a>
                   </li>
                   <li>
@@ -80,7 +79,7 @@ export default function Home() {
                       href="#"
                       className="hover:text-amber-400 transition-colors"
                     >
-                      Documento ICO
+                      {t('footer.quickLinks.icoDocument')}
                     </a>
                   </li>
                   <li>
@@ -88,20 +87,22 @@ export default function Home() {
                       href="#"
                       className="hover:text-amber-400 transition-colors"
                     >
-                      Jogo
+                      {t('footer.quickLinks.game')}
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Legal</h3>
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  {t('footer.legal.title')}
+                </h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>
                     <a
                       href="#"
                       className="hover:text-amber-400 transition-colors"
                     >
-                      Termos de Serviço
+                      {t('footer.legal.terms')}
                     </a>
                   </li>
                   <li>
@@ -109,7 +110,7 @@ export default function Home() {
                       href="#"
                       className="hover:text-amber-400 transition-colors"
                     >
-                      Política de Privacidade
+                      {t('footer.legal.privacy')}
                     </a>
                   </li>
                 </ul>
@@ -117,7 +118,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; 2024 Mythic Miners. Todos os direitos reservados.</p>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

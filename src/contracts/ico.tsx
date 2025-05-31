@@ -6,7 +6,7 @@ import { client } from '@/lib/thirdweb/client';
 export const icoManagerContract = getContract({
   client,
   chain: hardhat,
-  address: '0x0165878A594ca255338adfa4d48449f69242Eb8F',
+  address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
   abi: [
     {
       inputs: [
@@ -18,31 +18,6 @@ export const icoManagerContract = getContract({
         {
           internalType: 'address',
           name: '_treasury',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: '_ethUsdPriceFeed',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: '_usdcUsdPriceFeed',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: '_polUsdPriceFeed',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: '_usdcToken',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: '_polToken',
           type: 'address',
         },
       ],
@@ -327,13 +302,7 @@ export const icoManagerContract = getContract({
         {
           indexed: false,
           internalType: 'uint256',
-          name: 'value',
-          type: 'uint256',
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'tokenAmount',
+          name: 'amountPaid',
           type: 'uint256',
         },
         {
@@ -353,12 +322,6 @@ export const icoManagerContract = getContract({
           internalType: 'uint256',
           name: 'nftId',
           type: 'uint256',
-        },
-        {
-          indexed: false,
-          internalType: 'enum ICOManager.PaymentToken',
-          name: 'paymentToken',
-          type: 'uint8',
         },
       ],
       name: 'Purchased',
@@ -504,39 +467,6 @@ export const icoManagerContract = getContract({
     },
     {
       inputs: [],
-      name: 'buyWithETH',
-      outputs: [],
-      stateMutability: 'payable',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'polAmount',
-          type: 'uint256',
-        },
-      ],
-      name: 'buyWithPOL',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'usdcAmount',
-          type: 'uint256',
-        },
-      ],
-      name: 'buyWithUSDC',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function',
-    },
-    {
-      inputs: [],
       name: 'claim',
       outputs: [],
       stateMutability: 'nonpayable',
@@ -550,19 +480,6 @@ export const icoManagerContract = getContract({
           internalType: 'uint8',
           name: '',
           type: 'uint8',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'ethUsdPriceFeed',
-      outputs: [
-        {
-          internalType: 'contract AggregatorV3Interface',
-          name: '',
-          type: 'address',
         },
       ],
       stateMutability: 'view',
@@ -747,28 +664,15 @@ export const icoManagerContract = getContract({
     },
     {
       inputs: [],
-      name: 'polToken',
+      name: 'purchase',
       outputs: [
         {
-          internalType: 'contract IERC20',
+          internalType: 'uint256',
           name: '',
-          type: 'address',
+          type: 'uint256',
         },
       ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'polUsdPriceFeed',
-      outputs: [
-        {
-          internalType: 'contract AggregatorV3Interface',
-          name: '',
-          type: 'address',
-        },
-      ],
-      stateMutability: 'view',
+      stateMutability: 'payable',
       type: 'function',
     },
     {
@@ -883,11 +787,6 @@ export const icoManagerContract = getContract({
         {
           internalType: 'uint256',
           name: 'months',
-          type: 'uint256',
-        },
-        {
-          internalType: 'uint256',
-          name: 'percentPerMonth',
           type: 'uint256',
         },
         {
@@ -1013,7 +912,7 @@ export const icoManagerContract = getContract({
     },
     {
       inputs: [],
-      name: 'totalRaisedUSD',
+      name: 'totalRaised',
       outputs: [
         {
           internalType: 'uint256',
@@ -1087,32 +986,6 @@ export const icoManagerContract = getContract({
       type: 'function',
     },
     {
-      inputs: [],
-      name: 'usdcToken',
-      outputs: [
-        {
-          internalType: 'contract IERC20',
-          name: '',
-          type: 'address',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'usdcUsdPriceFeed',
-      outputs: [
-        {
-          internalType: 'contract AggregatorV3Interface',
-          name: '',
-          type: 'address',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
       inputs: [
         {
           internalType: 'address',
@@ -1125,11 +998,6 @@ export const icoManagerContract = getContract({
         {
           internalType: 'uint256',
           name: 'amountPaid',
-          type: 'uint256',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokensBought',
           type: 'uint256',
         },
         {
@@ -1156,11 +1024,6 @@ export const icoManagerContract = getContract({
           internalType: 'uint256',
           name: 'lastClaimTime',
           type: 'uint256',
-        },
-        {
-          internalType: 'enum ICOManager.PaymentToken',
-          name: 'paymentToken',
-          type: 'uint8',
         },
       ],
       stateMutability: 'view',
