@@ -26,24 +26,28 @@ const BONUS_BOXES = {
     description: 'tokenPurchase.tiers.tier1.description',
     image: '/assets/images/tokens.png',
     minAmount: 'tokenPurchase.tiers.tier1.minAmount',
+    amout: 15,
   },
   tier2: {
     title: 'tokenPurchase.tiers.tier2.title',
     description: 'tokenPurchase.tiers.tier2.description',
     image: '/assets/images/relic-t4.png',
     minAmount: 'tokenPurchase.tiers.tier2.minAmount',
+    amout: 430,
   },
   tier3: {
     title: 'tokenPurchase.tiers.tier3.title',
     description: 'tokenPurchase.tiers.tier3.description',
     image: '/assets/images/relic-t5.png',
     minAmount: 'tokenPurchase.tiers.tier3.minAmount',
+    amout: 2150,
   },
   tier4: {
     title: 'tokenPurchase.tiers.tier4.title',
     description: 'tokenPurchase.tiers.tier4.description',
     image: '/assets/images/relic-t6.png',
     minAmount: 'tokenPurchase.tiers.tier4.minAmount',
+    amout: 4300,
   },
 };
 
@@ -66,11 +70,11 @@ export default function TokenPurchaseSection() {
 
   useEffect(() => {
     const amount = parseFloat(formData.amount) || 0;
-    if (amount >= BONUS_BOXES.tier4.minAmount) {
+    if (amount >= BONUS_BOXES.tier4.amout) {
       setCurrentTier('tier4');
-    } else if (amount >= BONUS_BOXES.tier3.minAmount) {
+    } else if (amount >= BONUS_BOXES.tier3.amout) {
       setCurrentTier('tier3');
-    } else if (amount >= BONUS_BOXES.tier2.minAmount) {
+    } else if (amount >= BONUS_BOXES.tier2.amout) {
       setCurrentTier('tier2');
     } else {
       setCurrentTier('tier1');

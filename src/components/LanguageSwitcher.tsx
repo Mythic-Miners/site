@@ -1,11 +1,8 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
-
 import { useLanguage } from '@/context/LanguageContext';
 
 export function LanguageSwitcher() {
-  const { t } = useTranslation();
   const { language, setLanguage } = useLanguage();
 
   return (

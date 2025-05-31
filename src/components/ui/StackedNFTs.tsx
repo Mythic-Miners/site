@@ -5,8 +5,8 @@ interface BonusBox {
   title: string;
   description: string;
   image?: string;
-  minAmount: number;
-  maxAmount: number;
+  minAmount: string;
+  amout: number;
 }
 
 interface StackedNFTsProps {
@@ -64,7 +64,9 @@ export default function StackedNFTs({
                 <p className="text-gray-300 max-w-md px-8 mt-4 mb-10">
                   {t(box.description, { percentage: bonus ?? 'X' })}
                 </p>
-                <p className="text-sm text-gray-400 mt-2">{t(box.minAmount)}</p>
+                <p className="text-sm text-gray-400 mt-2">
+                  {t(box.minAmount.toString())}
+                </p>
               </div>
             </div>
           </div>

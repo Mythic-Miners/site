@@ -47,17 +47,21 @@ export default function TokensPage() {
           <h2 className="text-3xl font-bold text-cyan-500 mb-8 mythic-text-shadow">
             Seus Tokens
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Total Tokens */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
-              <h3 className="text-xl font-bold text-gray-300 mb-2">Total de Tokens</h3>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">
+                Total de Tokens
+              </h3>
               <p className="text-3xl font-bold text-cyan-400">1,234.56 $AMZ</p>
             </div>
 
             {/* Claimable Tokens */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
-              <h3 className="text-xl font-bold text-gray-300 mb-2">Tokens para Claim</h3>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">
+                Tokens para Claim
+              </h3>
               <p className="text-3xl font-bold text-emerald-400">123.45 $AMZ</p>
               <button className="mt-4 bg-emerald-500 text-black font-bold py-2 px-4 rounded-md hover:bg-emerald-600 transition-colors border-2 border-neutral-950">
                 Fazer Claim
@@ -66,21 +70,27 @@ export default function TokensPage() {
 
             {/* Last Claim */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
-              <h3 className="text-xl font-bold text-gray-300 mb-2">Último Claim</h3>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">
+                Último Claim
+              </h3>
               <p className="text-2xl font-bold text-amber-400">15/03/2024</p>
               <p className="text-gray-400 mt-2">123.45 $AMZ</p>
             </div>
 
             {/* APR Earnings */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
-              <h3 className="text-xl font-bold text-gray-300 mb-2">Ganhos com APR</h3>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">
+                Ganhos com APR
+              </h3>
               <p className="text-3xl font-bold text-amber-400">45.67 $AMZ</p>
               <p className="text-gray-400 mt-2">APR Atual: 10%</p>
             </div>
 
             {/* Vesting Progress */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-neutral-950 md:col-span-2">
-              <h3 className="text-xl font-bold text-gray-300 mb-4">Progresso do Vesting</h3>
+              <h3 className="text-xl font-bold text-gray-300 mb-4">
+                Progresso do Vesting
+              </h3>
               <div className="w-full bg-gray-700 rounded-full h-4 mb-2">
                 <div
                   className="bg-gradient-to-r from-cyan-500 to-amber-500 h-4 rounded-full"
@@ -101,4 +111,4 @@ export default function TokensPage() {
       )}
     </div>
   );
-} 
+}
