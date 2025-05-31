@@ -1,4 +1,4 @@
-export default async function TokensPage() {
+export default function TokensPage() {
   // const [isEntered, setIsEntered] = useState(false);
   const isEntered = true;
 
