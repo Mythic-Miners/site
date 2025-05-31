@@ -1,13 +1,10 @@
-export default function TokensPage() {
+export default async function TokensPage() {
   // const [isEntered, setIsEntered] = useState(false);
   const isEntered = true;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-950/80 to-gray-900/80 p-8">
-      <button
-        onClick={() => {}}
-        className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors mb-8"
-      >
+      <button className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors mb-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 mr-2"
@@ -30,10 +27,7 @@ export default function TokensPage() {
           <h1 className="text-4xl font-bold text-cyan-500 mb-12 mythic-text-shadow">
             Acompanhe os seus tokens
           </h1>
-          <button
-            onClick={() => {}}
-            className="bg-gradient-to-r from-cyan-500 to-amber-500 text-black font-bold py-4 px-12 rounded-lg text-xl hover:from-cyan-600 hover:to-amber-600 transition-all transform hover:scale-105 border-2 border-neutral-950"
-          >
+          <button className="bg-gradient-to-r from-cyan-500 to-amber-500 text-black font-bold py-4 px-12 rounded-lg text-xl hover:from-cyan-600 hover:to-amber-600 transition-all transform hover:scale-105 border-2 border-neutral-950">
             Entrar
           </button>
         </div>
