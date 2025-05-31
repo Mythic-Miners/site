@@ -1,16 +1,11 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-
 export default function TokensPage() {
-  const router = useRouter();
-  const [isEntered, setIsEntered] = useState(false);
+  // const [isEntered, setIsEntered] = useState(false);
+  const isEntered = true;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-950/80 to-gray-900/80 p-8">
       <button
-        onClick={() => router.back()}
+        onClick={() => {}}
         className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors mb-8"
       >
         <svg
@@ -36,7 +31,7 @@ export default function TokensPage() {
             Acompanhe os seus tokens
           </h1>
           <button
-            onClick={() => setIsEntered(true)}
+            onClick={() => {}}
             className="bg-gradient-to-r from-cyan-500 to-amber-500 text-black font-bold py-4 px-12 rounded-lg text-xl hover:from-cyan-600 hover:to-amber-600 transition-all transform hover:scale-105 border-2 border-neutral-950"
           >
             Entrar
