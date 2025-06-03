@@ -51,8 +51,8 @@ export default function StackedNFTs({
                 <Image
                   src={box.image}
                   alt={t(box.title)}
-                  width={300}
-                  height={150}
+                  width={currentTier === 'tier5' ? 360 : 300}
+                  height={currentTier === 'tier5' ? 180 : 150}
                   className="object-cover"
                   draggable={false}
                 />

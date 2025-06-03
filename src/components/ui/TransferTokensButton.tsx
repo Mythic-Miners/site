@@ -1,6 +1,7 @@
 'use client';
 
 import { Tooltip } from '@heroui/react';
+import { addToast } from '@heroui/toast';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { parseEventLogs, prepareEvent } from 'thirdweb/event';
@@ -13,10 +14,18 @@ import { prepareContractCall } from 'thirdweb/transaction';
 
 import { icoManagerContract } from '@/contracts/ico';
 
+function extractRevertReason(errorString: string): string | null {
+  // Match the revert reason inside single quotes after 'reverted with reason string'
+  const match = errorString.match(/reverted with reason string '([^']+)'/);
+  return match ? match[1] : null;
+}
+
 export default function TransferTokensButton({
   isSubmitting,
+  amount,
 }: {
   isSubmitting: boolean;
+  amount: number;
 }) {
   const { t } = useTranslation();
   const account = useActiveAccount();
@@ -27,7 +36,7 @@ export default function TransferTokensButton({
   return (
     <Tooltip
       content={t('transferTokens.tooltip')}
-      showArrow={true}
+      showArrow
       isDisabled={!!address}
       placement="bottom"
       classNames={{
@@ -56,16 +65,26 @@ export default function TransferTokensButton({
             contract: icoManagerContract,
             method: 'purchase',
             params: [],
-            value: BigInt(1e18), // 1 ETH
+            value: BigInt(amount * 1e18),
           })
         }
         onError={(error) => {
-          console.log('ERROR!', error);
+          const revertReason = extractRevertReason(error.message);
+          console.log('revertReason', error.message, amount);
+          addToast({
+            title: 'Transaction Error',
+            description:
+              isNaN(amount) || amount === 0
+                ? 'Please enter a valid amount'
+                : revertReason || 'Unknown error',
+            color: 'danger',
+            variant: 'flat',
+          });
         }}
         onTransactionConfirmed={async (result) => {
           const purchasedEvent = prepareEvent({
             signature:
-              'event Purchased(address indexed user, uint256 amountPaid, uint256 earnedTokens, uint8 stage, uint256 nftId)',
+              'event Purchased(address indexed user, uint256 amountPaid, uint256 earnedTokens, uint8 stage, uint256[] nftIds)',
           });
 
           const events = parseEventLogs({
@@ -75,16 +94,20 @@ export default function TransferTokensButton({
 
           const purchased = events.find((e) => e.eventName === 'Purchased');
           if (purchased) {
-            const nftId = purchased.args.nftId;
+            const nftId = purchased.args.nftIds;
+            console.log('nftId', nftId);
 
             const response = await fetch(
-              `${process.env.NEXT_PUBLIC_API_URL}/nfts/metadata/relics/${nftId.toString()}`,
+              `${process.env.NEXT_PUBLIC_API_URL}/nfts/metadata/relics`,
               {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
                 },
                 credentials: 'include',
+                body: JSON.stringify({
+                  transactionHash: result.transactionHash,
+                }),
               },
             );
 

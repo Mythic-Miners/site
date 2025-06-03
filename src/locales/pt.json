@@ -26,7 +26,7 @@
         "title": "$AMZ Pré-venda",
         "stage": {
             "label": "Fase",
-            "description": "Cada fase tem um valor de 1000 POL, compre logo para garantir os melhores benefícios."
+            "description": "Cada fase oferece exclusivos. Participe já — a pré-venda é limitada a uma vez por carteira!"
         },
         "bonus": {
             "label": "Bônus",
@@ -45,7 +45,7 @@
             "amount": {
                 "label": "Quantidade",
                 "placeholder": "100",
-                "minAmount": "Mínimo de 15 POL"
+                "minAmount": "Mínimo de 100 POL"
             },
             "summary": {
                 "purchased": "Amazonite comprados:",
@@ -58,22 +58,27 @@
             "tier1": {
                 "title": "Pioneiro Mítico",
                 "description": "Ganhe {{percentage}}% de bônus na compra e faça parte do grupo exclusivo que vai surfar na alta do token!",
-                "minAmount": "Mínimo de 15 POL"
+                "minAmount": "Mínimo de 100 POL"
             },
             "tier2": {
                 "title": "Explorador Épico",
                 "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia épica, que aumenta em 10% sua transferência diária de tokens no jogo",
-                "minAmount": "Mínimo de 430 POL"
+                "minAmount": "Mínimo de 500 POL"
             },
             "tier3": {
                 "title": "Visionário Lendário",
                 "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia lendária, que aumenta em 20% sua transferência diária de tokens no jogo",
-                "minAmount": "Mínimo de 2150 POL"
+                "minAmount": "Mínimo de 2.500 POL"
             },
             "tier4": {
                 "title": "Guardião Atemporal",
                 "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia atemporal, que aumenta em 40% sua transferência diária de tokens no jogo",
-                "minAmount": "Mínimo de 4300 POL"
+                "minAmount": "Mínimo de 5.000 POL"
+            },
+            "tier5": {
+                "title": "Pacote Supremo",
+                "description": "{{percentage}}% de bônus nos tokens do ICO + 2 NFTs de relíquia atemporal + 1 NFT de relíquia lendária + 1 NFT de relíquia épica",
+                "minAmount": "Mínimo de 10.000 POL"
             }
         }
     },
@@ -114,6 +119,6 @@
             "default": "Adquirir $AMZ",
             "processing": "Processando..."
         },
-        "confirmTransaction": "Tem certeza que deseja enviar esta transação?"
+        "confirmTransaction": "Tem certeza que deseja fazer esta transação?"
     }
 }

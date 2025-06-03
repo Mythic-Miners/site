@@ -20,34 +20,43 @@ interface FormErrors {
   wallet?: string;
 }
 
+// TODO CHANGE THIS
+
 const BONUS_BOXES = {
   tier1: {
     title: 'tokenPurchase.tiers.tier1.title',
     description: 'tokenPurchase.tiers.tier1.description',
     image: '/assets/images/tokens.png',
     minAmount: 'tokenPurchase.tiers.tier1.minAmount',
-    amout: 15,
+    amout: 100,
   },
   tier2: {
     title: 'tokenPurchase.tiers.tier2.title',
     description: 'tokenPurchase.tiers.tier2.description',
     image: '/assets/images/relic-t4.png',
     minAmount: 'tokenPurchase.tiers.tier2.minAmount',
-    amout: 430,
+    amout: 200,
   },
   tier3: {
     title: 'tokenPurchase.tiers.tier3.title',
     description: 'tokenPurchase.tiers.tier3.description',
     image: '/assets/images/relic-t5.png',
     minAmount: 'tokenPurchase.tiers.tier3.minAmount',
-    amout: 2150,
+    amout: 500,
   },
   tier4: {
     title: 'tokenPurchase.tiers.tier4.title',
     description: 'tokenPurchase.tiers.tier4.description',
     image: '/assets/images/relic-t6.png',
     minAmount: 'tokenPurchase.tiers.tier4.minAmount',
-    amout: 4300,
+    amout: 1000,
+  },
+  tier5: {
+    title: 'tokenPurchase.tiers.tier5.title',
+    description: 'tokenPurchase.tiers.tier5.description',
+    image: '/assets/images/relics-combo.png',
+    minAmount: 'tokenPurchase.tiers.tier5.minAmount',
+    amout: 2000,
   },
 };
 
@@ -70,7 +79,9 @@ export default function TokenPurchaseSection() {
 
   useEffect(() => {
     const amount = parseFloat(formData.amount) || 0;
-    if (amount >= BONUS_BOXES.tier4.amout) {
+    if (amount >= BONUS_BOXES.tier5.amout) {
+      setCurrentTier('tier5');
+    } else if (amount >= BONUS_BOXES.tier4.amout) {
       setCurrentTier('tier4');
     } else if (amount >= BONUS_BOXES.tier3.amout) {
       setCurrentTier('tier3');

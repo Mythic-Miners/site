@@ -25,12 +25,14 @@ interface FormErrors {
 
 const STAGE_MAX_RAISE = 10000;
 
-const POL_TO_AMZ_RATE = 0.15;
+const POL_TO_AMZ_RATE = 0.161;
 
+// TODO CHANGE THIS
 const AMOUNT_BREAKPOINTS = [
-  { value: 430, label: 'Epic' },
-  { value: 2150, label: 'Legendary' },
-  { value: 4300, label: 'Timeless' },
+  { value: 200, label: 'Epic' },
+  { value: 500, label: 'Legendary' },
+  { value: 1000, label: 'Timeless' },
+  { value: 2000, label: 'Ultimate' },
 ];
 
 type TokenPurchaseFormProps = {
@@ -73,7 +75,7 @@ export default function TokenPurchaseForm({
 }: TokenPurchaseFormProps) {
   const { t } = useTranslation();
   const stage = icoStatus?.stage ?? 1;
-  const totalRaised = icoStatus?.totalRaised ?? 500;
+  const totalRaised = (icoStatus?.totalRaised || 1) / 1e18;
   const bonus = icoStatus?.bonus ?? 60;
   const stagePercentage =
     100 - ((STAGE_MAX_RAISE * stage - totalRaised) / STAGE_MAX_RAISE) * 100;
@@ -239,9 +241,6 @@ export default function TokenPurchaseForm({
           <p className="text-xs text-gray-400 mt-2">
             {t('tokenPurchase.form.amount.minAmount')}
           </p>
-          {errors.amount && (
-            <p className="mt-2 text-sm text-red-500">{errors.amount}</p>
-          )}
         </div>
         <div className="mt-2 mb-8">
           <Slider
@@ -254,7 +253,7 @@ export default function TokenPurchaseForm({
               trackWrapper: 'text-gray-200',
             }}
             minValue={0}
-            maxValue={AMOUNT_BREAKPOINTS[2].value}
+            maxValue={AMOUNT_BREAKPOINTS[AMOUNT_BREAKPOINTS.length - 1].value}
             value={Number(formData.amount)}
             showSteps
             step={AMOUNT_BREAKPOINTS[0].value}
@@ -385,7 +384,10 @@ export default function TokenPurchaseForm({
               },
             }}
           />
-          <TransferTokensButton isSubmitting={isSubmitting} />
+          <TransferTokensButton
+            isSubmitting={isSubmitting}
+            amount={parseInt(formData.amount)}
+          />
         </div>
       </form>
     </div>

@@ -6,7 +6,7 @@ import { client } from '@/lib/thirdweb/client';
 export const icoManagerContract = getContract({
   client,
   chain: hardhat,
-  address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
+  address: process.env.NEXT_PUBLIC_ICO_MANAGER_ADDRESS as string,
   abi: [
     {
       inputs: [
@@ -20,132 +20,28 @@ export const icoManagerContract = getContract({
           name: '_treasury',
           type: 'address',
         },
+        {
+          internalType: 'address',
+          name: '_relics',
+          type: 'address',
+        },
+        {
+          internalType: 'uint256',
+          name: '_icoCloseDate',
+          type: 'uint256',
+        },
       ],
       stateMutability: 'nonpayable',
       type: 'constructor',
     },
     {
       inputs: [],
-      name: 'ERC721EnumerableForbiddenBatchMint',
+      name: 'EnforcedPause',
       type: 'error',
     },
     {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'sender',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721IncorrectOwner',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'operator',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'ERC721InsufficientApproval',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'approver',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721InvalidApprover',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'operator',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721InvalidOperator',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721InvalidOwner',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'receiver',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721InvalidReceiver',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'sender',
-          type: 'address',
-        },
-      ],
-      name: 'ERC721InvalidSender',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'ERC721NonexistentToken',
-      type: 'error',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'index',
-          type: 'uint256',
-        },
-      ],
-      name: 'ERC721OutOfBoundsIndex',
+      inputs: [],
+      name: 'ExpectedPause',
       type: 'error',
     },
     {
@@ -171,73 +67,9 @@ export const icoManagerContract = getContract({
       type: 'error',
     },
     {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'approved',
-          type: 'address',
-        },
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'Approval',
-      type: 'event',
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'operator',
-          type: 'address',
-        },
-        {
-          indexed: false,
-          internalType: 'bool',
-          name: 'approved',
-          type: 'bool',
-        },
-      ],
-      name: 'ApprovalForAll',
-      type: 'event',
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: '_fromTokenId',
-          type: 'uint256',
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: '_toTokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'BatchMetadataUpdate',
-      type: 'event',
+      inputs: [],
+      name: 'ReentrancyGuardReentrantCall',
+      type: 'error',
     },
     {
       anonymous: false,
@@ -263,12 +95,75 @@ export const icoManagerContract = getContract({
       inputs: [
         {
           indexed: false,
+          internalType: 'string',
+          name: 'field',
+          type: 'string',
+        },
+        {
+          indexed: false,
           internalType: 'uint256',
-          name: '_tokenId',
+          name: 'newValue',
           type: 'uint256',
         },
       ],
-      name: 'MetadataUpdate',
+      name: 'ConfigurationChanged',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'string',
+          name: 'message',
+          type: 'string',
+        },
+      ],
+      name: 'CriticalError',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'token',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'amount',
+          type: 'uint256',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'to',
+          type: 'address',
+        },
+      ],
+      name: 'EmergencyWithdraw',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'oldDate',
+          type: 'uint256',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'newDate',
+          type: 'uint256',
+        },
+      ],
+      name: 'ICOCloseDateUpdated',
       type: 'event',
     },
     {
@@ -288,6 +183,19 @@ export const icoManagerContract = getContract({
         },
       ],
       name: 'OwnershipTransferred',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'account',
+          type: 'address',
+        },
+      ],
+      name: 'Paused',
       type: 'event',
     },
     {
@@ -319,12 +227,50 @@ export const icoManagerContract = getContract({
         },
         {
           indexed: false,
-          internalType: 'uint256',
-          name: 'nftId',
-          type: 'uint256',
+          internalType: 'uint256[]',
+          name: 'nftIds',
+          type: 'uint256[]',
         },
       ],
       name: 'Purchased',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: 'address',
+          name: 'sender',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'amount',
+          type: 'uint256',
+        },
+      ],
+      name: 'Received',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'uint8',
+          name: 'oldStage',
+          type: 'uint8',
+        },
+        {
+          indexed: false,
+          internalType: 'uint8',
+          name: 'newStage',
+          type: 'uint8',
+        },
+      ],
+      name: 'StageUpdated',
       type: 'event',
     },
     {
@@ -375,25 +321,32 @@ export const icoManagerContract = getContract({
       anonymous: false,
       inputs: [
         {
-          indexed: true,
+          indexed: false,
           internalType: 'address',
-          name: 'from',
+          name: 'oldTreasury',
           type: 'address',
         },
         {
-          indexed: true,
+          indexed: false,
           internalType: 'address',
-          name: 'to',
+          name: 'newTreasury',
           type: 'address',
-        },
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
         },
       ],
-      name: 'Transfer',
+      name: 'TreasuryUpdated',
+      type: 'event',
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'account',
+          type: 'address',
+        },
+      ],
+      name: 'Unpaused',
       type: 'event',
     },
     {
@@ -417,49 +370,51 @@ export const icoManagerContract = getContract({
     },
     {
       inputs: [],
-      name: 'amazoniteToken',
+      name: 'MAX_PURCHASE',
       outputs: [
         {
-          internalType: 'contract IERC20',
+          internalType: 'uint256',
           name: '',
-          type: 'address',
+          type: 'uint256',
         },
       ],
       stateMutability: 'view',
       type: 'function',
     },
     {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'to',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'approve',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-      ],
-      name: 'balanceOf',
+      inputs: [],
+      name: 'MAX_STAGE',
       outputs: [
         {
           internalType: 'uint256',
           name: '',
           type: 'uint256',
+        },
+      ],
+      stateMutability: 'view',
+      type: 'function',
+    },
+    {
+      inputs: [],
+      name: 'MIN_PURCHASE',
+      outputs: [
+        {
+          internalType: 'uint256',
+          name: '',
+          type: 'uint256',
+        },
+      ],
+      stateMutability: 'view',
+      type: 'function',
+    },
+    {
+      inputs: [],
+      name: 'amazoniteToken',
+      outputs: [
+        {
+          internalType: 'contract IERC20',
+          name: '',
+          type: 'address',
         },
       ],
       stateMutability: 'view',
@@ -488,20 +443,24 @@ export const icoManagerContract = getContract({
     {
       inputs: [
         {
+          internalType: 'address',
+          name: 'token',
+          type: 'address',
+        },
+        {
           internalType: 'uint256',
-          name: 'tokenId',
+          name: 'amount',
           type: 'uint256',
         },
-      ],
-      name: 'getApproved',
-      outputs: [
         {
           internalType: 'address',
-          name: '',
+          name: 'to',
           type: 'address',
         },
       ],
-      stateMutability: 'view',
+      name: 'emergencyWithdraw',
+      outputs: [],
+      stateMutability: 'payable',
       type: 'function',
     },
     {
@@ -581,45 +540,8 @@ export const icoManagerContract = getContract({
       type: 'function',
     },
     {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: 'operator',
-          type: 'address',
-        },
-      ],
-      name: 'isApprovedForAll',
-      outputs: [
-        {
-          internalType: 'bool',
-          name: '',
-          type: 'bool',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
       inputs: [],
-      name: 'name',
-      outputs: [
-        {
-          internalType: 'string',
-          name: '',
-          type: 'string',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'nftIdCounter',
+      name: 'icoCloseDate',
       outputs: [
         {
           internalType: 'uint256',
@@ -644,19 +566,20 @@ export const icoManagerContract = getContract({
       type: 'function',
     },
     {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'ownerOf',
+      inputs: [],
+      name: 'pause',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function',
+    },
+    {
+      inputs: [],
+      name: 'paused',
       outputs: [
         {
-          internalType: 'address',
+          internalType: 'bool',
           name: '',
-          type: 'address',
+          type: 'bool',
         },
       ],
       stateMutability: 'view',
@@ -665,14 +588,21 @@ export const icoManagerContract = getContract({
     {
       inputs: [],
       name: 'purchase',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function',
+    },
+    {
+      inputs: [],
+      name: 'relics',
       outputs: [
         {
-          internalType: 'uint256',
+          internalType: 'contract MythicMinersRelics',
           name: '',
-          type: 'uint256',
+          type: 'address',
         },
       ],
-      stateMutability: 'payable',
+      stateMutability: 'view',
       type: 'function',
     },
     {
@@ -685,17 +615,12 @@ export const icoManagerContract = getContract({
     {
       inputs: [
         {
-          internalType: 'address',
-          name: 'token',
-          type: 'address',
-        },
-        {
           internalType: 'uint256',
-          name: 'amount',
+          name: '_newCloseDate',
           type: 'uint256',
         },
       ],
-      name: 'rescueTokens',
+      name: 'setICOCloseDate',
       outputs: [],
       stateMutability: 'nonpayable',
       type: 'function',
@@ -704,67 +629,11 @@ export const icoManagerContract = getContract({
       inputs: [
         {
           internalType: 'address',
-          name: 'from',
+          name: '_treasury',
           type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: 'to',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
         },
       ],
-      name: 'safeTransferFrom',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'from',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: 'to',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-        {
-          internalType: 'bytes',
-          name: 'data',
-          type: 'bytes',
-        },
-      ],
-      name: 'safeTransferFrom',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'operator',
-          type: 'address',
-        },
-        {
-          internalType: 'bool',
-          name: 'approved',
-          type: 'bool',
-        },
-      ],
-      name: 'setApprovalForAll',
+      name: 'setTreasury',
       outputs: [],
       stateMutability: 'nonpayable',
       type: 'function',
@@ -804,113 +673,6 @@ export const icoManagerContract = getContract({
       type: 'function',
     },
     {
-      inputs: [
-        {
-          internalType: 'bytes4',
-          name: 'interfaceId',
-          type: 'bytes4',
-        },
-      ],
-      name: 'supportsInterface',
-      outputs: [
-        {
-          internalType: 'bool',
-          name: '',
-          type: 'bool',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'symbol',
-      outputs: [
-        {
-          internalType: 'string',
-          name: '',
-          type: 'string',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'index',
-          type: 'uint256',
-        },
-      ],
-      name: 'tokenByIndex',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'owner',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'index',
-          type: 'uint256',
-        },
-      ],
-      name: 'tokenOfOwnerByIndex',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'tokenPrice',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'tokenURI',
-      outputs: [
-        {
-          internalType: 'string',
-          name: '',
-          type: 'string',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
       inputs: [],
       name: 'totalRaised',
       outputs: [
@@ -925,7 +687,7 @@ export const icoManagerContract = getContract({
     },
     {
       inputs: [],
-      name: 'totalSupply',
+      name: 'totalReceived',
       outputs: [
         {
           internalType: 'uint256',
@@ -934,29 +696,6 @@ export const icoManagerContract = getContract({
         },
       ],
       stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'from',
-          type: 'address',
-        },
-        {
-          internalType: 'address',
-          name: 'to',
-          type: 'address',
-        },
-        {
-          internalType: 'uint256',
-          name: 'tokenId',
-          type: 'uint256',
-        },
-      ],
-      name: 'transferFrom',
-      outputs: [],
-      stateMutability: 'nonpayable',
       type: 'function',
     },
     {
@@ -983,6 +722,13 @@ export const icoManagerContract = getContract({
         },
       ],
       stateMutability: 'view',
+      type: 'function',
+    },
+    {
+      inputs: [],
+      name: 'unpause',
+      outputs: [],
+      stateMutability: 'nonpayable',
       type: 'function',
     },
     {
@@ -1028,6 +774,10 @@ export const icoManagerContract = getContract({
       ],
       stateMutability: 'view',
       type: 'function',
+    },
+    {
+      stateMutability: 'payable',
+      type: 'receive',
     },
   ],
 });
