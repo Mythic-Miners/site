@@ -4,7 +4,7 @@ import { Tooltip } from '@heroui/react';
 import { addToast } from '@heroui/toast';
 import { confetti } from '@tsparticles/confetti';
 import { useRouter } from 'next/navigation';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { parseEventLogs, prepareEvent } from 'thirdweb/event';
 import {
@@ -35,6 +35,7 @@ export default function TransferTokensButton({
   const account = useActiveAccount();
   const wallet = useActiveWallet();
   const address = useMemo(() => account?.address, [account]);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   console.log('wallet', wallet);
 
@@ -62,7 +63,10 @@ export default function TransferTokensButton({
             if (!confirmed) {
               // Prevent the transaction from being sent
               event.preventDefault();
+              setIsLoading(true);
             }
+          } else {
+            setIsLoading(true);
           }
         }}
         transaction={() =>
@@ -85,6 +89,7 @@ export default function TransferTokensButton({
             color: 'danger',
             variant: 'flat',
           });
+          setIsLoading(false);
         }}
         onTransactionConfirmed={async (result) => {
           const purchasedEvent = prepareEvent({
@@ -143,9 +148,10 @@ export default function TransferTokensButton({
               router.push('/tokens');
             }
           }
+          setIsLoading(false);
         }}
       >
-        {isSubmitting
+        {isLoading
           ? t('transferTokens.button.processing')
           : t('transferTokens.button.default')}
       </TransactionButton>
