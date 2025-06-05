@@ -595,7 +595,7 @@ export const icoManagerContract = getContract({
       name: 'relics',
       outputs: [
         {
-          internalType: 'contract MythicMinersRelics',
+          internalType: 'contract Relics',
           name: '',
           type: 'address',
         },
