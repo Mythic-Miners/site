@@ -28,10 +28,10 @@ const POL_TO_AMZ_RATE = 6.2;
 
 // TODO CHANGE THIS
 const AMOUNT_BREAKPOINTS = [
-  { value: 200, label: 'Epic' },
-  { value: 500, label: 'Legendary' },
-  { value: 1000, label: 'Timeless' },
-  { value: 2000, label: 'Ultimate' },
+  { value: 0.2, label: 'Epic' },
+  { value: 0.5, label: 'Legendary' },
+  { value: 1, label: 'Timeless' },
+  { value: 2, label: 'Ultimate' },
 ];
 
 type TokenPurchaseFormProps = {
