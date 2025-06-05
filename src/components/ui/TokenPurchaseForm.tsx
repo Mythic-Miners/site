@@ -28,10 +28,10 @@ const POL_TO_AMZ_RATE = 6.11;
 
 // TODO CHANGE THIS
 const AMOUNT_BREAKPOINTS = [
-  { value: 0.2, label: 'Epic' },
-  { value: 0.5, label: 'Legendary' },
-  { value: 1, label: 'Timeless' },
-  { value: 2, label: 'Ultimate' },
+  { value: 500, label: 'Epic' },
+  { value: 2500, label: 'Legendary' },
+  { value: 5000, label: 'Timeless' },
+  { value: 10000, label: 'Ultimate' },
 ];
 
 type TokenPurchaseFormProps = {
@@ -229,7 +229,7 @@ export default function TokenPurchaseForm({
               onChange={handleChange}
               className={`bg-gray-800 border-neutral-950 outline-none block w-full pl-4 pr-12 py-3 sm:text-sm border ${errors.amount ? 'border-red-500' : 'border-gray-700'} rounded-md text-white`}
               placeholder={t('tokenPurchase.form.amount.placeholder')}
-              min="0"
+              min="100"
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <span className="text-gray-400 sm:text-sm">POL</span>
