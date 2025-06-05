@@ -32,7 +32,7 @@ interface Holdings {
 export default function TokensPage() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { isConnected, isLoading: isAuthLoading } = useAuth();
+  const { isConnected } = useAuth();
 
   const { data: holdings, isLoading } = useQuery<
     | {
