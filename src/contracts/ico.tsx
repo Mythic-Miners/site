@@ -1,11 +1,10 @@
 import { getContract } from 'thirdweb';
-import { hardhat } from 'thirdweb/chains';
 
-import { client } from '@/lib/thidweb';
+import { chain, client } from '@/lib/thidweb';
 
 export const icoManagerContract = getContract({
   client,
-  chain: hardhat,
+  chain,
   address: process.env.NEXT_PUBLIC_ICO_MANAGER_ADDRESS as string,
   abi: [
     {

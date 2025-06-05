@@ -2,12 +2,11 @@ import { Skeleton } from '@heroui/skeleton';
 import { Slider } from '@heroui/slider';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { hardhat } from 'thirdweb/chains';
 import { ConnectButton } from 'thirdweb/react';
 import { createWallet, inAppWallet } from 'thirdweb/wallets';
 
 import type { IcoStatus } from '@/api/status';
-import { client } from '@/lib/thidweb';
+import { chain, client } from '@/lib/thidweb';
 
 import TransferTokensButton from './TransferTokensButton';
 
@@ -307,7 +306,7 @@ export default function TokenPurchaseForm({
         {/* Payment Method Buttons */}
         <div className="flex space-x-4 flex-col md:flex-row gap-2 [&>button]:flex-1!">
           <ConnectButton
-            chain={hardhat}
+            chain={chain}
             client={client}
             signInButton={{
               label: t('tokenPurchase.form.connectWallet'),

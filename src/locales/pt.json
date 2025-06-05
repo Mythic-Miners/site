@@ -135,6 +135,7 @@
         "claimableStaking": "Staking Resgatável",
         "totalClaimable": "Total Resgatável",
         "claim": "Resgatar Tokens",
-        "nextClaim": "Próximo resgate disponível em"
+        "nextClaim": "Próximo resgate disponível em",
+        "temp": "Após o término da ICO no dia 07 de Julho, você conseguirá visualizar e acompanhar todos os seus tokens aqui. Mas não se preocupe, o seu staking já está rolando!"
     }
 }
