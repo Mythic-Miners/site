@@ -1,5 +1,5 @@
 import { createThirdwebClient } from 'thirdweb';
-import { polygonAmoy } from 'thirdweb/chains';
+import { polygon } from 'thirdweb/chains';
 import { createWallet, inAppWallet } from 'thirdweb/wallets';
 
 // Replace this with your client ID string
@@ -29,4 +29,4 @@ export const wallets = [
   createWallet('com.roninchain.wallet'),
 ];
 
-export const chain = polygonAmoy;
+export const chain = polygon;
