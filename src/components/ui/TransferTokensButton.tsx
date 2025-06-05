@@ -35,7 +35,6 @@ export default function TransferTokensButton({
   const address = useMemo(() => account?.address, [account]);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  console.log('wallet', wallet);
 
   return (
     <Tooltip
@@ -51,7 +50,7 @@ export default function TransferTokensButton({
       <TransactionButton
         unstyled
         disabled={!address || totalRaised >= 100000 * 1e18}
-        className="disabled:bg-gray-600 min-h-[48px] max-h-[48px] flex-1 py-1 md:py-2 px-2 md:px-4 rounded-md transition-colors border-neutral-950 border-2 bg-cyan-500 text-black font-bold hover:bg-cyan-400"
+        className="flex items-center justify-center disabled:bg-gray-600 min-h-[48px] max-h-[48px] flex-1 py-1 md:py-2 px-2 md:px-4 rounded-md transition-colors border-neutral-950 border-2 bg-cyan-500 text-black font-bold hover:bg-cyan-400"
         // @ts-ignore
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           if (wallet?.id === 'inApp') {
