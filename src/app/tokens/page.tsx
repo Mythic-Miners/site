@@ -34,7 +34,14 @@ export default function TokensPage() {
   const router = useRouter();
   const { isConnected, isLoading: isAuthLoading } = useAuth();
 
-  const { data: holdings, isLoading } = useQuery<{ data: Holdings }>({
+  const { data: holdings, isLoading } = useQuery<
+    | {
+        data: Holdings;
+      }
+    | {
+        error: string;
+      }
+  >({
     queryKey: ['icoHoldings', isConnected],
     queryFn: async () => {
       const response = await fetch(
@@ -47,7 +54,7 @@ export default function TokensPage() {
     },
   });
 
-  if (holdings?.error) {
+  if (holdings && 'error' in holdings) {
     return <div>Error: {holdings.error}</div>;
   }
 
