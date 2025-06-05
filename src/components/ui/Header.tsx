@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -23,14 +24,15 @@ export default function Header() {
         </h1>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
         <LanguageSwitcher />
-        <button
-          className="border-2 border-black hover:bg-[#fefce9b5]  bg-[#fefce996] cursor-pointer text-black font-bold py-2 px-4 rounded-md transition-colors opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+        <Link
+          className="border-2 border-black hover:bg-[#fefce9b5]  bg-[#fefce996] cursor-pointer text-black font-bold py-2 px-4 rounded-md transition-colors "
           style={{ animationDelay: '0ms' }}
+          href="/tokens"
         >
           {t('common.viewMyTokens')}
-        </button>
+        </Link>
       </div>
     </header>
   );

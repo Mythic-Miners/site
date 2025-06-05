@@ -4,7 +4,7 @@ import { createContext, useContext } from 'react';
 import type { ThirdwebClient } from 'thirdweb';
 import { ThirdwebProvider as ThirdwebProviderBase } from 'thirdweb/react';
 
-import { client } from '@/lib/thirdweb/client';
+import { client } from '@/lib/thidweb';
 
 const ThirdwebContext = createContext<ThirdwebClient | undefined>(undefined);
 

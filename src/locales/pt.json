@@ -62,17 +62,17 @@
             },
             "tier2": {
                 "title": "Explorador Épico",
-                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia épica, que aumenta em 10% sua transferência diária de tokens no jogo",
+                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia épica, que aumenta de 10% a 15% sua transferência diária de tokens no jogo",
                 "minAmount": "Mínimo de 500 POL"
             },
             "tier3": {
                 "title": "Visionário Lendário",
-                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia lendária, que aumenta em 20% sua transferência diária de tokens no jogo",
+                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia lendária, que aumenta de 20% a 25% sua transferência diária de tokens no jogo",
                 "minAmount": "Mínimo de 2.500 POL"
             },
             "tier4": {
                 "title": "Guardião Atemporal",
-                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia atemporal, que aumenta em 40% sua transferência diária de tokens no jogo",
+                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia atemporal, que aumenta de 40% a 45% sua transferência diária de tokens no jogo",
                 "minAmount": "Mínimo de 5.000 POL"
             },
             "tier5": {
@@ -120,5 +120,21 @@
             "processing": "Processando..."
         },
         "confirmTransaction": "Tem certeza que deseja fazer esta transação?"
+    },
+    "tokensPage": {
+        "investment": "Conecte sua carteira para acompanhar o seus tokens",
+        "title": "Meus Tokens",
+        "back": "Voltar",
+        "principal": "Investimento Principal",
+        "bonus": "Tokens Bônus",
+        "totalInvestment": "Investimento Total",
+        "balance": "Saldo",
+        "totalBalance": "Saldo Total",
+        "claimable": "Resgatável",
+        "claimableTokens": "Tokens Resgatáveis",
+        "claimableStaking": "Staking Resgatável",
+        "totalClaimable": "Total Resgatável",
+        "claim": "Resgatar Tokens",
+        "nextClaim": "Próximo resgate disponível em"
     }
 }

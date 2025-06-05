@@ -62,17 +62,17 @@
             },
             "tier2": {
                 "title": "Epic Explorer",
-                "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game by 10%",
+                "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game from 10% to 15%",
                 "minAmount": "Minimum of 430 POL"
             },
             "tier3": {
                 "title": "Legendary Visionary",
-                "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game by 20%",
+                "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game from 20% to 25%",
                 "minAmount": "Minimum of 2150 POL"
             },
             "tier4": {
                 "title": "Timeless Guardian",
-                "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game by 40%",
+                "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game from 40% to 45%",
                 "minAmount": "Minimum of 4300 POL"
             },
             "tier5": {
@@ -120,5 +120,21 @@
             "processing": "Processing..."
         },
         "confirmTransaction": "Are you sure you want to make this transaction?"
+    },
+    "tokensPage": {
+        "investment": "Connect your wallet to track your tokens",
+        "title": "My Tokens",
+        "back": "Back",
+        "principal": "Principal Investment",
+        "bonus": "Bonus Tokens",
+        "totalInvestment": "Total Investment",
+        "balance": "Balance",
+        "totalBalance": "Total Balance",
+        "claimable": "Claimable",
+        "claimableTokens": "Claimable Tokens",
+        "claimableStaking": "Claimable Staking",
+        "totalClaimable": "Total Claimable",
+        "claim": "Claim Tokens",
+        "nextClaim": "Next claim available at"
     }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 import Header from '@/components/ui/Header';
@@ -67,28 +68,31 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href="https://whitepaper.mythicminers.com/"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.quickLinks.whitepaper')}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href="https://whitepaper.mythicminers.com/"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.quickLinks.icoDocument')}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href="https://mythicminers.com/"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.quickLinks.game')}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -98,20 +102,22 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href="https://www.mythicminers.com/en/terms-of-use"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.legal.terms')}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href="https://www.mythicminers.com/en/privacy-policy"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.legal.privacy')}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

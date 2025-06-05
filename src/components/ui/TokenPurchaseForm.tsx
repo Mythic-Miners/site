@@ -7,7 +7,7 @@ import { ConnectButton } from 'thirdweb/react';
 import { createWallet, inAppWallet } from 'thirdweb/wallets';
 
 import type { IcoStatus } from '@/api/status';
-import { client } from '@/lib/thirdweb/client';
+import { client } from '@/lib/thidweb';
 
 import TransferTokensButton from './TransferTokensButton';
 
@@ -25,7 +25,7 @@ interface FormErrors {
 
 const STAGE_MAX_RAISE = 10000;
 
-const POL_TO_AMZ_RATE = 0.161;
+const POL_TO_AMZ_RATE = 6.2;
 
 // TODO CHANGE THIS
 const AMOUNT_BREAKPOINTS = [
@@ -385,6 +385,7 @@ export default function TokenPurchaseForm({
             }}
           />
           <TransferTokensButton
+            totalRaised={totalRaised}
             isSubmitting={isSubmitting}
             amount={parseInt(formData.amount)}
           />

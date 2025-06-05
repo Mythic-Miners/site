@@ -1,7 +1,7 @@
 import { getContract } from 'thirdweb';
 import { hardhat } from 'thirdweb/chains';
 
-import { client } from '@/lib/thirdweb/client';
+import { client } from '@/lib/thidweb';
 
 export const icoManagerContract = getContract({
   client,
@@ -302,25 +302,6 @@ export const icoManagerContract = getContract({
       anonymous: false,
       inputs: [
         {
-          indexed: true,
-          internalType: 'address',
-          name: 'user',
-          type: 'address',
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'amount',
-          type: 'uint256',
-        },
-      ],
-      name: 'StakingRewardsClaimed',
-      type: 'event',
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
           indexed: false,
           internalType: 'address',
           name: 'oldTreasury',
@@ -464,15 +445,24 @@ export const icoManagerContract = getContract({
       type: 'function',
     },
     {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'userAddress',
-          type: 'address',
-        },
-      ],
-      name: 'getClaimableTokens',
+      inputs: [],
+      name: 'getStageInfo',
       outputs: [
+        {
+          internalType: 'uint256',
+          name: '',
+          type: 'uint256',
+        },
+        {
+          internalType: 'uint256',
+          name: '',
+          type: 'uint256',
+        },
+        {
+          internalType: 'uint256',
+          name: '',
+          type: 'uint256',
+        },
         {
           internalType: 'uint256',
           name: '',
@@ -495,35 +485,44 @@ export const icoManagerContract = getContract({
           type: 'address',
         },
       ],
-      name: 'getClaimedTokens',
+      name: 'getUserInfo',
       outputs: [
         {
-          internalType: 'uint256',
+          components: [
+            {
+              internalType: 'uint256',
+              name: 'amountPaid',
+              type: 'uint256',
+            },
+            {
+              internalType: 'uint256',
+              name: 'balance',
+              type: 'uint256',
+            },
+            {
+              internalType: 'uint256',
+              name: 'claimed',
+              type: 'uint256',
+            },
+            {
+              internalType: 'uint8',
+              name: 'stage',
+              type: 'uint8',
+            },
+            {
+              internalType: 'uint256',
+              name: 'startTime',
+              type: 'uint256',
+            },
+            {
+              internalType: 'uint256',
+              name: 'lastClaimTime',
+              type: 'uint256',
+            },
+          ],
+          internalType: 'struct ICOManager.UserInfo',
           name: '',
-          type: 'uint256',
-        },
-      ],
-      stateMutability: 'view',
-      type: 'function',
-    },
-    {
-      inputs: [],
-      name: 'getStageInfo',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
-        },
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
-        },
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256',
+          type: 'tuple',
         },
         {
           internalType: 'uint256',

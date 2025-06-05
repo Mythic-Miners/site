@@ -2,6 +2,8 @@
 
 import { Tooltip } from '@heroui/react';
 import { addToast } from '@heroui/toast';
+import { confetti } from '@tsparticles/confetti';
+import { useRouter } from 'next/navigation';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { parseEventLogs, prepareEvent } from 'thirdweb/event';
@@ -23,14 +25,17 @@ function extractRevertReason(errorString: string): string | null {
 export default function TransferTokensButton({
   isSubmitting,
   amount,
+  totalRaised,
 }: {
   isSubmitting: boolean;
   amount: number;
+  totalRaised: number;
 }) {
   const { t } = useTranslation();
   const account = useActiveAccount();
   const wallet = useActiveWallet();
   const address = useMemo(() => account?.address, [account]);
+  const router = useRouter();
   console.log('wallet', wallet);
 
   return (
@@ -46,8 +51,8 @@ export default function TransferTokensButton({
     >
       <TransactionButton
         unstyled
-        disabled={!address}
-        className="disabled:bg-gray-600 min-h-[48px] max-h-[48px] flex-1 py-1 md:py-3 px-2 md:px-4 rounded-md transition-colors border-neutral-950 border-2 bg-cyan-500 text-black font-bold hover:bg-cyan-400"
+        disabled={!address || totalRaised >= 100000 * 1e18}
+        className="disabled:bg-gray-600 min-h-[48px] max-h-[48px] flex-1 py-1 md:py-2 px-2 md:px-4 rounded-md transition-colors border-neutral-950 border-2 bg-cyan-500 text-black font-bold hover:bg-cyan-400"
         // @ts-ignore
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           if (wallet?.id === 'inApp') {
@@ -113,7 +118,30 @@ export default function TransferTokensButton({
 
             const data = await response.json();
             console.log('data', data);
-            console.log('Returned nftId:', nftId.toString());
+
+            if (data.data.success) {
+              const end = Date.now() + 3 * 1000;
+              (function frame() {
+                confetti('tsparticles', {
+                  particleCount: 2,
+                  angle: 60,
+                  spread: 55,
+                  position: { x: 0 },
+                });
+
+                confetti('tsparticles', {
+                  particleCount: 2,
+                  angle: 120,
+                  spread: 55,
+                  position: { x: 100 },
+                });
+
+                if (Date.now() < end) {
+                  requestAnimationFrame(frame);
+                }
+              })();
+              router.push('/tokens');
+            }
           }
         }}
       >

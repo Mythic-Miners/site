@@ -7,6 +7,7 @@ import localFont from 'next/font/local';
 import { HeroUIProvider } from '@/components/context/HeroUI';
 import QueryProvider from '@/components/context/QueryProvider';
 import { ThirdwebProvider } from '@/components/context/Thirdweb';
+import { AuthProvider } from '@/context/AuthContext';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const ceaserfont = localFont({
@@ -39,11 +40,14 @@ export default function RootLayout({
       <body className={`${ceaserfont.variable} ${senFont.className}`}>
         <ThirdwebProvider>
           <QueryProvider>
-            <LanguageProvider>
-              <HeroUIProvider>{children}</HeroUIProvider>
-            </LanguageProvider>
+            <AuthProvider>
+              <LanguageProvider>
+                <HeroUIProvider>{children}</HeroUIProvider>
+              </LanguageProvider>
+            </AuthProvider>
           </QueryProvider>
         </ThirdwebProvider>
+        <div id="tsparticles" style={{ pointerEvents: 'none' }} />
       </body>
     </html>
   );
