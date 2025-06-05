@@ -3,25 +3,6 @@
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
-interface Holdings {
-  investment: {
-    principal: number;
-    bonus: number;
-    total: number;
-  };
-  balance: {
-    tokens: number;
-    staking: number;
-    total: number;
-  };
-  claimable: {
-    tokens: number;
-    staking: number;
-    total: number;
-    nextClaim: Date;
-  };
-}
-
 export default function TokensPage() {
   const { t } = useTranslation();
   const router = useRouter();
