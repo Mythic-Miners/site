@@ -70,7 +70,6 @@ export default function TokenPurchaseSection() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentTier, setCurrentTier] =
     useState<keyof typeof BONUS_BOXES>('tier1');
 
@@ -133,10 +132,7 @@ export default function TokenPurchaseSection() {
     e.preventDefault();
 
     if (validateForm()) {
-      setIsSubmitting(true);
-
       setTimeout(() => {
-        setIsSubmitting(false);
         setFormData({
           amount: '',
           payment: 'POL',
@@ -157,7 +153,6 @@ export default function TokenPurchaseSection() {
           handleChange={handleChange}
           formData={formData}
           errors={errors}
-          isSubmitting={isSubmitting}
           icoStatus={icoStatus?.data}
           isLoading={isIcoStatusLoading}
         />

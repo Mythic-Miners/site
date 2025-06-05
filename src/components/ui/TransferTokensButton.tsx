@@ -23,11 +23,9 @@ function extractRevertReason(errorString: string): string | null {
 }
 
 export default function TransferTokensButton({
-  isSubmitting,
   amount,
   totalRaised,
 }: {
-  isSubmitting: boolean;
   amount: number;
   totalRaised: number;
 }) {

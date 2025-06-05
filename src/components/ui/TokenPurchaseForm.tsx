@@ -42,7 +42,6 @@ type TokenPurchaseFormProps = {
   ) => void;
   formData: FormData;
   errors: FormErrors;
-  isSubmitting: boolean;
   icoStatus?: IcoStatus;
   isLoading: boolean;
 };
@@ -68,7 +67,6 @@ export default function TokenPurchaseForm({
   setFormData,
   formData,
   errors,
-  isSubmitting,
   icoStatus,
   isLoading,
 }: TokenPurchaseFormProps) {
@@ -385,7 +383,6 @@ export default function TokenPurchaseForm({
           />
           <TransferTokensButton
             totalRaised={totalRaised}
-            isSubmitting={isSubmitting}
             amount={parseInt(formData.amount)}
           />
         </div>
