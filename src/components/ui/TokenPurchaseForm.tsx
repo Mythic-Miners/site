@@ -24,7 +24,7 @@ interface FormErrors {
 
 const STAGE_MAX_RAISE = 10000;
 
-const POL_TO_AMZ_RATE = 6.2;
+const POL_TO_AMZ_RATE = 6.11;
 
 // TODO CHANGE THIS
 const AMOUNT_BREAKPOINTS = [
