@@ -117,8 +117,8 @@ export default function TokenPurchaseForm({
             showArrow
             placement="top"
             classNames={{
-              base: ['before:bg-zinc-800'],
-              content: ['py-2 px-4 shadow-xl', 'text-neutral-250 bg-zinc-800'],
+              base: ['before:bg-zinc-600'],
+              content: ['py-2 px-4 shadow-xl', 'text-neutral-100 bg-zinc-700'],
             }}
           >
             <div className="w-full bg-gray-700 rounded-full h-2.5 ">
