@@ -84,13 +84,13 @@ export default function Home() {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      target="_blank"
-                      href="https://whitepaper.mythicminers.com/"
+                    <a
+                      href="/assets/documents/mythic-miners-ico.pdf"
+                      download="Mythic Miners - ICO.pdf"
                       className="hover:text-amber-400 transition-colors"
                     >
                       {t('footer.quickLinks.icoDocument')}
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <Link
