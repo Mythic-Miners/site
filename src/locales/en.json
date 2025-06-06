@@ -59,22 +59,22 @@
             "tier1": {
                 "title": "Mythic Pioneer",
                 "description": "Get {{percentage}}% bonus on your purchase and be part of the exclusive group that will ride the token's rise!",
-                "minAmount": "Minimum of 15 POL"
+                "minAmount": "Minimum of 100 POL"
             },
             "tier2": {
                 "title": "Epic Explorer",
                 "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game from 10% to 15%",
-                "minAmount": "Minimum of 430 POL"
+                "minAmount": "Minimum of 500 POL"
             },
             "tier3": {
                 "title": "Legendary Visionary",
                 "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game from 20% to 25%",
-                "minAmount": "Minimum of 2150 POL"
+                "minAmount": "Minimum of 2.500 POL"
             },
             "tier4": {
                 "title": "Timeless Guardian",
                 "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game from 40% to 45%",
-                "minAmount": "Minimum of 4300 POL"
+                "minAmount": "Minimum of 5.000 POL"
             },
             "tier5": {
                 "title": "Ultimate Pack",
