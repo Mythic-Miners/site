@@ -79,7 +79,7 @@
             "tier5": {
                 "title": "Ultimate Pack",
                 "description": "{{percentage}}% bonus on ICO tokens + 2 Timeless relic NFT + 1 Legendary relic NFT + 1 Epic relic NFT ",
-                "minAmount": "Mínimo de 10.000 POL"
+                "minAmount": "Minimum of 10.000 POL"
             }
         }
     },
