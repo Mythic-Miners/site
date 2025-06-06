@@ -1,3 +1,4 @@
+import { Tooltip } from '@heroui/react';
 import { Skeleton } from '@heroui/skeleton';
 import { Slider } from '@heroui/slider';
 import React from 'react';
@@ -111,14 +112,24 @@ export default function TokenPurchaseForm({
           </Skeleton>
         </div>
         <div className="flex flex-col gap-1 w-full mx-auto mb-4">
-          <div className="w-full bg-gray-700 rounded-full h-2.5 ">
-            <div
-              className="bg-cyan-500 h-2.5 rounded-full max-w-full border border-neutral-950"
-              style={{
-                width: `${stagePercentage}%`,
-              }}
-            ></div>
-          </div>
+          <Tooltip
+            content={`${totalRaised} POL`}
+            showArrow
+            placement="top"
+            classNames={{
+              base: ['before:bg-zinc-800'],
+              content: ['py-2 px-4 shadow-xl', 'text-neutral-250 bg-zinc-800'],
+            }}
+          >
+            <div className="w-full bg-gray-700 rounded-full h-2.5 ">
+              <div
+                className="bg-cyan-500 h-2.5 rounded-full max-w-full border border-neutral-950"
+                style={{
+                  width: `${stagePercentage}%`,
+                }}
+              ></div>
+            </div>
+          </Tooltip>
           <div className="flex justify-between text-xs text-gray-400">
             <span>{(stage - 1) * STAGE_MAX_RAISE} POL</span>
             <span>{stage * STAGE_MAX_RAISE} POL</span>

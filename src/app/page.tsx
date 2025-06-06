@@ -29,6 +29,13 @@ export default function Home() {
           <p className="sm:hidden block text-xl mt-2 mb-12 text-gray-900 text-center max-w-[700px]">
             {t('hero.description.mobile')}
           </p>
+          <a
+            href="/assets/documents/mythic-miners-ico.pdf"
+            download="Mythic Miners - ICO.pdf"
+            className="bg-cyan-500 text-black font-bold hover:bg-cyan-400 px-4 py-2 rounded-md border-2 border-black"
+          >
+            {t('hero.download')}
+          </a>
         </section>
         <div className="absolute bottom-[5px] left-0 right-0">
           <WalkingCharacter />

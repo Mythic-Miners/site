@@ -20,7 +20,8 @@
         "description": {
             "desktop": "Embark on an epic adventure and become one of the owners of $AMZ token from Mythic Miners, the innovative crypto game where strategy, mining, and mythical treasures meet. Secure your place in this legend by participating in our Initial Coin Offering (ICO) and get the first $AMZ tokens.",
             "mobile": "Participate in the Initial Coin Offering (ICO) and own the first $AMZ tokens"
-        }
+        },
+        "download": "Download ICO document"
     },
     "tokenPurchase": {
         "title": "$AMZ Presale",
