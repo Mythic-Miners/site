@@ -210,7 +210,7 @@ export default function TokenPurchaseForm({
           </svg>
           <span>{t('tokenPurchase.vesting.cliff')}</span>
         </div>
-        <div className="flex items-center text-gray-400 text-sm">
+        <div className="flex items-center text-gray-400 text-sm mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 mr-2 min-w-5"
@@ -225,6 +225,42 @@ export default function TokenPurchaseForm({
           </svg>
           <span>{t('tokenPurchase.tokenRate', { rate: POL_TO_AMZ_RATE })}</span>
         </div>
+        <a
+          href="https://whitepaper.mythicminers.com/founders-pack/how-to-buy"
+          className="flex items-center text-gray-400 text-sm cursor-pointer underline mb-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2 min-w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clipRule="evenodd"
+            />
+          </svg>
+          {t('tokenPurchase.form.howToTransfer')}
+        </a>
+        <a
+          href="https://polygonscan.com/address/0x37d2634b5e56c124ebf78b97aa851a872d05a75a"
+          className="flex items-center text-gray-400 text-sm cursor-pointer underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2 min-w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clipRule="evenodd"
+            />
+          </svg>
+          {t('tokenPurchase.form.contractAddress')}
+        </a>
       </div>
 
       <form onSubmit={handleSubmit}>

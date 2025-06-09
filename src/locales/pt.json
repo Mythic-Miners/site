@@ -53,7 +53,9 @@
                 "bonus": "Amazonite bônus:",
                 "total": "Total de Amazonite:"
             },
-            "connectWallet": "Conectar Carteira"
+            "connectWallet": "Conectar Carteira",
+            "contractAddress": "Contrato: 0x37d2634b5e56c124ebf78b97aa851a872d05a75a",
+            "howToTransfer": "Como transferir fundos"
         },
         "tiers": {
             "tier1": {

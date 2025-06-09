@@ -5,6 +5,7 @@ import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { HeroUIProvider } from '@/components/context/HeroUI';
+import LogRocketProvider from '@/components/context/LogRocket';
 import QueryProvider from '@/components/context/QueryProvider';
 import { ThirdwebProvider } from '@/components/context/Thirdweb';
 import { AuthProvider } from '@/context/AuthContext';
@@ -42,7 +43,9 @@ export default function RootLayout({
           <QueryProvider>
             <AuthProvider>
               <LanguageProvider>
-                <HeroUIProvider>{children}</HeroUIProvider>
+                <LogRocketProvider>
+                  <HeroUIProvider>{children}</HeroUIProvider>
+                </LogRocketProvider>
               </LanguageProvider>
             </AuthProvider>
           </QueryProvider>
