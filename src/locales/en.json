@@ -60,7 +60,7 @@
         "tiers": {
             "tier1": {
                 "title": "Mythic Pioneer",
-                "description": "Get {{percentage}}% bonus on your purchase and be part of the exclusive group that will ride the token's rise!",
+                "description": "{{percentage}}% bonus on ICO tokens + Rare relic NFT that increases your daily token transfer in the game from 5% to 8%",
                 "minAmount": "Minimum of 100 POL"
             },
             "tier2": {

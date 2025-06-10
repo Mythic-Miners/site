@@ -60,7 +60,7 @@
         "tiers": {
             "tier1": {
                 "title": "Pioneiro Mítico",
-                "description": "Ganhe {{percentage}}% de bônus na compra e faça parte do grupo exclusivo que vai surfar na alta do token!",
+                "description": "{{percentage}}% de bônus nos tokens do ICO + NFT de uma relíquia rara, que aumenta de 5% a 8% sua transferência diária de tokens no jogo",
                 "minAmount": "Mínimo de 100 POL"
             },
             "tier2": {

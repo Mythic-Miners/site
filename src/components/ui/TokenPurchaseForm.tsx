@@ -226,7 +226,8 @@ export default function TokenPurchaseForm({
           <span>{t('tokenPurchase.tokenRate', { rate: POL_TO_AMZ_RATE })}</span>
         </div>
         <a
-          href="https://whitepaper.mythicminers.com/founders-pack/how-to-buy"
+          href="https://cdn.mythicminers.com/videos/ico/ico-tutorial.mp4"
+          target="_blank"
           className="flex items-center text-gray-400 text-sm cursor-pointer underline mb-1"
         >
           <svg

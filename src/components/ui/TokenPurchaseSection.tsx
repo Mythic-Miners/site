@@ -26,7 +26,7 @@ const BONUS_BOXES = {
   tier1: {
     title: 'tokenPurchase.tiers.tier1.title',
     description: 'tokenPurchase.tiers.tier1.description',
-    image: '/assets/images/tokens.png',
+    image: '/assets/images/relic-t3.png',
     minAmount: 'tokenPurchase.tiers.tier1.minAmount',
     amout: 100,
   },
