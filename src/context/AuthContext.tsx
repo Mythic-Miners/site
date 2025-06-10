@@ -31,12 +31,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     if ('ethereum' in window && wallet) {
-      (window.ethereum as any).on('accountsChanged', handleAccountsChanged);
+      (window.ethereum as any).on?.('accountsChanged', handleAccountsChanged);
     }
 
     return () => {
       if ('ethereum' in window) {
-        (window.ethereum as any).removeListener(
+        (window.ethereum as any)?.removeListener?.(
           'accountsChanged',
           handleAccountsChanged,
         );
