@@ -20,8 +20,6 @@ interface FormErrors {
   wallet?: string;
 }
 
-// TODO CHANGE THIS
-
 const BONUS_BOXES = {
   tier1: {
     title: 'tokenPurchase.tiers.tier1.title',

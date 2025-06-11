@@ -1,7 +1,11 @@
 'use client';
 
 import { createContext, useContext, useEffect } from 'react';
-import { useActiveWallet, useAutoConnect } from 'thirdweb/react';
+import {
+  useActiveAccount,
+  useActiveWallet,
+  useAutoConnect,
+} from 'thirdweb/react';
 
 import { chain, client, wallets } from '@/lib/thidweb';
 
@@ -21,6 +25,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   });
 
   const wallet = useActiveWallet();
+  const account = useActiveAccount();
 
   useEffect(() => {
     const handleAccountsChanged = async () => {
@@ -45,7 +50,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [wallet, autoConnected]);
 
   return (
-    <AuthContext.Provider value={{ isConnected: autoConnected, isLoading }}>
+    <AuthContext.Provider
+      value={{
+        isConnected: autoConnected && !!account?.address,
+        isLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

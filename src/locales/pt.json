@@ -126,6 +126,7 @@
     },
     "tokensPage": {
         "investment": "Conecte sua carteira para acompanhar o seus tokens",
+        "invested": "Investido",
         "title": "Meus Tokens",
         "back": "Voltar",
         "principal": "Investimento Principal",
@@ -135,10 +136,12 @@
         "totalBalance": "Saldo Total",
         "claimable": "Resgatável",
         "claimableTokens": "Tokens Resgatáveis",
-        "claimableStaking": "Staking Resgatável",
+        "staking": "Staking",
         "totalClaimable": "Total Resgatável",
         "claim": "Resgatar Tokens",
         "nextClaim": "Próximo resgate disponível em",
-        "temp": "Logo você conseguirá visualizar e acompanhar todos os seus tokens aqui. Mas não se preocupe, o seu staking já está rolando!"
+        "temp": "Logo você conseguirá visualizar e acompanhar todos os seus tokens aqui. Mas não se preocupe, o seu staking já está rolando!",
+        "didNotParticipate": "Você ainda não investou na pré-venda. Participe dela para visualizar seus tokens.",
+        "claimableDate": "Resgate disponível em: {{date}}"
     }
 }

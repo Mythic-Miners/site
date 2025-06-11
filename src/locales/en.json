@@ -126,6 +126,7 @@
     },
     "tokensPage": {
         "investment": "Connect your wallet to track your tokens",
+        "invested": "Invested",
         "title": "My Tokens",
         "back": "Back",
         "principal": "Principal Investment",
@@ -135,10 +136,12 @@
         "totalBalance": "Total Balance",
         "claimable": "Claimable",
         "claimableTokens": "Claimable Tokens",
-        "claimableStaking": "Claimable Staking",
+        "staking": "Staking",
         "totalClaimable": "Total Claimable",
         "claim": "Claim Tokens",
         "nextClaim": "Next claim available at",
-        "temp": "Soon you will be able to view and track all your tokens here. But don't worry, your staking is already running!"
+        "temp": "Soon you will be able to view and track all your tokens here. But don't worry, your staking is already running!",
+        "didNotParticipate": "You didn't invest in the presale yet. Participate in the presale to view your tokens.",
+        "claimableDate": "Claim available at: {{date}}"
     }
 }
