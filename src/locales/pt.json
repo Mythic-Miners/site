@@ -142,6 +142,7 @@
         "nextClaim": "Próximo resgate disponível em",
         "temp": "Logo você conseguirá visualizar e acompanhar todos os seus tokens aqui. Mas não se preocupe, o seu staking já está rolando!",
         "didNotParticipate": "Você ainda não investou na pré-venda. Participe dela para visualizar seus tokens.",
-        "claimableDate": "Resgate disponível em: {{date}}"
+        "claimableDate": "Resgate disponível em: {{date}}",
+        "cliff": "Você está no período de cliff, você conseguirá acompanhar o seus tokens o dia {{date}}."
     }
 }
