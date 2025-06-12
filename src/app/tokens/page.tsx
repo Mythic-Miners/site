@@ -138,6 +138,14 @@ export default function TokensPage() {
                 }).format(new Date(holdings?.data.cliffDate)),
               })}
             </h3>
+            <div className="flex flex-col items-center justify-center h-full bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
+              <small className="text-gray-400">
+                {t('tokensPage.invested')}
+              </small>
+              <p className="text-gray-400">
+                {holdings?.data.balance.toLocaleString()} $AMZ
+              </p>
+            </div>
             <AuthButton />
           </div>
         </div>
@@ -253,7 +261,9 @@ export default function TokensPage() {
                     isLoaded={!isLoading}
                   >
                     <p className="text-2xl font-bold text-emerald-400">
-                      {holdings?.data.balance.staking.toLocaleString()} $AMZ
+                      {holdings?.data.balance.staking
+                        ? `${holdings?.data.balance.staking.toLocaleString()} $AMZ`
+                        : t('tokensPage.notAvailable')}
                     </p>
                   </Skeleton>
                 </div>
@@ -288,7 +298,9 @@ export default function TokensPage() {
                     isLoaded={!isLoading}
                   >
                     <p className="text-2xl font-bold text-blue-400">
-                      {holdings?.data.claimable.tokens.toLocaleString()} $AMZ
+                      {holdings?.data.claimable.tokens
+                        ? `${holdings?.data.claimable.tokens.toLocaleString()} $AMZ`
+                        : '-- $AMZ'}
                     </p>
                   </Skeleton>
                 </div>
@@ -301,7 +313,9 @@ export default function TokensPage() {
                     isLoaded={!isLoading}
                   >
                     <p className="text-2xl font-bold text-emerald-400">
-                      {holdings?.data.claimable.staking.toLocaleString()} $AMZ
+                      {holdings?.data.claimable.staking
+                        ? `${holdings?.data.claimable.staking.toLocaleString()} $AMZ`
+                        : '-- $AMZ'}
                     </p>
                   </Skeleton>
                 </div>
@@ -314,7 +328,9 @@ export default function TokensPage() {
                     isLoaded={!isLoading}
                   >
                     <p className="text-3xl font-bold text-amber-400">
-                      {holdings?.data.claimable.total.toLocaleString()} $AMZ
+                      {holdings?.data.claimable.total
+                        ? `${holdings?.data.claimable.total.toLocaleString()} $AMZ`
+                        : '-- $AMZ'}
                     </p>
                   </Skeleton>
                 </div>
