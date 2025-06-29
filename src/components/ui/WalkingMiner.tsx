@@ -15,7 +15,10 @@ export default function WalkingCharacter() {
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       // Calculate frame index based on scroll position
       const scrollPercent = Math.min(scrollY / maxScroll, 1);
-      setScrollX(Math.floor(scrollPercent * 420));
+      const scrollX = Math.floor(scrollPercent * 420);
+      setScrollX(
+        scrollX + 150 > window.innerWidth ? window.innerWidth - 200 : scrollX,
+      );
 
       const frameIndex = Math.floor((window.scrollY / 20) % NUM_FRAMES);
 
@@ -28,7 +31,7 @@ export default function WalkingCharacter() {
 
   return (
     <div
-      className="relative bottom-[-24px] z-5"
+      className="relative bottom-[-24px] z-5 w-fit"
       style={{ transform: `translateX(${scrollX}px)` }}
     >
       <Image

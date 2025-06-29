@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import {
   useActiveAccount,
   useActiveWallet,
@@ -12,11 +12,14 @@ import { chain, client, wallets } from '@/lib/thidweb';
 interface AuthContextType {
   isConnected?: boolean;
   isLoading: boolean;
+  setIsJwtPresent: (isJwtPresent: boolean) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [isJwtPresent, setIsJwtPresent] = useState(false);
+
   const { data: autoConnected, isLoading } = useAutoConnect({
     client: client,
     chain: chain,
@@ -52,7 +55,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return (
     <AuthContext.Provider
       value={{
-        isConnected: autoConnected && !!account?.address,
+        isConnected: (autoConnected && !!account?.address) || isJwtPresent,
+        setIsJwtPresent: setIsJwtPresent,
         isLoading,
       }}
     >

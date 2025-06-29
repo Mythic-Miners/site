@@ -4,7 +4,8 @@
         "language": "Language",
         "english": "English",
         "portuguese": "Portuguese",
-        "viewMyTokens": "View my tokens"
+        "viewMyTokens": "View my tokens",
+        "back": "Back"
     },
     "navigation": {
         "home": "Home",
@@ -145,5 +146,26 @@
         "claimableDate": "Claim available at: {{date}}",
         "cliff": "You are in the cliff period, you will be able to track your tokens on the day {{date}}.",
         "notAvailable": "Value to be determined"
+    },
+    "airdrop": {
+        "title": "Airdrop",
+        "totalTokens": "Total Tokens",
+        "claimableTokens": "Claimable",
+        "pendingTokens": "Balance",
+        "items": "Airdrop Items",
+        "mint": "Mint",
+        "minted": "Minted",
+        "leaderboard": "Leaderboard",
+        "claimConfirmation": "Are you sure you want to claim your tokens?"
+    },
+    "subscription": {
+        "vip_1_month": "VIP 1 Month",
+        "vip_3_months": "VIP 3 Months",
+        "vip_6_months": "VIP 6 Months",
+        "vip_infinity": "VIP Forever"
+    },
+    "beta": {
+        "title": "BETA Key",
+        "quantity": "Quantity: {{quantity}}"
     }
 }

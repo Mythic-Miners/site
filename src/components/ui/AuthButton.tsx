@@ -3,11 +3,12 @@
 import { useTranslation } from 'react-i18next';
 import { ConnectButton } from 'thirdweb/react';
 
+import { useAuth } from '@/context/AuthContext';
 import { chain, client, wallets } from '@/lib/thidweb';
 
 export default function AuthButton() {
   const { t } = useTranslation();
-
+  const { setIsJwtPresent } = useAuth();
   return (
     <ConnectButton
       chain={chain}
@@ -48,7 +49,6 @@ export default function AuthButton() {
             },
           );
           const data = await response.json();
-          console.log('isLoggedIn', data.data);
           return data.data;
         },
         doLogin: async (params) => {
@@ -60,6 +60,8 @@ export default function AuthButton() {
             credentials: 'include',
             body: JSON.stringify(params),
           });
+          setIsJwtPresent(true);
+          console.log('doLogin');
         },
         getLoginPayload: async ({ address }) => {
           const response = await fetch(
@@ -75,7 +77,6 @@ export default function AuthButton() {
           );
 
           const data = await response.json();
-          console.log('getLoginPayload', data.data);
           return data.data;
         },
         doLogout: async () => {
@@ -83,7 +84,7 @@ export default function AuthButton() {
             `${process.env.NEXT_PUBLIC_API_URL}/auth/logout`,
           );
           const data = await response.json();
-          console.log('doLogout', data);
+          setIsJwtPresent(false);
         },
       }}
     />

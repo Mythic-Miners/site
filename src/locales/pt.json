@@ -4,7 +4,8 @@
         "language": "Idioma",
         "english": "Inglês",
         "portuguese": "Português",
-        "viewMyTokens": "Ver meus tokens"
+        "viewMyTokens": "Ver meus tokens",
+        "back": "Voltar"
     },
     "navigation": {
         "home": "Início",
@@ -145,5 +146,26 @@
         "claimableDate": "Resgate disponível em: {{date}}",
         "cliff": "Você está no período de cliff, você conseguirá acompanhar o seus tokens o dia {{date}}.",
         "notAvailable": "Valor a ser determinado"
+    },
+    "airdrop": {
+        "title": "Airdrop",
+        "totalTokens": "Total de Tokens",
+        "claimableTokens": "Resgatáveis",
+        "pendingTokens": "Saldo",
+        "items": "Itens do Airdrop",
+        "mint": "Mintar",
+        "minted": "Mintado",
+        "leaderboard": "Ranking",
+        "claimConfirmation": "Tem certeza que deseja resgatar seus tokens?"
+    },
+    "subscription": {
+        "vip_1_month": "VIP 1 Mês",
+        "vip_3_months": "VIP 3 Meses",
+        "vip_6_months": "VIP 6 Meses",
+        "vip_infinity": "VIP Sempre"
+    },
+    "beta": {
+        "title": "Chave BETA",
+        "quantity": "Quantidade: {{quantity}}"
     }
 }

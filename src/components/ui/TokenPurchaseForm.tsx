@@ -390,7 +390,6 @@ export default function TokenPurchaseForm({
                   },
                 );
                 const data = await response.json();
-                console.log('isLoggedIn', data.data);
                 return data.data;
               },
               doLogin: async (params) => {
@@ -417,7 +416,6 @@ export default function TokenPurchaseForm({
                 );
 
                 const data = await response.json();
-                console.log('getLoginPayload', data.data);
                 return data.data;
               },
               doLogout: async () => {
@@ -425,7 +423,6 @@ export default function TokenPurchaseForm({
                   `${process.env.NEXT_PUBLIC_API_URL}/auth/logout`,
                 );
                 const data = await response.json();
-                console.log('doLogout', data);
               },
             }}
           />

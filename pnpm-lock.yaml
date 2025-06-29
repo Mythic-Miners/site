@@ -32,6 +32,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.77.2
         version: 5.79.0(react@19.1.0)
+      '@tanstack/react-virtual':
+        specifier: ^3.13.10
+        version: 3.13.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@tsparticles/confetti':
         specifier: ^3.8.1
         version: 3.8.1
@@ -2314,8 +2317,17 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  '@tanstack/react-virtual@3.13.10':
+    resolution: {integrity: sha512-nvrzk4E9mWB4124YdJ7/yzwou7IfHxlSef6ugCFcBfRmsnsma3heciiiV97sBNxyc3VuwtZvmwXd0aB5BpucVw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   '@tanstack/virtual-core@3.11.3':
     resolution: {integrity: sha512-v2mrNSnMwnPJtcVqNvV0c5roGCBqeogN8jDtgtuHCphdwBasOZ17x8UV8qpHUh+u0MLfX43c0uUHKje0s+Zb0w==}
+
+  '@tanstack/virtual-core@3.13.10':
+    resolution: {integrity: sha512-sPEDhXREou5HyZYqSWIqdU580rsF6FGeN7vpzijmP3KTiOGjOMZASz4Y6+QKjiFQwhWrR58OP8izYaNGVxvViA==}
 
   '@thirdweb-dev/engine@3.0.3':
     resolution: {integrity: sha512-2fWAHq5ZnGScGAMWwsfrCnasVf0+3BbnHvDa5GApQUPjD5qGSCoEJejmzQkjPVLSTLNPjYRxSUjSxUI67zlQfg==}
@@ -8402,7 +8414,15 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
+  '@tanstack/react-virtual@3.13.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@tanstack/virtual-core': 3.13.10
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
   '@tanstack/virtual-core@3.11.3': {}
+
+  '@tanstack/virtual-core@3.13.10': {}
 
   '@thirdweb-dev/engine@3.0.3(@hey-api/openapi-ts@0.69.1(typescript@5.8.3))(typescript@5.8.3)':
     dependencies:

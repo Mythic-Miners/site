@@ -35,8 +35,6 @@ export default function TokensPage() {
   const { isConnected } = useAuth();
   const { language } = useLanguage();
 
-  console.log('language', language);
-
   const { data: holdings, isLoading } = useQuery<
     | {
         data: Holdings;

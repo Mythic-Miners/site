@@ -76,7 +76,6 @@ export default function TransferTokensButton({
         }
         onError={(error) => {
           const revertReason = extractRevertReason(error.message);
-          console.log('revertReason', error.message, amount);
           addToast({
             title: 'Transaction Error',
             description:
@@ -101,9 +100,6 @@ export default function TransferTokensButton({
 
           const purchased = events.find((e) => e.eventName === 'Purchased');
           if (purchased) {
-            const nftId = purchased.args.nftIds;
-            console.log('nftId', nftId);
-
             const response = await fetch(
               `${process.env.NEXT_PUBLIC_API_URL}/nfts/metadata/relics`,
               {
