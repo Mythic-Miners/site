@@ -5,7 +5,9 @@
         "english": "English",
         "portuguese": "Portuguese",
         "viewMyTokens": "View my tokens",
-        "back": "Back"
+        "back": "Back",
+        "close": "Close",
+        "loading": "Loading..."
     },
     "navigation": {
         "home": "Home",
@@ -156,7 +158,9 @@
         "mint": "Mint",
         "minted": "Minted",
         "leaderboard": "Leaderboard",
-        "claimConfirmation": "Are you sure you want to claim your tokens?"
+        "claimConfirmation": "Are you sure you want to claim your tokens?",
+        "noItems": "No items available",
+        "alreadyMinted": "You have already minted your tokens"
     },
     "subscription": {
         "vip_1_month": "VIP 1 Month",
@@ -167,5 +171,39 @@
     "beta": {
         "title": "BETA Key",
         "quantity": "Quantity: {{quantity}}"
+    },
+    "inventory": {
+        "title": "Inventory",
+        "gacha": {
+            "title": "Gacha",
+            "play": "Play Gacha",
+            "playing": "Playing...",
+            "info": "Gacha Information",
+            "vouchers": "Vouchers",
+            "description": "Use vouchers to play gacha and get rare equipment! Each voucher gives you a chance to win amazing items.",
+            "legendary": "Legendary",
+            "epic": "Epic",
+            "rare": "Rare",
+            "common": "Common",
+            "buyVouchers": "Buy Vouchers",
+            "result": "Gacha Result",
+            "congratulations": "Congratulations! You got a new item!"
+        },
+        "equipped": {
+            "title": "Equipped Items"
+        },
+        "slots": {
+            "helmet": "Helmet",
+            "relic": "Relic",
+            "jetpack": "Jetpack",
+            "pickaxe": "Pickaxe",
+            "armour": "Armour",
+            "trinket": "Trinket",
+            "belt": "Belt"
+        },
+        "allItems": {
+            "title": "All Items",
+            "empty": "No items in inventory"
+        }
     }
 }

@@ -53,6 +53,7 @@ export interface AirdropInventory {
     item: string;
     quantity: number;
   };
+  hasMinted: boolean;
 }
 
 export const useAirdropQuery = () =>

@@ -5,7 +5,9 @@
         "english": "Inglês",
         "portuguese": "Português",
         "viewMyTokens": "Ver meus tokens",
-        "back": "Voltar"
+        "back": "Voltar",
+        "close": "Fechar",
+        "loading": "Carregando..."
     },
     "navigation": {
         "home": "Início",
@@ -156,7 +158,9 @@
         "mint": "Mintar",
         "minted": "Mintado",
         "leaderboard": "Ranking",
-        "claimConfirmation": "Tem certeza que deseja resgatar seus tokens?"
+        "claimConfirmation": "Tem certeza que deseja resgatar seus tokens?",
+        "noItems": "Nenhum item disponível",
+        "alreadyMinted": "Você já mintou seus tokens"
     },
     "subscription": {
         "vip_1_month": "VIP 1 Mês",
@@ -167,5 +171,39 @@
     "beta": {
         "title": "Chave BETA",
         "quantity": "Quantidade: {{quantity}}"
+    },
+    "inventory": {
+        "title": "Inventário",
+        "gacha": {
+            "title": "Gacha",
+            "play": "Jogar Gacha",
+            "playing": "Jogando...",
+            "info": "Informações do Gacha",
+            "vouchers": "Vouchers",
+            "description": "Use vouchers para jogar gacha e conseguir equipamentos raros! Cada voucher te dá uma chance de ganhar itens incríveis.",
+            "legendary": "Lendário",
+            "epic": "Épico",
+            "rare": "Raro",
+            "common": "Comum",
+            "buyVouchers": "Comprar Vouchers",
+            "result": "Resultado do Gacha",
+            "congratulations": "Parabéns! Você ganhou um novo item!"
+        },
+        "equipped": {
+            "title": "Itens Equipados"
+        },
+        "slots": {
+            "helmet": "Capacete",
+            "relic": "Relíquia",
+            "jetpack": "Jetpack",
+            "pickaxe": "Picareta",
+            "armour": "Armadura",
+            "trinket": "Amuleto",
+            "belt": "Cinto"
+        },
+        "allItems": {
+            "title": "Todos os Itens",
+            "empty": "Nenhum item no inventário"
+        }
     }
 }

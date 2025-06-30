@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, CardFooter, Image } from '@heroui/react';
+import { Card, CardFooter, Image, Tooltip } from '@heroui/react';
 import { Skeleton } from '@heroui/skeleton';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useRouter } from 'next/navigation';
@@ -24,6 +24,7 @@ export default function AirdropPage() {
   const { isConnected } = useAuth();
   const parentRef = useRef<HTMLDivElement>(null);
   const [userPosition, setUserPosition] = useState<number | null>(null);
+  const [isMinting, setIsMinting] = useState(false);
 
   const {
     data: airdropData,
@@ -123,10 +124,6 @@ export default function AirdropPage() {
     }
   }, [isConnected, refetchAirdrop]);
 
-  const handleMint = (_itemId: string) => {
-    // Implement mint functionality
-  };
-
   const isClaimable = useMemo(() => {
     return (
       airdropData?.data?.nextClaim &&
@@ -135,6 +132,11 @@ export default function AirdropPage() {
       airdropData?.data?.balance > 0
     );
   }, [airdropData]);
+
+  console.log(
+    '!inventoryData?.data?.hasMinted',
+    inventoryData?.data?.hasMinted,
+  );
 
   if (!isConnected) {
     return (
@@ -227,7 +229,7 @@ export default function AirdropPage() {
               isLoaded={!isAirdropLoading}
             >
               <p className="text-3xl font-bold text-emerald-400">
-                {airdropData?.data.balance.toLocaleString(language, {
+                {airdropData?.data?.balance.toLocaleString(language, {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}{' '}
@@ -245,7 +247,7 @@ export default function AirdropPage() {
               isLoaded={!isAirdropLoading}
             >
               <p className="text-3xl font-bold text-amber-400">
-                {airdropData?.data.claimable.toLocaleString(language, {
+                {airdropData?.data?.claimable.toLocaleString(language, {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}{' '}
@@ -256,12 +258,12 @@ export default function AirdropPage() {
           <div></div>
           <div className="items-center flex flex-col justify-between m-auto">
             <p className="text-xs text-gray-400 mb-0 mt-2">
-              {airdropData?.data.nextClaim &&
+              {airdropData?.data?.nextClaim &&
                 t('tokensPage.claimableDate', {
                   date: new Intl.DateTimeFormat(language, {
                     dateStyle: 'medium',
                     timeStyle: 'short',
-                  }).format(new Date(airdropData?.data.nextClaim)),
+                  }).format(new Date(airdropData?.data?.nextClaim)),
                 })}
             </p>
             <AirdropClaimButton
@@ -405,17 +407,81 @@ export default function AirdropPage() {
                 ))}
               </div>
             ) : (
-              <div className="text-center text-gray-400 py-12 mt-4">
+              <div className="text-center text-gray-400 py-12 mt-4 bg-gray-800/50 p-6 rounded-lg border border-neutral-950">
                 <p className="text-lg">{t('airdrop.noItems')}</p>
               </div>
             )}
-            <button
-              onClick={() => {}}
-              disabled={false}
-              className="mt-4 w-full bg-cyan-500 text-black font-bold py-2 px-4 rounded-md hover:bg-cyan-600 transition-colors border-2 border-neutral-950 disabled:opacity-50 disabled:grayscale"
+            <Tooltip
+              content={t('airdrop.alreadyMinted')}
+              isDisabled={!inventoryData?.data?.hasMinted}
+              showArrow
+              placement="top"
+              classNames={{
+                base: ['before:bg-zinc-600'],
+                content: [
+                  'py-2 px-4 shadow-xl',
+                  'text-neutral-100 bg-zinc-700',
+                ],
+              }}
             >
-              {false ? t('airdrop.minted') : t('airdrop.mint')}
-            </button>
+              <button
+                onClick={async () => {
+                  setIsMinting(true);
+                  try {
+                    const response = await fetch(
+                      `${process.env.NEXT_PUBLIC_API_URL}/airdrop`,
+                      {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        credentials: 'include',
+                      },
+                    );
+                    const data = await response.json();
+                    console.log('data', data);
+                  } catch (error) {
+                    console.error('Error minting airdrop:', error);
+                  } finally {
+                    setIsMinting(false);
+                  }
+                }}
+                disabled={
+                  isInventoryLoading ||
+                  isMinting ||
+                  inventoryData?.data?.hasMinted
+                }
+                className="mt-4 w-full bg-cyan-500 text-black font-bold py-2 px-4 rounded-md hover:bg-cyan-600 transition-colors border-2 border-neutral-950 disabled:opacity-50 disabled:grayscale"
+              >
+                {isMinting ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <svg
+                      className="animate-spin h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    {t('common.loading')}
+                  </div>
+                ) : (
+                  t('airdrop.mint')
+                )}
+              </button>
+            </Tooltip>
           </div>
         </div>
       </div>
