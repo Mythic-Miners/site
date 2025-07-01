@@ -160,7 +160,9 @@
         "leaderboard": "Ranking",
         "claimConfirmation": "Tem certeza que deseja resgatar seus tokens?",
         "noItems": "Nenhum item disponível",
-        "alreadyMinted": "Você já mintou seus tokens"
+        "alreadyMinted": "Você já mintou seus tokens",
+        "error": "Erro ao mintar airdrop",
+        "toastMinted": "Itens mintados com sucesso"
     },
     "subscription": {
         "vip_1_month": "VIP 1 Mês",

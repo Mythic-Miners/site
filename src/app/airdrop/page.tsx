@@ -2,6 +2,7 @@
 
 import { Card, CardFooter, Image, Tooltip } from '@heroui/react';
 import { Skeleton } from '@heroui/skeleton';
+import { addToast } from '@heroui/toast';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -25,6 +26,7 @@ export default function AirdropPage() {
   const parentRef = useRef<HTMLDivElement>(null);
   const [userPosition, setUserPosition] = useState<number | null>(null);
   const [isMinting, setIsMinting] = useState(false);
+  const [clickedOnMint, setClickedOnMint] = useState(false);
 
   const {
     data: airdropData,
@@ -413,7 +415,7 @@ export default function AirdropPage() {
             )}
             <Tooltip
               content={t('airdrop.alreadyMinted')}
-              isDisabled={!inventoryData?.data?.hasMinted}
+              isDisabled={!inventoryData?.data?.hasMinted || !clickedOnMint}
               showArrow
               placement="top"
               classNames={{
@@ -426,27 +428,35 @@ export default function AirdropPage() {
             >
               <button
                 onClick={async () => {
+                  setClickedOnMint(true);
                   setIsMinting(true);
                   try {
-                    const response = await fetch(
-                      `${process.env.NEXT_PUBLIC_API_URL}/airdrop`,
-                      {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        credentials: 'include',
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/airdrop`, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
                       },
-                    );
-                    const data = await response.json();
-                    console.log('data', data);
+                      credentials: 'include',
+                    });
+                    setTimeout(() => {
+                      addToast({
+                        title: 'Minted',
+                        description: t('airdrop.toastMinted'),
+                        color: 'success',
+                      });
+                      setIsMinting(false);
+                    }, 12000);
                   } catch (error) {
                     console.error('Error minting airdrop:', error);
-                  } finally {
-                    setIsMinting(false);
+                    addToast({
+                      title: 'Error',
+                      description: t('airdrop.error'),
+                      color: 'danger',
+                    });
                   }
                 }}
                 disabled={
+                  clickedOnMint ||
                   isInventoryLoading ||
                   isMinting ||
                   inventoryData?.data?.hasMinted

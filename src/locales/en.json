@@ -160,7 +160,9 @@
         "leaderboard": "Leaderboard",
         "claimConfirmation": "Are you sure you want to claim your tokens?",
         "noItems": "No items available",
-        "alreadyMinted": "You have already minted your tokens"
+        "alreadyMinted": "You have already minted your tokens",
+        "error": "Error minting airdrop",
+        "toastMinted": "Tokens minted successfully"
     },
     "subscription": {
         "vip_1_month": "VIP 1 Month",
