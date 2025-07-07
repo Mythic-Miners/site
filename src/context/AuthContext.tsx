@@ -19,6 +19,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isJwtPresent, setIsJwtPresent] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | undefined>(undefined);
 
   const { data: autoConnected, isLoading } = useAutoConnect({
     client: client,
@@ -52,10 +53,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, [wallet, autoConnected]);
 
+  useEffect(() => {
+    if (autoConnected && account?.address) {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/is-logged-in`, {
+        credentials: 'include',
+      })
+        .then((res) => res.json())
+        .then(() => {
+          setIsLoggedIn(undefined);
+        })
+        .catch(() => {
+          setIsLoggedIn(false);
+        });
+    }
+  }, [autoConnected, account]);
+
+  console.log('isJwtPresent', isJwtPresent);
+  console.log('isLoading', isLoading);
+  console.log('autoConnected', autoConnected);
+  console.log('account', account);
   return (
     <AuthContext.Provider
       value={{
-        isConnected: (autoConnected && !!account?.address) || isJwtPresent,
+        isConnected:
+          isLoggedIn === false
+            ? false
+            : (autoConnected && !!account?.address) || isJwtPresent,
         setIsJwtPresent: setIsJwtPresent,
         isLoading,
       }}

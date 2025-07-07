@@ -115,8 +115,6 @@ export default function TransferTokensButton({
             );
 
             const data = await response.json();
-            console.log('data', data);
-
             if (data.data.success) {
               const end = Date.now() + 3 * 1000;
               (function frame() {

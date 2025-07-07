@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { initReactI18next } from 'react-i18next';
 
+import { detectPreferredLanguage } from '@/lib/i18n-client';
 // Import translations
 import enTranslations from '@/locales/en.json';
 import ptTranslations from '@/locales/pt.json';
@@ -41,8 +42,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
-    const detectedLanguage = i18n.language;
-    setLanguage(detectedLanguage);
+    const preferredLanguage = detectPreferredLanguage();
+    setLanguage(preferredLanguage);
+    i18n.changeLanguage(preferredLanguage);
   }, []);
 
   const handleSetLanguage = (lang: string) => {

@@ -1,6 +1,6 @@
 import { createThirdwebClient } from 'thirdweb';
 import { hardhat, polygon } from 'thirdweb/chains';
-import { createWallet, inAppWallet } from 'thirdweb/wallets';
+import { inAppWallet } from 'thirdweb/wallets';
 
 // Replace this with your client ID string
 // refer to https://portal.thirdweb.com/typescript/v5/client on how to get a client ID
@@ -21,12 +21,6 @@ export const wallets = [
     },
     hidePrivateKeyExport: true,
   }),
-  createWallet('io.metamask'),
-  createWallet('com.coinbase.wallet'),
-  createWallet('me.rainbow'),
-  createWallet('io.rabby'),
-  createWallet('com.binance.wallet'),
-  createWallet('com.roninchain.wallet'),
 ];
 
 export const chain = process.env.NODE_ENV === 'production' ? polygon : hardhat;

@@ -6,7 +6,7 @@ import { ToastProvider } from '@heroui/toast';
 export const HeroUIProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <HeroUIProviderBase>
-      <ToastProvider />
+      <ToastProvider placement="top-center" />
       {children}
     </HeroUIProviderBase>
   );

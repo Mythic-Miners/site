@@ -41,12 +41,29 @@
   }
 }
 
+html {
+  height: 100%;
+  background-color: #161842;
+}
+
 body {
-  font-family: var(--font-sen);
+  height: 100%;
 }
 
 .mythic-text-shadow {
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.custom-bg {
+  min-height: 100%;
+  padding-bottom: 40px;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image:
+    linear-gradient(#16184200 45vh, #161842 68vh),
+    url("/assets/images/background.webp");
 }
 
 button {
@@ -55,4 +72,27 @@ button {
 
 button:disabled {
   cursor: not-allowed;
+}
+
+/* width */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eeeeee20;
+  border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff30;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff40;
 }

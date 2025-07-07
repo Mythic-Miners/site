@@ -1,4 +1,14 @@
 {
+    "authButtom": {
+        "logIn": "Log in"
+    },
+    "metadata": {
+        "title": "Mythic Miners: Unearth Your Fortune",
+        "description": "Dive into the mystical world of Mythic Miners, a Web 3 game where you explore caves, mine rocks, upgrade your miner, trade NFTs, and win real money. Start your adventure now!"
+    },
+    "hero": {
+        "title": "Mythic Miners"
+    },
     "common": {
         "welcome": "Welcome",
         "language": "Language",
@@ -17,14 +27,6 @@
     "errors": {
         "general": "Something went wrong",
         "notFound": "Page not found"
-    },
-    "hero": {
-        "title": "Mythic Miners ICO",
-        "description": {
-            "desktop": "Embark on an epic adventure and become one of the owners of $AMZ token from Mythic Miners, the innovative crypto game where strategy, mining, and mythical treasures meet. Secure your place in this legend by participating in our Initial Coin Offering (ICO) and get the first $AMZ tokens.",
-            "mobile": "Participate in the Initial Coin Offering (ICO) and own the first $AMZ tokens"
-        },
-        "download": "Download ICO document"
     },
     "tokenPurchase": {
         "title": "$AMZ Presale",
@@ -207,5 +209,62 @@
             "title": "All Items",
             "empty": "No items in inventory"
         }
+    },
+    "item": {
+        "details": {
+            "overview": "Overview",
+            "category": "Category",
+            "tokenId": "Token ID",
+            "description": "Description",
+            "attributes": "Attributes",
+            "rarity": "Rarity"
+        },
+        "actions": {
+            "equip": "Equip Item",
+            "equipping": "Equipping...",
+            "transfer": "Transfer",
+            "unequip": "Unequip",
+            "unequipping": "Unequipping...",
+            "unequipSuccess": "Item unequipped successfully!"
+        },
+        "transaction": {
+            "error": "Error",
+            "missingData": "Missing required data for transaction",
+            "transactionSent": "Transaction Sent",
+            "approvingAndEquipping": "Approving and equipping item, please wait...",
+            "approvingAndUnequipping": "Approving and unequipping item, please wait...",
+            "itemEquipped": "Item Equipped!",
+            "itemEquippedSuccess": "has been approved and equipped successfully!",
+            "itemUnequipped": "Item Unequipped!",
+            "itemUnequippedSuccess": "has been approved and unequipped successfully!",
+            "transactionFailed": "Transaction Failed",
+            "failedToEquip": "Failed to approve and equip item",
+            "insufficientFunds": "Insufficient Funds",
+            "insufficientFundsDetails": "Required: {{required}} POL | Your balance: {{balance}} POL",
+            "failedToPrepare": "Failed to prepare transaction",
+            "itemAlreadyEquipped": "Item cannot be equipped. It may already be equipped or there may be a contract validation issue.",
+            "approvalFailed": "Item approval failed. Please ensure you own this item and try again.",
+            "notOwner": "You do not own this item or it has already been transferred."
+        },
+        "rarity": {
+            "legendary": {
+                "description": "Ultra-rare items with exceptional power and unique abilities."
+            },
+            "epic": {
+                "description": "Very rare items with significant bonuses and enhanced capabilities."
+            },
+            "rare": {
+                "description": "Uncommon items with moderate bonuses and improved performance."
+            },
+            "common": {
+                "description": "Standard items with basic functionality and attributes."
+            }
+        }
+    },
+    "termsOfUse": {
+        "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Terms of Use</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Welcome to Mythic Miners. These Terms of Use ('Terms') govern your use of our website/application and the services provided by Mythic Miners ('we', 'our', or 'us').</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Acceptance of Terms</h2><p style='margin: 8px 0;'>By accessing or using our website/application, you unconditionally agree to comply with and be legally bound by these Terms and our Privacy Policy. If you do not agree with any of these terms, you must immediately cease using our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Changes to Terms</h2><p style='margin: 8px 0;'>We reserve the right to modify these Terms at any time and at our sole discretion. Changes will be posted on this page with the 'Last Updated' date. It is your responsibility to review the Terms periodically. Continued use of the website/application after any changes constitutes your acceptance of the new Terms.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Use of the Website/App</h2><p style='margin: 8px 0;'><strong>a.</strong> You agree to use our website/application solely for lawful purposes and in accordance with these Terms.</p><p style='margin: 8px 0;'><strong>b.</strong> You must not use our website/application in any manner that could damage, disable, overburden, or impair our servers or networks.</p><p style='margin: 8px 0;'><strong>c.</strong> You must not attempt to gain unauthorized access to any part of our website/application, other accounts, computer systems, or networks connected to our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. User Content</h2><p style='margin: 8px 0;'><strong>a.</strong> Any content you submit, post, or display on the website/application will be your sole responsibility.</p><p style='margin: 8px 0;'><strong>b.</strong> By submitting User Content, you grant us a worldwide, perpetual, irrevocable, non-exclusive, royalty-free, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform that User Content in connection with the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Intellectual Property Rights</h2><p style='margin: 8px 0;'>All content, including text, graphics, logos, images, and software, is the property of Mythic Miners or its licensors and is protected by copyright and other intellectual property laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Disclaimer of Warranties</h2><p style='margin: 8px 0;'>Our website/application is provided 'as is' and 'as available,' without warranties of any kind, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the website/application will be uninterrupted, error-free, or secure.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. Limitation of Liability</h2><p style='margin: 8px 0;'>To the maximum extent permitted by applicable law, Mythic Miners and its directors, employees, agents, affiliates, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from: (i) your use or inability to use our website/application; (ii) any conduct or content of any third party on the website/application; (iii) any content obtained from the website/application; and (iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damages.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Indemnification</h2><p style='margin: 8px 0;'>You agree to defend, indemnify, and hold harmless Mythic Miners, its directors, employees, agents, affiliates, and partners from any claims, damages, obligations, losses, liabilities, costs, or debts and expenses (including but not limited to attorney's fees) arising from: (i) your use and access to the website/application; (ii) your violation of any term of these Terms; (iii) your violation of any third-party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that your User Content caused damage to a third party.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Governing Law</h2><p style='margin: 8px 0;'>These Terms shall be governed and construed in accordance with the laws of [your state or country], without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located within [specific locality] to resolve any dispute arising from these Terms or the use of the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>10. General Provisions</h2><p style='margin: 8px 0;'>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect. These Terms constitute the entire agreement between you and Mythic Miners regarding the use of the website/application, superseding any prior agreements between you and Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>11. Contact</h2><p style='margin: 8px 0;'>If you have any questions about these Terms, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
+    },
+    "privacyPolicy": {
+        "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Privacy Policy</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Mythic Miners ('we', 'our', 'us') is committed to protecting your privacy and ensuring transparency in the use of your personal information. This Privacy Policy describes how we collect, use, and share your information.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Information Collected</h2><p style='margin: 8px 0;'><strong>a. Information Provided by You:</strong> We may collect personal information that you provide directly, such as your name, email, and other contact information.</p><p style='margin: 8px 0;'><strong>b. Automatic Information:</strong> We may automatically collect certain information about your device and usage of our website/application, such as IP address, browser type, pages visited, and time spent on our site/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Use of Information</h2><p style='margin: 8px 0;'><strong>a. Purpose:</strong> We use your information to provide, maintain, and improve our services, respond to inquiries, process transactions, and send communications.</p><p style='margin: 8px 0;'><strong>b. Legal Basis:</strong> The processing of personal data is carried out based on your consent, compliance with legal obligations, and/or the legitimate interest of Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Sharing of Information</h2><p style='margin: 8px 0;'><strong>a. Third Parties:</strong> We may share your information with service providers who assist us in operating the website/application and delivering services.</p><p style='margin: 8px 0;'><strong>b. Legal Requirement:</strong> We may disclose your information if required by law or to protect our legal rights.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. Your Rights</h2><p style='margin: 8px 0;'>You have the right to access, correct, delete, and restrict the processing of your personal information. To exercise these rights, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Information Security</h2><p style='margin: 8px 0;'>We implement reasonable security measures to protect your personal information against unauthorized access, use, or disclosure. However, we cannot guarantee absolute security of data transmitted over the internet.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Data Retention</h2><p style='margin: 8px 0;'>We will retain your personal information only for as long as necessary to fulfill the purposes for which it was collected or as required by law.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. International Data Transfer</h2><p style='margin: 8px 0;'>Your data may be transferred to and processed in countries outside of Brazil, which may have different data protection laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Changes to This Policy</h2><p style='margin: 8px 0;'>We may update this Privacy Policy periodically. The latest version will always be available on our website/application. We recommend that you review this Policy regularly to stay informed about our privacy practices.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Contact</h2><p style='margin: 8px 0;'>If you have any questions or concerns about this Privacy Policy, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
     }
 }

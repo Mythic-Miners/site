@@ -33,6 +33,7 @@ export default function AirdropClaimButton({
   const wallet = useActiveWallet();
   const address = useMemo(() => account?.address, [account]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isClaimed, setIsClaimed] = useState(false);
 
   return (
     <Tooltip
@@ -47,8 +48,8 @@ export default function AirdropClaimButton({
     >
       <TransactionButton
         unstyled
-        disabled={disabled || !address}
-        className="mt-2 disabled:opacity-50 disabled:grayscale bg-amber-400 text-black font-bold py-2 px-4 rounded-md hover:bg-amber-500 transition-colors border-2 border-neutral-950 w-full"
+        disabled={disabled || !address || isClaimed}
+        className="flex items-center justify-center text-center mt-2 disabled:grayscale bg-amber-400 text-black font-bold py-2 px-4 rounded-md hover:bg-amber-500 transition-colors border-2 border-neutral-950 w-full"
         // @ts-ignore
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           if (wallet?.id === 'inApp') {
@@ -112,6 +113,7 @@ export default function AirdropClaimButton({
               }
             })();
             refetchAirdrop();
+            setIsClaimed(true);
           }
           setIsLoading(false);
         }}
