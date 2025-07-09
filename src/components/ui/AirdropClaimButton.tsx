@@ -73,6 +73,7 @@ export default function AirdropClaimButton({
           })
         }
         onError={(error) => {
+          console.log('error', error);
           const revertReason = extractRevertReason(error.message);
           addToast({
             title: 'Transaction Error',
@@ -82,7 +83,11 @@ export default function AirdropClaimButton({
           });
           setIsLoading(false);
         }}
+        onTransactionStarted={(a: any) => {
+          console.log('transaction started', a);
+        }}
         onTransactionConfirmed={async (result) => {
+          console.log('transaction confirmed', result);
           const events = parseEventLogs({
             logs: result.logs,
             events: [claimEvent],
