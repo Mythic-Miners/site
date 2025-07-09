@@ -9,6 +9,22 @@ import {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Redirect /app/* to /
+  if (
+    pathname.startsWith('/pt/app/') ||
+    pathname === '/pt/app' ||
+    pathname.startsWith('/en/app/') ||
+    pathname === '/en/app' ||
+    pathname.startsWith('/es/app/') ||
+    pathname === '/es/app' ||
+    pathname === '/app'
+  ) {
+    const newUrl = new URL('/pt', request.url);
+    // Preserve query parameters if any
+    newUrl.search = request.nextUrl.search;
+    return NextResponse.redirect(newUrl);
+  }
+
   // Check if the path already has a language prefix
   const hasLanguagePrefix = supportedLanguages.some(
     (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`,
