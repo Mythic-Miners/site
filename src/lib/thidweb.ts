@@ -19,7 +19,6 @@ export const wallets = [
     auth: {
       options: ['email', 'google', 'apple', 'facebook'],
     },
-    hidePrivateKeyExport: true,
   }),
 ];
 
