@@ -35,8 +35,6 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    console.log('isConnected1', isConnected);
-    console.log('isLoading1', isLoading);
     if (!isLoading) {
       if (!isConnected) {
         clearAllStorageAndCookies();

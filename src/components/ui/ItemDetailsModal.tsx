@@ -224,7 +224,6 @@ export default function ItemDetailsModal({
     } catch (error) {
       const errorMessage = (error as Error).message;
       setIsEquipping(false);
-      console.log('errorMessage', errorMessage);
 
       if (
         errorMessage.includes(

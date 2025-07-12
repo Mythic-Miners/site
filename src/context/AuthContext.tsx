@@ -68,10 +68,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [autoConnected, account]);
 
-  console.log('isJwtPresent', isJwtPresent);
-  console.log('isLoading', isLoading);
-  console.log('autoConnected', autoConnected);
-  console.log('account', account);
   return (
     <AuthContext.Provider
       value={{

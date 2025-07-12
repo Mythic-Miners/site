@@ -4,6 +4,7 @@ import { Image } from '@heroui/react';
 import { useTranslation } from 'react-i18next';
 
 import type { InventoryItem } from '@/api/inventory';
+import { getRarityColor } from '@/lib/consts';
 
 interface EquippedSlots {
   Helmet?: InventoryItem;
@@ -25,29 +26,6 @@ export default function EquipedEquipments({
   onItemClick,
 }: EquipedEquipmentsProps) {
   const { t } = useTranslation();
-
-  const getRarityColor = (item?: InventoryItem) => {
-    const rarity = item?.metadata?.attributes.find(
-      (attr) => attr.trait_type.toLowerCase() === 'rarity',
-    )?.value;
-
-    switch (rarity?.toString().toLowerCase()) {
-      case 'timeless':
-        return 'border-red-600 bg-red-700/20';
-      case 'legendary':
-        return 'border-yellow-500 bg-yellow-500/20';
-      case 'epic':
-        return 'border-violet-500 bg-violet-500/20';
-      case 'rare':
-        return 'border-cyan-500 bg-cyan-500/20';
-      case 'uncommon':
-        return 'border-emerald-500 bg-emerald-500/20';
-      case 'common':
-        return 'border-gray-500 bg-gray-500/10';
-      default:
-        return 'border-gray-600 bg-gray-600/10';
-    }
-  };
 
   return (
     <div className="bg-indigo-950 p-6 rounded-lg border-2 border-black h-full flex flex-col">

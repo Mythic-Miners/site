@@ -1,3 +1,5 @@
+import type { InventoryItem } from '@/api/inventory';
+
 export const FAKE_PROVIDERS = [
   '0815.ru',
   '0wnd.net',
@@ -632,3 +634,26 @@ export const FAKE_PROVIDERS = [
   'envoes.com',
   'qwiklabs.net',
 ];
+
+export const getRarityColor = (item?: InventoryItem) => {
+  const rarity = item?.metadata?.attributes.find(
+    (attr) => attr.trait_type.toLowerCase() === 'rarity',
+  )?.value;
+
+  switch (rarity?.toString().toLowerCase()) {
+    case 'timeless':
+      return 'border-red-600 bg-red-700/20';
+    case 'legendary':
+      return 'border-yellow-500 bg-yellow-500/20';
+    case 'epic':
+      return 'border-violet-500 bg-violet-500/20';
+    case 'rare':
+      return 'border-cyan-500 bg-cyan-500/20';
+    case 'uncommon':
+      return 'border-emerald-500 bg-emerald-500/20';
+    case 'common':
+      return 'border-gray-500 bg-gray-500/10';
+    default:
+      return 'border-gray-600 bg-gray-600/10';
+  }
+};

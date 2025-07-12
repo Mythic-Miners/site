@@ -180,8 +180,8 @@
         "title": "Inventário",
         "gacha": {
             "title": "Gacha",
-            "play": "Jogar Gacha",
-            "playing": "Jogando...",
+            "play": "Jogar Gacha e Mintar NFT",
+            "playing": "Jogando e mintando...",
             "info": "Informações do Gacha",
             "vouchers": "Vouchers",
             "description": "Use vouchers para jogar gacha e obter equipamentos raros! Cada voucher te dá uma chance de ganhar itens incríveis.",
@@ -191,7 +191,21 @@
             "common": "Comum",
             "buyVouchers": "Comprar Vouchers",
             "result": "Resultado do Gacha",
-            "congratulations": "Parabéns! Você ganhou um novo item!"
+            "congratulations": "Parabéns! Você ganhou um novo item!",
+            "equipmentTypes": "Tipos de Equipamento",
+            "rarities": "Raridades",
+            "grades": "Níveis",
+            "uncommon": "Incomum",
+            "gradeC": "Nível C",
+            "gradeB": "Nível B",
+            "gradeA": "Nível A",
+            "gradeS": "Nível S",
+            "quantity": "Quantidade",
+            "pricePerVoucher": "Preço por Voucher",
+            "discount": "Desconto",
+            "total": "Total",
+            "playingToastTitle": "Jogando Gacha: Te desejamos sorte!!",
+            "playingToastDescription": "Aguarde um momento... Sua sorte está sendo decidida! Isso pode levar alguns segundos."
         },
         "equipped": {
             "title": "Itens Equipados"
