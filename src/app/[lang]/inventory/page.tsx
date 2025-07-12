@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react';
 import type { InventoryItem } from '@/api/inventory';
 import { useInventoryQuery } from '@/api/inventory';
 import EquipedEquipments from '@/components/ui/EquipedEquipments';
+import Forge from '@/components/ui/Forge';
 import Gacha from '@/components/ui/Gacha';
 import Inventory from '@/components/ui/Inventory';
 import ItemDetailsModal from '@/components/ui/ItemDetailsModal';
@@ -63,6 +64,9 @@ export default function InventoryPage() {
           onRefetchInventory={refetchInventory}
           gachaVouchers={inventoryData?.data?.gachaVouchers || 0}
         />
+
+        {/* Forge Section */}
+        <Forge />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
           <div className="col-span-1 h-full">

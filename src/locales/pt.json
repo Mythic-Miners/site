@@ -207,6 +207,21 @@
             "playingToastTitle": "Jogando Gacha: Te desejamos sorte!!",
             "playingToastDescription": "Aguarde um momento... Sua sorte está sendo decidida! Isso pode levar alguns segundos."
         },
+        "forge": {
+            "title": "Forja de Equipamentos",
+            "info": "Informações da Forja",
+            "comingSoon": "Em Breve",
+            "comingSoonDescription": "O sistema de forja está chegando em breve! Você poderá fundir equipamentos para criar itens poderosos.",
+            "features": "Características",
+            "feature1": "Fundir três equipamentos do mesmo tipo",
+            "feature2": "Criar equipamentos de raridade superior",
+            "feature3": "Melhorar níveis de equipamento",
+            "feature4": "Chance de sucesso crítico",
+            "upgradeChances": "Chances de Melhoria",
+            "success": "Sucesso",
+            "criticalSuccess": "Sucesso Crítico",
+            "failure": "Falha"
+        },
         "equipped": {
             "title": "Itens Equipados"
         },
