@@ -81,6 +81,7 @@ export default function Gacha({
     isPending,
     data,
     isSuccess,
+    isError,
   } = useGachaMutation();
   const [vouchers, setVouchers] = useState(gachaVouchers || 0);
   const [gachaPhase, setGachaPhase] = useState<
@@ -105,6 +106,7 @@ export default function Gacha({
 
   useEffect(() => {
     if (!isPending && isSuccess && data) {
+      setVouchers((prev) => prev - 1);
       onRefetchInventory();
       setGachaPhase('open');
       launchConfetti();
@@ -113,7 +115,18 @@ export default function Gacha({
       }, 500);
       setGachaResult(data);
     }
-  }, [isPending, isSuccess, data, onRefetchInventory]);
+    console.log('isError', isError);
+    if (!isPending && isError) {
+      setIsLoading(false);
+      setGachaPhase('idle');
+      addToast({
+        title: t('inventory.gacha.errorTitle'),
+        description: t('inventory.gacha.errorDescription'),
+        color: 'danger',
+        variant: 'flat',
+      });
+    }
+  }, [isPending, isSuccess, data, onRefetchInventory, isError, t]);
 
   useEffect(() => {
     if (!isGachaBuyPending && isGachaBuySuccess && gachaBuyData) {
@@ -147,7 +160,6 @@ export default function Gacha({
     });
     if (vouchers <= 0) return;
 
-    setVouchers((prev) => prev - 1);
     setGachaPhase('shaking');
 
     gachaMutate();

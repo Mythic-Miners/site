@@ -207,7 +207,9 @@
             "playingToastTitle": "Jogando Gacha: Te desejamos sorte!!",
             "playingToastDescription": "Aguarde um momento... Sua sorte está sendo decidida! Isso pode levar alguns segundos.",
             "successTitle": "Sucesso!",
-            "successDescription": "{{quantity}} vouchers comprados com sucesso!"
+            "successDescription": "{{quantity}} vouchers comprados com sucesso!",
+            "errorTitle": "Erro!",
+            "errorDescription": "Falha ao comprar vouchers. Por favor, tente novamente."
         },
         "forge": {
             "title": "Forja de Equipamentos",
