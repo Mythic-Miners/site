@@ -205,7 +205,9 @@
             "discount": "Discount",
             "total": "Total",
             "playingToastTitle": "Playing Gacha: Good luck!!",
-            "playingToastDescription": "Please wait... Your luck is being decided! This may take a few seconds."
+            "playingToastDescription": "Please wait... Your luck is being decided! This may take a few seconds.",
+            "successTitle": "Success!",
+            "successDescription": "{{quantity}} vouchers purchased successfully!"
         },
         "forge": {
             "title": "Equipment Forge",

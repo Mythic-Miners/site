@@ -11,7 +11,11 @@ import { useTranslation } from 'react-i18next';
 import { TransactionButton, useActiveAccount } from 'thirdweb/react';
 
 import type { InventoryItem } from '@/api/inventory';
-import { type GachaResponse, useGachaMutation } from '@/api/inventory';
+import {
+  type GachaResponse,
+  useGachaBuyMutation,
+  useGachaMutation,
+} from '@/api/inventory';
 import { amazoniteTransferContract } from '@/contracts/amazonite';
 import { getRarityColor } from '@/lib/consts';
 
@@ -88,6 +92,13 @@ export default function Gacha({
   const voucherPrice = 40; // 40 AMZ per voucher
   const totalCost = quantity * voucherPrice;
 
+  const {
+    mutate: gachaBuyMutate,
+    isPending: isGachaBuyPending,
+    isSuccess: isGachaBuySuccess,
+    data: gachaBuyData,
+  } = useGachaBuyMutation();
+
   useEffect(() => {
     setVouchers(gachaVouchers);
   }, [gachaVouchers]);
@@ -103,6 +114,28 @@ export default function Gacha({
       setGachaResult(data);
     }
   }, [isPending, isSuccess, data, onRefetchInventory]);
+
+  useEffect(() => {
+    if (!isGachaBuyPending && isGachaBuySuccess && gachaBuyData) {
+      setIsLoading(false);
+      onRefetchInventory();
+      setVouchers((prev) => prev + gachaBuyData.data.gachaQuantity);
+      addToast({
+        title: t('inventory.gacha.successTitle'),
+        description: t('inventory.gacha.successDescription', {
+          quantity: gachaBuyData.data.gachaQuantity,
+        }),
+        color: 'success',
+        variant: 'flat',
+      });
+    }
+  }, [
+    isGachaBuyPending,
+    isGachaBuySuccess,
+    gachaBuyData,
+    onRefetchInventory,
+    t,
+  ]);
 
   const handleGachaPlay = async () => {
     addToast({
@@ -301,7 +334,7 @@ export default function Gacha({
                 <Input
                   type="number"
                   min="1"
-                  max="100"
+                  max="200"
                   value={quantity.toString()}
                   onChange={(e) =>
                     setQuantity(Math.max(1, parseInt(e.target.value) || 1))
@@ -317,49 +350,77 @@ export default function Gacha({
             </div>
 
             {/* Buy Vouchers Button */}
-            <TransactionButton
-              unstyled
-              disabled={!address}
-              className="border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              // @ts-ignore
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-                const confirmed = window.confirm(
-                  t('transferTokens.confirmTransaction'),
-                );
-                if (!confirmed) {
-                  event.preventDefault();
-                  setIsLoading(true);
-                }
-              }}
-              transaction={() => {
-                return amazoniteTransferContract(BigInt(totalCost * 1e18));
-              }}
-              onError={(error) => {
-                const revertReason = extractRevertReason(error.message);
-                addToast({
-                  title: 'Transaction Error',
-                  description: revertReason || 'Unknown error',
-                  color: 'danger',
-                  variant: 'flat',
-                });
-                setIsLoading(false);
-              }}
-              onTransactionConfirmed={async () => {
-                setVouchers((prev) => prev + quantity);
-                setIsLoading(false);
-                onRefetchInventory();
-                addToast({
-                  title: 'Success!',
-                  description: `${quantity} ${t('inventory.gacha.vouchers')} purchased successfully!`,
-                  color: 'success',
-                  variant: 'flat',
-                });
-              }}
-            >
-              {isLoading
-                ? t('transferTokens.button.processing')
-                : `${t('inventory.gacha.buyVouchers')} ${quantity}x${voucherPrice} - ${totalCost} $AMZ`}
-            </TransactionButton>
+            <div className="relative">
+              {/* Loading Button (Fake) */}
+              <Button
+                isDisabled
+                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg cursor-not-allowed opacity-75 absolute top-0 left-0 transition-opacity duration-200 h-full ${
+                  isLoading ? 'opacity-100 z-10' : 'opacity-0 -z-10'
+                }`}
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  {t('transferTokens.button.processing')}
+                </div>
+              </Button>
+
+              {/* Real TransactionButton */}
+              <TransactionButton
+                unstyled
+                disabled={!address || isLoading}
+                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
+                  isLoading ? 'opacity-0' : 'opacity-100'
+                }`}
+                // @ts-ignore
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                  const confirmed = window.confirm(
+                    t('transferTokens.confirmTransaction'),
+                  );
+                  if (!confirmed) {
+                    event.preventDefault();
+                  } else {
+                    setIsLoading(true);
+                  }
+                }}
+                transaction={() => {
+                  return amazoniteTransferContract(BigInt(totalCost * 1e18));
+                }}
+                onError={(error) => {
+                  const revertReason = extractRevertReason(error.message);
+                  addToast({
+                    title: 'Transaction Error',
+                    description: revertReason || 'Unknown error',
+                    color: 'danger',
+                    variant: 'flat',
+                  });
+                  setIsLoading(false);
+                }}
+                onTransactionConfirmed={async (result) => {
+                  gachaBuyMutate(result.transactionHash);
+                }}
+              >
+                {`${t('inventory.gacha.buyVouchers')} ${quantity}x${voucherPrice} - ${totalCost} $AMZ`}
+              </TransactionButton>
+            </div>
           </div>
         </div>
       </div>

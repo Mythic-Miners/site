@@ -205,7 +205,9 @@
             "discount": "Desconto",
             "total": "Total",
             "playingToastTitle": "Jogando Gacha: Te desejamos sorte!!",
-            "playingToastDescription": "Aguarde um momento... Sua sorte está sendo decidida! Isso pode levar alguns segundos."
+            "playingToastDescription": "Aguarde um momento... Sua sorte está sendo decidida! Isso pode levar alguns segundos.",
+            "successTitle": "Sucesso!",
+            "successDescription": "{{quantity}} vouchers comprados com sucesso!"
         },
         "forge": {
             "title": "Forja de Equipamentos",

@@ -48,6 +48,12 @@ export interface GachaResponse {
   };
 }
 
+export interface GachaBuyResponse {
+  data: {
+    gachaQuantity: number;
+  };
+}
+
 export const useInventoryQuery = () =>
   useQuery<{
     data: Inventory;
@@ -66,6 +72,27 @@ export const useGachaMutation = () =>
             'Content-Type': 'application/json',
           },
           credentials: 'include',
+        },
+      );
+      if (!response.ok) throw new Error('Failed to call gacha');
+      return response.json();
+    },
+  });
+
+export const useGachaBuyMutation = () =>
+  useMutation<GachaBuyResponse, Error, string>({
+    mutationFn: async (transactionHash: string) => {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/inventory/gacha/buy`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            transactionHash,
+          }),
         },
       );
       if (!response.ok) throw new Error('Failed to call gacha');
