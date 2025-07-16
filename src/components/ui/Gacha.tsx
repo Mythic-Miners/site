@@ -24,6 +24,8 @@ interface GachaProps {
   gachaVouchers: number;
 }
 
+const GACHA_PRICE = 80;
+
 const launchConfetti = () => {
   confetti('tsparticles', {
     particleCount: 100,
@@ -90,8 +92,7 @@ export default function Gacha({
   const [isLoading, setIsLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
-  const voucherPrice = 40; // 40 AMZ per voucher
-  const totalCost = quantity * voucherPrice;
+  const totalCost = quantity * GACHA_PRICE;
 
   const {
     mutate: gachaBuyMutate,
@@ -248,28 +249,30 @@ export default function Gacha({
                   </h4>
                   <ul className="grid grid-cols-2 gap-x-8">
                     <li className="flex justify-between">
-                      <span>{t('inventory.slots.helmet')}</span>
+                      <span>{t('inventory.slots.jetpack')}</span>
                       <span>20%</span>
+                    </li>
+
+                    <li className="flex justify-between">
+                      <span>{t('inventory.slots.helmet')}</span>
+                      <span>17.5%</span>
                     </li>
                     <li className="flex justify-between">
                       <span>{t('inventory.slots.belt')}</span>
                       <span>20%</span>
                     </li>
+
                     <li className="flex justify-between">
                       <span>{t('inventory.slots.pickaxe')}</span>
                       <span>17.5%</span>
                     </li>
                     <li className="flex justify-between">
                       <span>{t('inventory.slots.armour')}</span>
-                      <span>17.5%</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>{t('inventory.slots.jetpack')}</span>
-                      <span>15%</span>
+                      <span>20%</span>
                     </li>
                     <li className="flex justify-between">
                       <span>{t('inventory.slots.trinket')}</span>
-                      <span>10%</span>
+                      <span>5%</span>
                     </li>
                   </ul>
                 </div>
@@ -284,7 +287,15 @@ export default function Gacha({
                         <span className="w-3 h-3 bg-emerald-500 rounded-full mr-2"></span>
                         <span>{t('inventory.gacha.uncommon')}</span>
                       </div>
-                      <span>60%</span>
+                      <span>65%</span>
+                    </li>
+
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <span className="w-3 h-3 bg-violet-500 rounded-full mr-2"></span>
+                        <span>{t('inventory.gacha.epic')}</span>
+                      </div>
+                      <span>4.7%</span>
                     </li>
                     <li className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -295,17 +306,10 @@ export default function Gacha({
                     </li>
                     <li className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <span className="w-3 h-3 bg-violet-500 rounded-full mr-2"></span>
-                        <span>{t('inventory.gacha.epic')}</span>
-                      </div>
-                      <span>8.5%</span>
-                    </li>
-                    <li className="flex items-center justify-between">
-                      <div className="flex items-center">
                         <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
                         <span>{t('inventory.gacha.legendary')}</span>
                       </div>
-                      <span>1.5%</span>
+                      <span>0.3%</span>
                     </li>
                   </ul>
                 </div>
@@ -320,12 +324,12 @@ export default function Gacha({
                       <span>50%</span>
                     </li>
                     <li className="flex justify-between">
-                      <span>{t('inventory.gacha.gradeB')}</span>
-                      <span>42%</span>
-                    </li>
-                    <li className="flex justify-between">
                       <span>{t('inventory.gacha.gradeA')}</span>
                       <span>7.9%</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>{t('inventory.gacha.gradeB')}</span>
+                      <span>42%</span>
                     </li>
                     <li className="flex justify-between">
                       <span>{t('inventory.gacha.gradeS')}</span>
@@ -345,12 +349,10 @@ export default function Gacha({
                 </label>
                 <Input
                   type="number"
-                  min="1"
+                  min="0"
                   max="200"
                   value={quantity.toString()}
-                  onChange={(e) =>
-                    setQuantity(Math.max(1, parseInt(e.target.value) || 1))
-                  }
+                  onChange={(e) => setQuantity(parseInt(e.target.value))}
                   className="w-full"
                   classNames={{
                     input: 'text-center text-lg',
@@ -430,7 +432,7 @@ export default function Gacha({
                   gachaBuyMutate(result.transactionHash);
                 }}
               >
-                {`${t('inventory.gacha.buyVouchers')} ${quantity}x${voucherPrice} - ${totalCost} $AMZ`}
+                {`${t('inventory.gacha.buyVouchers')} ${quantity || 0}x${GACHA_PRICE} - ${totalCost || 0} $AMZ`}
               </TransactionButton>
             </div>
           </div>
