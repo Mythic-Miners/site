@@ -176,6 +176,10 @@
         "title": "Chave BETA",
         "quantity": "Quantidade: {{quantity}}"
     },
+    "game": {
+        "noBetaKey": "Você não tem uma chave beta",
+        "noBetaKeyDescription": "Peça a um amigo na comunidade Discord do Mythic Miners"
+    },
     "inventory": {
         "title": "Inventário",
         "gacha": {
