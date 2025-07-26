@@ -1,5 +1,6 @@
 'use client';
 
+import LogRocketProvider from '@/components/context/LogRocket';
 import LayoutWrapper from '@/components/ui/LayoutWrapper';
 
 interface HomeLayoutProps {
@@ -7,5 +8,9 @@ interface HomeLayoutProps {
 }
 
 export default function HomeLayout({ children }: HomeLayoutProps) {
-  return <LayoutWrapper>{children}</LayoutWrapper>;
+  return (
+    <LogRocketProvider>
+      <LayoutWrapper>{children}</LayoutWrapper>
+    </LogRocketProvider>
+  );
 }

@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export interface Game {
   hasBetaKey: number;
+  isDead: boolean;
 }
 
 const useGameQuery = () =>

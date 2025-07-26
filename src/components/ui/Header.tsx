@@ -28,11 +28,15 @@ export default function Header() {
       href: `/${language}/airdrop`,
       current: pathname === `/${language}/airdrop`,
     },
-
     {
       name: t('inventory.title'),
       href: `/${language}/inventory`,
       current: pathname === `/${language}/inventory`,
+    },
+    {
+      name: t('footer.quickLinks.game'),
+      href: `/${language}/game`,
+      current: pathname === `/${language}/game`,
     },
     {
       name: 'ICO',

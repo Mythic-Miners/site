@@ -1,5 +1,6 @@
 import '@/app/globals.css';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -7,7 +8,6 @@ import { notFound } from 'next/navigation';
 import { ThirdwebProvider } from 'thirdweb/react';
 
 import { HeroUIProvider } from '@/components/context/HeroUI';
-import LogRocketProvider from '@/components/context/LogRocket';
 import QueryProvider from '@/components/context/QueryProvider';
 import { AuthProvider } from '@/context/AuthContext';
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -70,15 +70,14 @@ export default async function LangLayout({
           <QueryProvider>
             <AuthProvider>
               <LanguageProvider>
-                <LogRocketProvider>
-                  <HeroUIProvider>{children}</HeroUIProvider>
-                </LogRocketProvider>
+                <HeroUIProvider>{children}</HeroUIProvider>
               </LanguageProvider>
             </AuthProvider>
           </QueryProvider>
         </ThirdwebProvider>
         <div id="tsparticles" style={{ pointerEvents: 'none' }} />
       </body>
+      <GoogleAnalytics gaId="G-L1MYJR2KXB" />
     </html>
   );
 }

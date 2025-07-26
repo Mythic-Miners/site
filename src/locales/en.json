@@ -178,7 +178,9 @@
     },
     "game": {
         "noBetaKey": "You don't have a beta key",
-        "noBetaKeyDescription": "Ask a friend in the Mythic Miners Discord community"
+        "noBetaKeyDescription": "Ask a friend in the Mythic Miners Discord community",
+        "isDead": "You died!",
+        "isDeadDescription": "You will be able to play again tomorrow."
     },
     "inventory": {
         "title": "Inventory",

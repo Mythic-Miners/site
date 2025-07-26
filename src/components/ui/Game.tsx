@@ -18,8 +18,16 @@ export default function Game() {
       setIsDataLoaded(true);
     };
 
+    const handleRespawnEvent = () => {
+      window.location.reload();
+    };
+
     addEventListener('data_loaded', handleDataLoadedEvent);
-    return () => removeEventListener('data_loaded', handleDataLoadedEvent);
+    addEventListener('respawn', handleRespawnEvent);
+    return () => {
+      removeEventListener('data_loaded', handleDataLoadedEvent);
+      removeEventListener('respawn', handleRespawnEvent);
+    };
   }, [addEventListener, removeEventListener]);
 
   return (
