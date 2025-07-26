@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useGameQuery from '@/api/game';
@@ -8,6 +9,27 @@ import Game from '@/components/ui/Game';
 export default function GamePage() {
   const { t } = useTranslation();
   const { data: game, isPending } = useGameQuery();
+
+  useEffect(() => {
+    const checkAndReload = () => {
+      const now = new Date();
+      const utcHours = now.getUTCHours();
+      const utcMinutes = now.getUTCMinutes();
+
+      if (utcHours === 0 && utcMinutes === 0) {
+        window.location.reload();
+      }
+    };
+
+    const timeout = setTimeout(() => {
+      checkAndReload();
+      const interval = setInterval(checkAndReload, 30000);
+
+      return () => clearInterval(interval);
+    }, 60000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   if (isPending) {
     return (
