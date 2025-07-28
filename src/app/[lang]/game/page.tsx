@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useGameQuery from '@/api/game';
+import Game from '@/components/ui/Game';
 
 export default function GamePage() {
   const { t } = useTranslation();
@@ -30,20 +31,20 @@ export default function GamePage() {
     return () => clearTimeout(timeout);
   }, []);
 
-  if (true) {
-    return (
-      <div className="max-w-7xl mx-auto mt-12 px-8">
-        <div className="my-20 flex justify-center items-center">
-          <div className="w-[800px] h-[500px] border-4 border-black rounded-[20px] bg-indigo-950 flex flex-col justify-center items-center text-center px-8">
-            <p className="text-2xl text-white mb-4">{t('game.maintenance')}</p>
-            <p className="text-lg text-gray-300">
-              {t('game.maintenanceDescription')}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // if (true) {
+  //   return (
+  //     <div className="max-w-7xl mx-auto mt-12 px-8">
+  //       <div className="my-20 flex justify-center items-center">
+  //         <div className="w-[800px] h-[500px] border-4 border-black rounded-[20px] bg-indigo-950 flex flex-col justify-center items-center text-center px-8">
+  //           <p className="text-2xl text-white mb-4">{t('game.maintenance')}</p>
+  //           <p className="text-lg text-gray-300">
+  //             {t('game.maintenanceDescription')}
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   if (isPending) {
     return (
@@ -91,25 +92,25 @@ export default function GamePage() {
     );
   }
 
-  if (game?.data.isDead) {
-    return (
-      <div className="max-w-7xl mx-auto mt-12 px-8">
-        <div className="my-20 flex justify-center items-center">
-          <div className="w-[800px] h-[500px] border-4 border-black rounded-[20px] bg-indigo-950 flex flex-col justify-center items-center text-center px-8">
-            <p className="text-2xl text-white mb-4">{t('game.isDead')}</p>
-            <p className="text-lg text-gray-300">
-              {t('game.isDeadDescription')}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // if (game?.data.isDead) {
+  //   return (
+  //     <div className="max-w-7xl mx-auto mt-12 px-8">
+  //       <div className="my-20 flex justify-center items-center">
+  //         <div className="w-[800px] h-[500px] border-4 border-black rounded-[20px] bg-indigo-950 flex flex-col justify-center items-center text-center px-8">
+  //           <p className="text-2xl text-white mb-4">{t('game.isDead')}</p>
+  //           <p className="text-lg text-gray-300">
+  //             {t('game.isDeadDescription')}
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="max-w-7xl mx-auto mt-12 px-8">
       <div className="my-20 flex justify-center items-center">
-        {/* <Game /> */}
+        <Game />
       </div>
     </div>
   );
