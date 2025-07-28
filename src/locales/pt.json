@@ -179,6 +179,8 @@
     "game": {
         "noBetaKey": "Você não tem uma chave beta",
         "noBetaKeyDescription": "Peça a um amigo na comunidade Discord do Mythic Miners",
+        "maintenance": "Manutenção",
+        "maintenanceDescription": "Estamos em manutenção. Avisaremos no Discord quando tudo estiver finalizado.",
         "isDead": "Você morreu!",
         "isDeadDescription": "Você poderá jogar novamente amanhã."
     },

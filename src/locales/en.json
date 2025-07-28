@@ -179,6 +179,8 @@
     "game": {
         "noBetaKey": "You don't have a beta key",
         "noBetaKeyDescription": "Ask a friend in the Mythic Miners Discord community",
+        "maintenance": "Maintenance",
+        "maintenanceDescription": "We are in maintenance. We will announce on Discord when everything is finished.",
         "isDead": "You died!",
         "isDeadDescription": "You will be able to play again tomorrow."
     },
