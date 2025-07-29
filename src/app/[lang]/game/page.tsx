@@ -1,34 +1,34 @@
 'use client';
 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import useGameQuery from '@/api/game';
+// import useGameQuery from '@/api/game';
 
 export default function GamePage() {
   const { t } = useTranslation();
-  const { data: game, isPending } = useGameQuery();
+  // const { data: game, isPending } = useGameQuery();
 
-  useEffect(() => {
-    const checkAndReload = () => {
-      const now = new Date();
-      const utcHours = now.getUTCHours();
-      const utcMinutes = now.getUTCMinutes();
+  // useEffect(() => {
+  //   const checkAndReload = () => {
+  //     const now = new Date();
+  //     const utcHours = now.getUTCHours();
+  //     const utcMinutes = now.getUTCMinutes();
 
-      if (utcHours === 0 && utcMinutes === 0) {
-        window.location.reload();
-      }
-    };
+  //     if (utcHours === 0 && utcMinutes === 0) {
+  //       window.location.reload();
+  //     }
+  //   };
 
-    const timeout = setTimeout(() => {
-      checkAndReload();
-      const interval = setInterval(checkAndReload, 30000);
+  //   const timeout = setTimeout(() => {
+  //     checkAndReload();
+  //     const interval = setInterval(checkAndReload, 30000);
 
-      return () => clearInterval(interval);
-    }, 60000);
+  //     return () => clearInterval(interval);
+  //   }, 60000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   if (true) {
     return (
