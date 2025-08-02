@@ -8,10 +8,10 @@ export default function Game() {
   const [isRequestLoading, setIsRequestLoading] = useState(false);
   const { addEventListener, removeEventListener, unityProvider, isLoaded } =
     useUnityContext({
-      loaderUrl: '/assets/game/mythicminers.loader.js',
-      dataUrl: '/assets/game/mythicminers.data',
-      frameworkUrl: '/assets/game/mythicminers.framework.js',
-      codeUrl: '/assets/game/mythicminers.wasm',
+      loaderUrl: '/assets/game2/mythicminers.loader.js',
+      dataUrl: '/assets/game2/mythicminers.data',
+      frameworkUrl: '/assets/game2/mythicminers.framework.js',
+      codeUrl: '/assets/game2/mythicminers.wasm',
     });
 
   useEffect(() => {
