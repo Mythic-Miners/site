@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useGameQuery from '@/api/game';
-import Game from '@/components/ui/Game2';
+import Game from '@/components/ui/Game';
 
 export default function GamePage() {
   const { t } = useTranslation();
