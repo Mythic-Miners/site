@@ -14,6 +14,7 @@ import type { InventoryItem } from '@/api/inventory';
 import {
   type GachaResponse,
   useGachaBuyMutation,
+  useGachaInGameBuyMutation,
   useGachaMutation,
 } from '@/api/inventory';
 import { amazoniteTransferContract } from '@/contracts/amazonite';
@@ -22,6 +23,7 @@ import { getRarityColor } from '@/lib/consts';
 interface GachaProps {
   onRefetchInventory: () => void;
   gachaVouchers: number;
+  gameAmazonites: number;
 }
 
 const GACHA_PRICE = 80;
@@ -73,6 +75,7 @@ function extractRevertReason(errorString: string): string | null {
 export default function Gacha({
   onRefetchInventory,
   gachaVouchers,
+  gameAmazonites,
 }: GachaProps) {
   const { t } = useTranslation();
   const account = useActiveAccount();
@@ -100,6 +103,12 @@ export default function Gacha({
     isSuccess: isGachaBuySuccess,
     data: gachaBuyData,
   } = useGachaBuyMutation();
+
+  const {
+    mutate: gachaInGameBuyMutate,
+    isPending: isGachaInGameBuyPending,
+    isSuccess: isGachaInGameBuySuccess,
+  } = useGachaInGameBuyMutation();
 
   useEffect(() => {
     setVouchers(gachaVouchers);
@@ -170,8 +179,8 @@ export default function Gacha({
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         {/* Gacha Animation */}
-        <div className="bg-indigo-950 p-6 rounded-lg border-2 border-black">
-          <h2 className="text-2xl font-bold text-cyan-500 mb-6 mythic-text-shadow">
+        <div className="bg-indigo-950 p-6 rounded-lg border-2 border-black flex flex-col justify-between">
+          <h2 className="text-2xl font-bold text-cyan-500 mythic-text-shadow">
             {t('inventory.gacha.title')}
           </h2>
 
@@ -435,6 +444,84 @@ export default function Gacha({
                 {`${t('inventory.gacha.buyVouchers')} ${quantity || 0}x${GACHA_PRICE} - ${totalCost || 0} $AMZ`}
               </TransactionButton>
             </div>
+            <Button
+              onPress={() => {
+                if (gameAmazonites < totalCost) {
+                  addToast({
+                    title: t('inventory.gacha.notEnoughAMZ'),
+                    description: t('inventory.gacha.notEnoughAMZDescription'),
+                    color: 'danger',
+                    variant: 'flat',
+                  });
+                }
+
+                gachaInGameBuyMutate(quantity, {
+                  onSuccess: () => {
+                    addToast({
+                      title: t('inventory.gacha.successTitle'),
+                      description: t('inventory.gacha.successDescription', {
+                        quantity: quantity,
+                      }),
+                      color: 'success',
+                      variant: 'flat',
+                    });
+                    onRefetchInventory();
+                  },
+                  onError: (error) => {
+                    console.log('error', error);
+                    addToast({
+                      title: t('inventory.gacha.errorTitle'),
+                      description: t('inventory.gacha.errorDescription'),
+                      color: 'danger',
+                      variant: 'flat',
+                    });
+                  },
+                });
+              }}
+              isDisabled={gameAmazonites < totalCost || isGachaInGameBuyPending}
+              className={`border-2 border-black w-full bg-gradient-to-r from-[#1ae9ea] to-[#20a2a3] text-black font-bold py-3 px-6 rounded-lg break-words`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                {isGachaInGameBuyPending ? (
+                  <div>
+                    <svg
+                      className="animate-spin h-4 w-4 text-black"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-50"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      ></circle>
+                      <path
+                        fill="currentColor"
+                        d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                ) : (
+                  <>
+                    {t('inventory.gacha.buyVouchersInGame')}{' '}
+                    {`${quantity || 0}x${GACHA_PRICE} - ${totalCost || 0} $AMZ`}
+                    <span className="flex items-center gap-1 rounded-md bg-white/30 p-1">
+                      {gameAmazonites}{' '}
+                      <Image
+                        src="/assets/images/in-game-amz.png"
+                        alt="Amazonite"
+                        className="w-4 h-4"
+                        height={16}
+                        width={16}
+                      />
+                    </span>
+                  </>
+                )}
+              </div>
+            </Button>
           </div>
         </div>
       </div>

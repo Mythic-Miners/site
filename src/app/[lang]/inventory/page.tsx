@@ -63,6 +63,7 @@ export default function InventoryPage() {
         <Gacha
           onRefetchInventory={refetchInventory}
           gachaVouchers={inventoryData?.data?.gachaVouchers || 0}
+          gameAmazonites={inventoryData?.data?.gameAmazonites || 0}
         />
 
         {/* Forge Section */}

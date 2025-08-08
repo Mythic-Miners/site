@@ -22,6 +22,7 @@ export interface InventoryItem {
 }
 
 export interface Inventory {
+  gameAmazonites: number;
   gachaVouchers: number;
   inventory: InventoryItem[];
   summary: {
@@ -44,6 +45,12 @@ export interface GachaResponse {
         display_type?: string;
       }>;
     };
+    message: string;
+  };
+}
+
+export interface GachaInGameBuyResponse {
+  data: {
     message: string;
   };
 }
@@ -92,6 +99,27 @@ export const useGachaBuyMutation = () =>
           credentials: 'include',
           body: JSON.stringify({
             transactionHash,
+          }),
+        },
+      );
+      if (!response.ok) throw new Error('Failed to call gacha');
+      return response.json();
+    },
+  });
+
+export const useGachaInGameBuyMutation = () =>
+  useMutation<GachaInGameBuyResponse, Error, number>({
+    mutationFn: async (vouchers: number) => {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/inventory/gacha/in-game-buy`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            vouchers,
           }),
         },
       );
