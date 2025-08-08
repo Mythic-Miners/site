@@ -104,11 +104,8 @@ export default function Gacha({
     data: gachaBuyData,
   } = useGachaBuyMutation();
 
-  const {
-    mutate: gachaInGameBuyMutate,
-    isPending: isGachaInGameBuyPending,
-    isSuccess: isGachaInGameBuySuccess,
-  } = useGachaInGameBuyMutation();
+  const { mutate: gachaInGameBuyMutate, isPending: isGachaInGameBuyPending } =
+    useGachaInGameBuyMutation();
 
   useEffect(() => {
     setVouchers(gachaVouchers);
