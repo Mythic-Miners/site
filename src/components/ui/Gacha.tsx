@@ -24,9 +24,11 @@ interface GachaProps {
   onRefetchInventory: () => void;
   gachaVouchers: number;
   gameAmazonites: number;
+  isVip: boolean;
 }
 
-const GACHA_PRICE = 80;
+const GACHA_PRICE_VIP = 80;
+const GACHA_PRICE_REGULAR = 100;
 
 const launchConfetti = () => {
   confetti('tsparticles', {
@@ -76,10 +78,13 @@ export default function Gacha({
   onRefetchInventory,
   gachaVouchers,
   gameAmazonites,
+  isVip,
 }: GachaProps) {
   const { t } = useTranslation();
   const account = useActiveAccount();
   const address = useMemo(() => account?.address, [account]);
+
+  const GACHA_PRICE = isVip ? GACHA_PRICE_VIP : GACHA_PRICE_REGULAR;
   const [gachaResult, setGachaResult] = useState<GachaResponse | null>(null);
   const {
     mutate: gachaMutate,
@@ -347,6 +352,59 @@ export default function Gacha({
             </div>
           </div>
           <div className="space-y-2">
+            {/* VIP Pricing Visual */}
+            <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border border-amber-500/30 rounded-lg p-3 mb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  {isVip ? (
+                    <>
+                      <div className="flex items-center gap-1">
+                        <span className="text-amber-400 text-lg">👑</span>
+                        <span className="text-amber-400 font-bold text-sm">
+                          {t('inventory.gacha.vipPrice')}
+                        </span>
+                      </div>
+                      <span className="text-green-400 font-bold">
+                        {GACHA_PRICE_VIP} $AMZ
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-gray-400 text-sm">
+                        {t('inventory.gacha.regularPrice')}
+                      </span>
+                      <span className="text-white font-bold">
+                        {GACHA_PRICE_REGULAR} $AMZ
+                      </span>
+                    </>
+                  )}
+                </div>
+                <div className="text-right">
+                  {isVip ? (
+                    <div className="text-xs">
+                      <span className="text-gray-400 line-through">
+                        {GACHA_PRICE_REGULAR} $AMZ
+                      </span>
+                      <div className="text-green-400 font-bold">
+                        {t('inventory.gacha.saveAmount', { amount: 20 })}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-xs text-amber-400">
+                      <div>
+                        {t('inventory.gacha.vipDiscount', {
+                          price: GACHA_PRICE_VIP,
+                        })}
+                      </div>
+                      <div className="text-green-400">
+                        {t('inventory.gacha.saveAmount', { amount: 20 })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
             {/* Quantity Input and Discount Flag */}
             <div className="flex items-center gap-3">
               <div className="flex-1">

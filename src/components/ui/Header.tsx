@@ -39,6 +39,11 @@ export default function Header() {
       current: pathname === `/${language}/game`,
     },
     {
+      name: t('footer.quickLinks.vip'),
+      href: `/${language}/vip`,
+      current: pathname === `/${language}/vip`,
+    },
+    {
       name: 'ICO',
       href: 'https://ico.mythicminers.com',
       current: false,

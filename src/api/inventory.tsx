@@ -31,6 +31,7 @@ export interface Inventory {
     totalRelics: number;
     totalNFTs: number;
   };
+  isVip: boolean;
 }
 
 export interface GachaResponse {

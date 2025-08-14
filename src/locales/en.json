@@ -112,7 +112,8 @@
             "title": "Quick Links",
             "whitepaper": "Whitepaper",
             "icoDocument": "ICO Document",
-            "game": "Game"
+            "game": "Game",
+            "vip": "VIP"
         },
         "legal": {
             "title": "Legal",
@@ -172,6 +173,32 @@
         "vip_6_months": "VIP 6 Months",
         "vip_infinity": "VIP Forever"
     },
+    "vip": {
+        "title": "Become a VIP",
+        "subtitle": "Unlock exclusive benefits and dominate the mines like never before",
+        "exclusive": "EXCLUSIVE ACCESS",
+        "benefitsTitle": "VIP Benefits",
+        "benefitsSubtitle": "Get powerful advantages that will transform your mining experience",
+        "benefits": {
+            "extraLife": "One extra life per day",
+            "doubleAmazonites": "Double Amazonites on NPC Bud Mombiatis",
+            "gachaDiscount": "Gacha voucher discount",
+            "shopDiscount": "Discounts at High Yena's Shop"
+        },
+        "plansTitle": "Choose Your Plan",
+        "plansSubtitle": "Select the perfect VIP package for your mining journey",
+        "mostPopular": "MOST POPULAR",
+        "save": "Save",
+        "price": "{{price}} POL",
+        "buyButton": "Buy VIP",
+        "processing": "Processing...",
+        "confirm": "Confirm purchase: {{plan}} for {{price}} POL?",
+        "successTitle": "Success",
+        "successDescription": "Your VIP subscription was requested successfully.",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to request VIP subscription.",
+        "guarantee": "✨ Instant activation"
+    },
     "beta": {
         "title": "BETA Key",
         "quantity": "Quantity: {{quantity}}"
@@ -220,7 +247,11 @@
             "successTitle": "Success!",
             "successDescription": "{{quantity}} vouchers purchased successfully!",
             "errorTitle": "Error!",
-            "errorDescription": "Failed to purchase vouchers. Please try again."
+            "errorDescription": "Failed to purchase vouchers. Please try again.",
+            "vipPrice": "VIP Price",
+            "regularPrice": "Price",
+            "saveAmount": "Save {{amount}} $AMZ!",
+            "vipDiscount": "👑 VIP: {{price}} $AMZ"
         },
         "forge": {
             "title": "Equipment Forge",

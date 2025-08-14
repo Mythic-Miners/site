@@ -64,6 +64,7 @@ export default function InventoryPage() {
           onRefetchInventory={refetchInventory}
           gachaVouchers={inventoryData?.data?.gachaVouchers || 0}
           gameAmazonites={inventoryData?.data?.gameAmazonites || 0}
+          isVip={inventoryData?.data?.isVip || false}
         />
 
         {/* Forge Section */}
