@@ -17,7 +17,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([{
-    extends: compat.extends("next/core-web-vitals", "plugin:prettier/recommended"),
+    extends: compat.extends("next/core-web-vitals"),
 
     rules: {
         "prettier/prettier": ["error", {
@@ -27,7 +27,7 @@ export default defineConfig([{
     },
 }, {
     files: ["**/*.ts", "**/*.tsx", "**/*.mts"],
-    extends: compat.extends("next/core-web-vitals", "plugin:prettier/recommended"),
+    extends: compat.extends("next/core-web-vitals"),
 
     plugins: {
         "@typescript-eslint": typescriptEslint,

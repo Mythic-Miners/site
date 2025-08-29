@@ -128,3 +128,55 @@ export const useGachaInGameBuyMutation = () =>
       return response.json();
     },
   });
+
+export interface MergeResponse {
+  data: {
+    transactionHash: string;
+    burnedTokenIds: string[];
+    newTokenId: number;
+    newEquipment: any;
+    message: string;
+  };
+}
+
+export const useMergeMutation = () =>
+  useMutation<MergeResponse, Error, { transactionHash: string, equipmentTokenIds: number[] }>({
+    mutationFn: async (payload: { transactionHash: string, equipmentTokenIds: number[] }) => {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/inventory/merge`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            ...payload,
+          }),
+        },
+      );
+      if (!response.ok) throw new Error('Failed to process merge');
+      return response.json();
+    },
+  });
+
+export const useMergeInGameMutation = () =>
+  useMutation<MergeResponse, Error, number[]>({
+    mutationFn: async (equipmentTokenIds: number[]) => {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/inventory/merge/in-game`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            equipmentTokenIds,
+          }),
+        },
+      );
+      if (!response.ok) throw new Error('Failed to process merge');
+      return response.json();
+    },
+  });

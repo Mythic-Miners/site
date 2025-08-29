@@ -68,7 +68,12 @@ export default function InventoryPage() {
         />
 
         {/* Forge Section */}
-        <Forge />
+        <Forge
+          inventoryItems={inventoryItems}
+          onRefetchInventory={refetchInventory}
+          gameAmazonites={inventoryData?.data?.gameAmazonites || 0}
+          isVip={inventoryData?.data?.isVip || false}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
           <div className="col-span-1 h-full">
