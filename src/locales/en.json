@@ -1,418 +1,421 @@
 {
-    "authButtom": {
-        "logIn": "Log in"
+  "authButtom": {
+    "logIn": "Log in"
+  },
+  "metadata": {
+    "title": "Mythic Miners: Unearth Your Fortune",
+    "description": "Dive into the mystical world of Mythic Miners, a Web 3 game where you explore caves, mine rocks, upgrade your miner, trade NFTs, and win real money. Start your adventure now!"
+  },
+  "hero": {
+    "title": "Mythic Miners"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "language": "Language",
+    "english": "English",
+    "portuguese": "Portuguese",
+    "viewMyTokens": "View my tokens",
+    "back": "Back",
+    "close": "Close",
+    "loading": "Loading..."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "errors": {
+    "general": "Something went wrong",
+    "notFound": "Page not found"
+  },
+  "tokenPurchase": {
+    "title": "$AMZ Presale",
+    "stage": {
+      "label": "Stage",
+      "description": "Each stage has exclusive benefits. Participate now — the presale is limited to one purchase per wallet!"
     },
-    "metadata": {
-        "title": "Mythic Miners: Unearth Your Fortune",
-        "description": "Dive into the mystical world of Mythic Miners, a Web 3 game where you explore caves, mine rocks, upgrade your miner, trade NFTs, and win real money. Start your adventure now!"
+    "bonus": {
+      "label": "Bonus",
+      "description": "Bonus Tokens: Get {{bonus}}% extra tokens on your purchase"
     },
-    "hero": {
-        "title": "Mythic Miners"
+    "staking": {
+      "label": "Staking APR",
+      "description": "{{apr}}% Annual Percentage Rate"
     },
-    "common": {
-        "welcome": "Welcome",
-        "language": "Language",
-        "english": "English",
-        "portuguese": "Portuguese",
-        "viewMyTokens": "View my tokens",
-        "back": "Back",
-        "close": "Close",
-        "loading": "Loading..."
+    "vesting": {
+      "period": "Vesting Period: {{period}} months linear vesting",
+      "cliff": "Cliff Period: 1 month"
     },
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "contact": "Contact"
+    "tokenRate": "1 POL = {{rate}} Amazonite",
+    "form": {
+      "amount": {
+        "label": "Amount",
+        "placeholder": "100",
+        "minAmount": "Minimum of 100 POL"
+      },
+      "summary": {
+        "purchased": "Amazonite purchased:",
+        "bonus": "Amazonite bonus:",
+        "total": "Total Amazonite:"
+      },
+      "connectWallet": "Connect Wallet",
+      "contractAddress": "Contract: 0x37d2634b5e56c124ebf78b97aa851a872d05a75a",
+      "howToTransfer": "How to transfer funds"
     },
-    "errors": {
-        "general": "Something went wrong",
-        "notFound": "Page not found"
-    },
-    "tokenPurchase": {
-        "title": "$AMZ Presale",
-        "stage": {
-            "label": "Stage",
-            "description": "Each stage has exclusive benefits. Participate now — the presale is limited to one purchase per wallet!"
-        },
-        "bonus": {
-            "label": "Bonus",
-            "description": "Bonus Tokens: Get {{bonus}}% extra tokens on your purchase"
-        },
-        "staking": {
-            "label": "Staking APR",
-            "description": "{{apr}}% Annual Percentage Rate"
-        },
-        "vesting": {
-            "period": "Vesting Period: {{period}} months linear vesting",
-            "cliff": "Cliff Period: 1 month"
-        },
-        "tokenRate": "1 POL = {{rate}} Amazonite",
-        "form": {
-            "amount": {
-                "label": "Amount",
-                "placeholder": "100",
-                "minAmount": "Minimum of 100 POL"
-            },
-            "summary": {
-                "purchased": "Amazonite purchased:",
-                "bonus": "Amazonite bonus:",
-                "total": "Total Amazonite:"
-            },
-            "connectWallet": "Connect Wallet",
-            "contractAddress": "Contract: 0x37d2634b5e56c124ebf78b97aa851a872d05a75a",
-            "howToTransfer": "How to transfer funds"
-        },
-        "tiers": {
-            "tier1": {
-                "title": "Mythic Pioneer",
-                "description": "{{percentage}}% bonus on ICO tokens + Rare relic NFT that increases your daily token transfer in the game from 5% to 8%",
-                "minAmount": "Minimum of 100 POL"
-            },
-            "tier2": {
-                "title": "Epic Explorer",
-                "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game from 10% to 15%",
-                "minAmount": "Minimum of 500 POL"
-            },
-            "tier3": {
-                "title": "Legendary Visionary",
-                "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game from 20% to 25%",
-                "minAmount": "Minimum of 2.500 POL"
-            },
-            "tier4": {
-                "title": "Timeless Guardian",
-                "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game from 40% to 45%",
-                "minAmount": "Minimum of 5.000 POL"
-            },
-            "tier5": {
-                "title": "Ultimate Pack",
-                "description": "{{percentage}}% bonus on ICO tokens + 2 Timeless relic NFT + 1 Legendary relic NFT + 1 Epic relic NFT ",
-                "minAmount": "Minimum of 10.000 POL"
-            }
-        }
-    },
-    "socialProof": {
-        "technologies": {
-            "title": "Our Technologies"
-        },
-        "community": {
-            "title": "Join Our Community",
-            "description": "Stay updated with the latest news, participate in exclusive events, and connect with other Miners through our social media channels."
-        },
-        "socialLinks": {
-            "twitter": "Twitter",
-            "discord": "Discord",
-            "game": "Game",
-            "instagram": "Instagram",
-            "email": "Email"
-        }
-    },
-    "footer": {
-        "description": "Mine, collect, and trade legendary artifacts in a world of adventure",
-        "quickLinks": {
-            "title": "Quick Links",
-            "whitepaper": "Whitepaper",
-            "icoDocument": "ICO Document",
-            "game": "Game",
-            "vip": "VIP"
-        },
-        "legal": {
-            "title": "Legal",
-            "terms": "Terms of Service",
-            "privacy": "Privacy Policy"
-        },
-        "copyright": "© 2024 Mythic Miners. All rights reserved."
-    },
-    "transferTokens": {
-        "tooltip": "Connect your wallet to purchase $AMZ",
-        "button": {
-            "default": "Purchase $AMZ",
-            "processing": "Processing..."
-        },
-        "confirmTransaction": "Are you sure you want to make this transaction?"
-    },
-    "tokensPage": {
-        "investment": "Connect your wallet to track your tokens",
-        "invested": "Invested",
-        "title": "My Tokens",
-        "back": "Back",
-        "principal": "Principal Investment",
-        "bonus": "Bonus Tokens",
-        "totalInvestment": "Total Investment",
-        "balance": "Balance",
-        "totalBalance": "Total Balance",
-        "claimable": "Claimable",
-        "claimableTokens": "Claimable Tokens",
-        "staking": "Staking",
-        "totalClaimable": "Total Claimable",
-        "claim": "Claim Tokens",
-        "nextClaim": "Next claim available at",
-        "temp": "Soon you will be able to view and track all your tokens here. But don't worry, your staking is already running!",
-        "didNotParticipate": "You didn't invest in the presale yet. Participate in the presale to view your tokens.",
-        "claimableDate": "Claim available at: {{date}}",
-        "cliff": "You are in the cliff period, you will be able to track your tokens on the day {{date}}.",
-        "notAvailable": "Value to be determined"
-    },
-    "airdrop": {
-        "title": "Airdrop",
-        "totalTokens": "Total Tokens",
-        "claimableTokens": "Claimable",
-        "pendingTokens": "Balance",
-        "items": "Airdrop Items",
-        "mint": "Mint",
-        "minted": "Minted",
-        "leaderboard": "Leaderboard",
-        "claimConfirmation": "Are you sure you want to claim your tokens?",
-        "noItems": "No items available",
-        "alreadyMinted": "You have already minted your tokens",
-        "error": "Error minting airdrop",
-        "toastMinted": "Tokens minted successfully"
-    },
-    "subscription": {
-        "vip_1_month": "VIP 1 Month",
-        "vip_3_months": "VIP 3 Months",
-        "vip_6_months": "VIP 6 Months",
-        "vip_infinity": "VIP Forever"
-    },
-    "vip": {
-        "title": "Become a VIP",
-        "subtitle": "Unlock exclusive benefits and dominate the mines like never before",
-        "exclusive": "EXCLUSIVE ACCESS",
-        "benefitsTitle": "VIP Benefits",
-        "benefitsSubtitle": "Get powerful advantages that will transform your mining experience",
-        "benefits": {
-            "extraLife": "One extra life per day",
-            "doubleAmazonites": "Double Amazonites on NPC Bud Mombiatis",
-            "gachaDiscount": "Gacha voucher discount",
-            "shopDiscount": "Discounts at High Yena's Shop"
-        },
-        "plansTitle": "Choose Your Plan",
-        "plansSubtitle": "Select the perfect VIP package for your mining journey",
-        "mostPopular": "MOST POPULAR",
-        "save": "Save",
-        "price": "{{price}} POL",
-        "buyButton": "Buy VIP",
-        "processing": "Processing...",
-        "confirm": "Confirm purchase: {{plan}} for {{price}} POL?",
-        "successTitle": "Success",
-        "successDescription": "Your VIP subscription was requested successfully.",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to request VIP subscription.",
-        "guarantee": "✨ Instant activation"
-    },
-    "beta": {
-        "title": "BETA Key",
-        "quantity": "Quantity: {{quantity}}"
-    },
-    "game": {
-        "noBetaKey": "You don't have a beta key",
-        "noBetaKeyDescription": "Ask a friend in the Mythic Miners Discord community",
-        "maintenance": "Maintenance",
-        "maintenanceDescription": "We are in maintenance. We will announce on Discord when everything is finished.",
-        "isDead": "You died!",
-        "isDeadDescription": "You will be able to play again tomorrow."
-    },
-    "inventory": {
-        "title": "Inventory",
-        "gacha": {
-            "title": "Gacha",
-            "play": "Play Gacha and Mint NFT",
-            "playing": "Playing and minting...",
-            "info": "Gacha Information",
-            "vouchers": "Vouchers",
-            "description": "Use vouchers to play gacha and get rare equipment! Each voucher gives you a chance to win amazing items.",
-            "legendary": "Legendary",
-            "epic": "Epic",
-            "rare": "Rare",
-            "common": "Common",
-            "buyVouchers": "Buy Vouchers",
-            "buyVouchersInGame": "Buy with game AMZ",
-            "notEnoughAMZ": "You don't have enough AMZ",
-            "notEnoughAMZDescription": "You need more AMZ to buy vouchers.",
-            "result": "Gacha Result",
-            "congratulations": "Congratulations! You got a new item!",
-            "equipmentTypes": "Equipment Types",
-            "rarities": "Rarities",
-            "grades": "Grades",
-            "uncommon": "Uncommon",
-            "gradeC": "Grade C",
-            "gradeB": "Grade B",
-            "gradeA": "Grade A",
-            "gradeS": "Grade S",
-            "quantity": "Quantity",
-            "pricePerVoucher": "Price per Voucher",
-            "discount": "Discount",
-            "total": "Total",
-            "playingToastTitle": "Playing Gacha: Good luck!!",
-            "playingToastDescription": "Please wait... Your luck is being decided! This may take a few seconds.",
-            "successTitle": "Success!",
-            "successDescription": "{{quantity}} vouchers purchased successfully!",
-            "errorTitle": "Error!",
-            "errorDescription": "Failed to purchase vouchers. Please try again.",
-            "vipPrice": "VIP Price",
-            "regularPrice": "Price",
-            "saveAmount": "Save {{amount}} $AMZ!",
-            "vipDiscount": "👑 VIP: {{price}} $AMZ"
-        },
-        "forge": {
-            "title": "Equipment Forge",
-            "info": "Forge Information",
-            "comingSoon": "Coming Soon",
-            "comingSoonDescription": "The forge system is coming soon! You'll be able to forge equipment to create powerful new items.",
-            "features": "Features",
-            "feature1": "Forge three equipment of the same type",
-            "feature2": "Create higher rarity equipment",
-            "feature3": "Upgrade equipment grades",
-            "feature4": "Chance for critical success",
-            "upgradeChances": "Upgrade Chances",
-            "success": "Success",
-            "criticalSuccess": "Critical Success",
-            "failure": "Failure",
-            "selectEquipment": "Select Equipments",
-            "mergeInGame": "Forge with game AMZ",
-            "merge": "Forge Equipment",
-            "merging": "Forging...",
-            "mergeSuccess": "Forge Successful!",
-            "mergeError": "Forge Failed",
-            "mergeInitiated": "Forge transaction initiated",
-            "maxItemsSelected": "Maximum 4 items can be selected",
-            "required": "Required",
-            "optional": "Optional",
-            "mergeCost": "Forge Cost",
-            "costNote": "Cost is automatically deducted from your AMZ balance",
-            "currentMerge": "Current Forge",
-            "highestGrade": "Highest Grade",
-            "sameGrade": "Same Grade",
-            "upgrade": "Upgrade",
-            "downgrade": "Downgrade",
-            "rules": "Forge Rules",
-            "rule1": "🎮 Use 3 or 4 equipment of the same rarity to forge a new equipment of superior rarity",
-            "rule2": "🎯 If you use 3 or more of the same type: the new one will be of that type",
-            "rule3": "🎲 If they are different: the game randomly selects between types using Gacha values",
-            "rule4": "⭐ Whenever you use an S level equipment, the final result will always be guaranteed S ✨",
-            "rule5": "📊 For equipment below S level, a probability is calculated within the levels of equipment used",
-            "rule6": "🎁 Receive a 10% bonus success chance when upgrading using the fourth equipment",
-            "confirmSelection": "Confirm Selection",
-            "noForgeableItems": "No forgeable equipment found in your inventory",
-            "selectedItems": "Selected Items",
-            "inputEquipment": "Input Equipment",
-            "resultEquipment": "Result Equipment",
-            "selectMoreItems": "Select {{count}} more items",
-            "readyToMerge": "Ready to forge!",
-            "costBreakdown": "Cost breakdown",
-            "howItWorks": "How It Works",
-            "howItWorksDesc": "The forge is like combining small toys to create a cooler one! Combine 3-4 equipment to create a new, more powerful one.",
-            "step1": "Select Equipment",
-            "step1Desc": "Choose 3-4 items from your inventory. Higher grade items increase your chances of getting better results.",
-            "step2": "Pay Fee",
-            "step2Desc": "Pay 250 AMZ tokens to initiate the forge. This fee is automatically deducted from your balance.",
-            "step3": "Receive Result",
-            "step3Desc": "Get a new equipment based on probabilities. The result depends on the grades of your input items.",
-            "gradeExplanation": "The highest grade among your selected equipment determines the base probability for the result.",
-            "sameGradeDesc": "Keep the same grade as your highest input item",
-            "upgradeDesc": "Get a higher grade than your highest input item",
-            "downgradeDesc": "Get a lower grade than your highest input item",
-            "equipmentTypes": "Equipment Type Probabilities",
-            "helmet": "Helmet",
-            "jetpack": "Jetpack",
-            "belt": "Belt",
-            "pickaxe": "Pickaxe",
-            "armor": "Armor",
-            "trinket": "Trinket",
-            "rule1Desc": "🎮 Combine 3 or 4 of your equipment to create a new, more powerful equipment!",
-            "rule2Desc": "🎯 If you have 3 or more equipment of the same type, you get an equipment of that type. If they're different, the game randomly selects!",
-            "rule3Desc": "⭐ If you use any S grade equipment, the result will always be S! It's the most guaranteed way to get a super rare equipment.",
-            "rule4Desc": "💰 Each forge costs 250 AMZ tokens. Make sure you have sufficient balance before attempting.",
-            "tips": "💡 Forge Tips",
-            "tip1": "Use S grade equipment if you want to guarantee an S result! 🌟",
-            "tip2": "Combine equipment of the same type to have more control over the result",
-            "tip3": "Save AMZ for multiple attempts and maximize your chances",
-            "tip4": "Trinkets are rarer (5% chance), so use strategy!",
-            "modalTitle": "Select Equipment for Forge",
-            "modalSubtitle": "Choose equipment of the same rarity",
-            "rarityFilter": "Filter by Rarity",
-            "rarityFilterDesc": "Click on a rarity to filter equipment (optional)",
-            "sameRarityRequired": "⚠️ Only equipment of the same rarity can be forged together",
-            "selectRarityFirst": "First select a rarity to begin",
-            "noItemsForRarity": "No equipment found for this rarity",
-            "rarityUncommon": "Uncommon",
-            "rarityRare": "Rare",
-            "rarityEpic": "Epic",
-            "rarityLegendary": "Legendary",
-            "rarityTimeless": "Timeless",
-            "showAll": "Show All"
-        },
-        "equipped": {
-            "title": "Equipped Items"
-        },
-        "slots": {
-            "helmet": "Helmet",
-            "relic": "Relic",
-            "jetpack": "Jetpack",
-            "pickaxe": "Pickaxe",
-            "armour": "Armour",
-            "trinket": "Trinket",
-            "belt": "Belt"
-        },
-        "allItems": {
-            "title": "All Items",
-            "empty": "No items in inventory"
-        }
-    },
-    "item": {
-        "details": {
-            "overview": "Overview",
-            "category": "Category",
-            "tokenId": "Token ID",
-            "description": "Description",
-            "attributes": "Attributes",
-            "rarity": "Rarity"
-        },
-        "actions": {
-            "equip": "Equip Item",
-            "equipping": "Equipping...",
-            "transfer": "Transfer",
-            "unequip": "Unequip",
-            "unequipping": "Unequipping...",
-            "unequipSuccess": "Item unequipped successfully!"
-        },
-        "transaction": {
-            "error": "Error",
-            "missingData": "Missing required data for transaction",
-            "transactionSent": "Transaction Sent",
-            "approvingAndEquipping": "Approving and equipping item, please wait...",
-            "approvingAndUnequipping": "Approving and unequipping item, please wait...",
-            "itemEquipped": "Item Equipped!",
-            "itemEquippedSuccess": "has been approved and equipped successfully!",
-            "itemUnequipped": "Item Unequipped!",
-            "itemUnequippedSuccess": "has been approved and unequipped successfully!",
-            "transactionFailed": "Transaction Failed",
-            "failedToEquip": "Failed to approve and equip item",
-            "insufficientFunds": "Insufficient Funds",
-            "insufficientFundsDetails": "Required: {{required}} POL | Your balance: {{balance}} POL",
-            "failedToPrepare": "Failed to prepare transaction",
-            "itemAlreadyEquipped": "Item cannot be equipped. It may already be equipped or there may be a contract validation issue.",
-            "approvalFailed": "Item approval failed. Please ensure you own this item and try again.",
-            "notOwner": "You do not own this item or it has already been transferred."
-        },
-        "rarity": {
-            "legendary": {
-                "description": "Ultra-rare items with exceptional power and unique abilities."
-            },
-            "epic": {
-                "description": "Very rare items with significant bonuses and enhanced capabilities."
-            },
-            "rare": {
-                "description": "Uncommon items with moderate bonuses and improved performance."
-            },
-            "common": {
-                "description": "Standard items with basic functionality and attributes."
-            }
-        }
-    },
-    "termsOfUse": {
-        "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Terms of Use</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Welcome to Mythic Miners. These Terms of Use ('Terms') govern your use of our website/application and the services provided by Mythic Miners ('we', 'our', or 'us').</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Acceptance of Terms</h2><p style='margin: 8px 0;'>By accessing or using our website/application, you unconditionally agree to comply with and be legally bound by these Terms and our Privacy Policy. If you do not agree with any of these terms, you must immediately cease using our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Changes to Terms</h2><p style='margin: 8px 0;'>We reserve the right to modify these Terms at any time and at our sole discretion. Changes will be posted on this page with the 'Last Updated' date. It is your responsibility to review the Terms periodically. Continued use of the website/application after any changes constitutes your acceptance of the new Terms.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Use of the Website/App</h2><p style='margin: 8px 0;'><strong>a.</strong> You agree to use our website/application solely for lawful purposes and in accordance with these Terms.</p><p style='margin: 8px 0;'><strong>b.</strong> You must not use our website/application in any manner that could damage, disable, overburden, or impair our servers or networks.</p><p style='margin: 8px 0;'><strong>c.</strong> You must not attempt to gain unauthorized access to any part of our website/application, other accounts, computer systems, or networks connected to our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. User Content</h2><p style='margin: 8px 0;'><strong>a.</strong> Any content you submit, post, or display on the website/application will be your sole responsibility.</p><p style='margin: 8px 0;'><strong>b.</strong> By submitting User Content, you grant us a worldwide, perpetual, irrevocable, non-exclusive, royalty-free, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform that User Content in connection with the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Intellectual Property Rights</h2><p style='margin: 8px 0;'>All content, including text, graphics, logos, images, and software, is the property of Mythic Miners or its licensors and is protected by copyright and other intellectual property laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Disclaimer of Warranties</h2><p style='margin: 8px 0;'>Our website/application is provided 'as is' and 'as available,' without warranties of any kind, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the website/application will be uninterrupted, error-free, or secure.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. Limitation of Liability</h2><p style='margin: 8px 0;'>To the maximum extent permitted by applicable law, Mythic Miners and its directors, employees, agents, affiliates, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from: (i) your use or inability to use our website/application; (ii) any conduct or content of any third party on the website/application; (iii) any content obtained from the website/application; and (iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damages.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Indemnification</h2><p style='margin: 8px 0;'>You agree to defend, indemnify, and hold harmless Mythic Miners, its directors, employees, agents, affiliates, and partners from any claims, damages, obligations, losses, liabilities, costs, or debts and expenses (including but not limited to attorney's fees) arising from: (i) your use and access to the website/application; (ii) your violation of any term of these Terms; (iii) your violation of any third-party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that your User Content caused damage to a third party.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Governing Law</h2><p style='margin: 8px 0;'>These Terms shall be governed and construed in accordance with the laws of [your state or country], without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located within [specific locality] to resolve any dispute arising from these Terms or the use of the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>10. General Provisions</h2><p style='margin: 8px 0;'>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect. These Terms constitute the entire agreement between you and Mythic Miners regarding the use of the website/application, superseding any prior agreements between you and Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>11. Contact</h2><p style='margin: 8px 0;'>If you have any questions about these Terms, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
-    },
-    "privacyPolicy": {
-        "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Privacy Policy</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Mythic Miners ('we', 'our', 'us') is committed to protecting your privacy and ensuring transparency in the use of your personal information. This Privacy Policy describes how we collect, use, and share your information.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Information Collected</h2><p style='margin: 8px 0;'><strong>a. Information Provided by You:</strong> We may collect personal information that you provide directly, such as your name, email, and other contact information.</p><p style='margin: 8px 0;'><strong>b. Automatic Information:</strong> We may automatically collect certain information about your device and usage of our website/application, such as IP address, browser type, pages visited, and time spent on our site/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Use of Information</h2><p style='margin: 8px 0;'><strong>a. Purpose:</strong> We use your information to provide, maintain, and improve our services, respond to inquiries, process transactions, and send communications.</p><p style='margin: 8px 0;'><strong>b. Legal Basis:</strong> The processing of personal data is carried out based on your consent, compliance with legal obligations, and/or the legitimate interest of Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Sharing of Information</h2><p style='margin: 8px 0;'><strong>a. Third Parties:</strong> We may share your information with service providers who assist us in operating the website/application and delivering services.</p><p style='margin: 8px 0;'><strong>b. Legal Requirement:</strong> We may disclose your information if required by law or to protect our legal rights.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. Your Rights</h2><p style='margin: 8px 0;'>You have the right to access, correct, delete, and restrict the processing of your personal information. To exercise these rights, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Information Security</h2><p style='margin: 8px 0;'>We implement reasonable security measures to protect your personal information against unauthorized access, use, or disclosure. However, we cannot guarantee absolute security of data transmitted over the internet.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Data Retention</h2><p style='margin: 8px 0;'>We will retain your personal information only for as long as necessary to fulfill the purposes for which it was collected or as required by law.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. International Data Transfer</h2><p style='margin: 8px 0;'>Your data may be transferred to and processed in countries outside of Brazil, which may have different data protection laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Changes to This Policy</h2><p style='margin: 8px 0;'>We may update this Privacy Policy periodically. The latest version will always be available on our website/application. We recommend that you review this Policy regularly to stay informed about our privacy practices.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Contact</h2><p style='margin: 8px 0;'>If you have any questions or concerns about this Privacy Policy, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
+    "tiers": {
+      "tier1": {
+        "title": "Mythic Pioneer",
+        "description": "{{percentage}}% bonus on ICO tokens + Rare relic NFT that increases your daily token transfer in the game from 5% to 8%",
+        "minAmount": "Minimum of 100 POL"
+      },
+      "tier2": {
+        "title": "Epic Explorer",
+        "description": "{{percentage}}% bonus on ICO tokens + Epic relic NFT that increases your daily token transfer in the game from 10% to 15%",
+        "minAmount": "Minimum of 500 POL"
+      },
+      "tier3": {
+        "title": "Legendary Visionary",
+        "description": "{{percentage}}% bonus on ICO tokens + Legendary relic NFT that increases your daily token transfer in the game from 20% to 25%",
+        "minAmount": "Minimum of 2.500 POL"
+      },
+      "tier4": {
+        "title": "Timeless Guardian",
+        "description": "{{percentage}}% bonus on ICO tokens + Timeless relic NFT that increases your daily token transfer in the game from 40% to 45%",
+        "minAmount": "Minimum of 5.000 POL"
+      },
+      "tier5": {
+        "title": "Ultimate Pack",
+        "description": "{{percentage}}% bonus on ICO tokens + 2 Timeless relic NFT + 1 Legendary relic NFT + 1 Epic relic NFT ",
+        "minAmount": "Minimum of 10.000 POL"
+      }
     }
+  },
+  "socialProof": {
+    "technologies": {
+      "title": "Our Technologies"
+    },
+    "community": {
+      "title": "Join Our Community",
+      "description": "Stay updated with the latest news, participate in exclusive events, and connect with other Miners through our social media channels."
+    },
+    "socialLinks": {
+      "twitter": "Twitter",
+      "discord": "Discord",
+      "game": "Game",
+      "instagram": "Instagram",
+      "email": "Email"
+    }
+  },
+  "footer": {
+    "description": "Mine, collect, and trade legendary artifacts in a world of adventure",
+    "quickLinks": {
+      "title": "Quick Links",
+      "whitepaper": "Whitepaper",
+      "icoDocument": "ICO Document",
+      "game": "Game",
+      "vip": "VIP"
+    },
+    "legal": {
+      "title": "Legal",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "© 2024 Mythic Miners. All rights reserved."
+  },
+  "transferTokens": {
+    "tooltip": "Connect your wallet to purchase $AMZ",
+    "button": {
+      "default": "Purchase $AMZ",
+      "processing": "Processing..."
+    },
+    "confirmTransaction": "Are you sure you want to make this transaction?"
+  },
+  "tokensPage": {
+    "investment": "Connect your wallet to track your tokens",
+    "invested": "Invested",
+    "title": "My Tokens",
+    "back": "Back",
+    "principal": "Principal Investment",
+    "bonus": "Bonus Tokens",
+    "totalInvestment": "Total Investment",
+    "balance": "Balance",
+    "totalBalance": "Total Balance",
+    "claimable": "Claimable",
+    "claimableTokens": "Claimable Tokens",
+    "staking": "Staking",
+    "totalClaimable": "Total Claimable",
+    "claim": "Claim Tokens",
+    "nextClaim": "Next claim available at",
+    "temp": "Soon you will be able to view and track all your tokens here. But don't worry, your staking is already running!",
+    "didNotParticipate": "You didn't invest in the presale yet. Participate in the presale to view your tokens.",
+    "claimableDate": "Claim available at: {{date}}",
+    "cliff": "You are in the cliff period, you will be able to track your tokens on the day {{date}}.",
+    "notAvailable": "Value to be determined"
+  },
+  "airdrop": {
+    "title": "Airdrop",
+    "totalTokens": "Total Tokens",
+    "claimableTokens": "Claimable",
+    "pendingTokens": "Balance",
+    "items": "Airdrop Items",
+    "mint": "Mint",
+    "minted": "Minted",
+    "leaderboard": "Leaderboard",
+    "claimConfirmation": "Are you sure you want to claim your tokens?",
+    "noItems": "No items available",
+    "alreadyMinted": "You have already minted your tokens",
+    "error": "Error minting airdrop",
+    "toastMinted": "Tokens minted successfully"
+  },
+  "subscription": {
+    "vip_1_month": "VIP 1 Month",
+    "vip_3_months": "VIP 3 Months",
+    "vip_6_months": "VIP 6 Months",
+    "vip_infinity": "VIP Forever"
+  },
+  "vip": {
+    "title": "Become a VIP",
+    "subtitle": "Unlock exclusive benefits and dominate the mines like never before",
+    "exclusive": "EXCLUSIVE ACCESS",
+    "benefitsTitle": "VIP Benefits",
+    "benefitsSubtitle": "Get powerful advantages that will transform your mining experience",
+    "benefits": {
+      "extraLife": "One extra life per day",
+      "doubleAmazonites": "Double Amazonites on NPC Bud Mombiatis",
+      "gachaDiscount": "Gacha voucher discount",
+      "mergeDiscount": "Forge discount",
+      "shopDiscount": "Discounts at High Yena's Shop"
+    },
+    "plansTitle": "Choose Your Plan",
+    "plansSubtitle": "Select the perfect VIP package for your mining journey",
+    "mostPopular": "MOST POPULAR",
+    "save": "Save",
+    "price": "{{price}} POL",
+    "buyButton": "Buy VIP",
+    "processing": "Processing...",
+    "confirm": "Confirm purchase: {{plan}} for {{price}} POL?",
+    "successTitle": "Success",
+    "successDescription": "Your VIP subscription was requested successfully.",
+    "errorTitle": "Error",
+    "errorDescription": "Failed to request VIP subscription.",
+    "guarantee": "✨ Instant activation",
+    "buyVouchersInGame1": "Buy with ",
+    "buyVouchersInGame2": "in game AMZ"
+  },
+  "beta": {
+    "title": "BETA Key",
+    "quantity": "Quantity: {{quantity}}"
+  },
+  "game": {
+    "noBetaKey": "You don't have a beta key",
+    "noBetaKeyDescription": "Ask a friend in the Mythic Miners Discord community",
+    "maintenance": "Maintenance",
+    "maintenanceDescription": "We are in maintenance. We will announce on Discord when everything is finished.",
+    "isDead": "You died!",
+    "isDeadDescription": "You will be able to play again tomorrow."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "gacha": {
+      "title": "Gacha",
+      "play": "Play Gacha and Mint NFT",
+      "playing": "Playing and minting...",
+      "info": "Gacha Information",
+      "vouchers": "Vouchers",
+      "description": "Use vouchers to play gacha and get rare equipment! Each voucher gives you a chance to win amazing items.",
+      "legendary": "Legendary",
+      "epic": "Epic",
+      "rare": "Rare",
+      "common": "Common",
+      "buyVouchers": "Buy Vouchers",
+      "buyVouchersInGame": "Buy with game AMZ",
+      "notEnoughAMZ": "You don't have enough AMZ",
+      "notEnoughAMZDescription": "You need more AMZ to buy vouchers.",
+      "result": "Gacha Result",
+      "congratulations": "Congratulations! You got a new item!",
+      "equipmentTypes": "Equipment Types",
+      "rarities": "Rarities",
+      "grades": "Grades",
+      "uncommon": "Uncommon",
+      "gradeC": "Grade C",
+      "gradeB": "Grade B",
+      "gradeA": "Grade A",
+      "gradeS": "Grade S",
+      "quantity": "Quantity",
+      "pricePerVoucher": "Price per Voucher",
+      "discount": "Discount",
+      "total": "Total",
+      "playingToastTitle": "Playing Gacha: Good luck!!",
+      "playingToastDescription": "Please wait... Your luck is being decided! This may take a few seconds.",
+      "successTitle": "Success!",
+      "successDescription": "{{quantity}} vouchers purchased successfully!",
+      "errorTitle": "Error!",
+      "errorDescription": "Failed to purchase vouchers. Please try again.",
+      "vipPrice": "VIP Price",
+      "regularPrice": "Price",
+      "saveAmount": "Save {{amount}} $AMZ!",
+      "vipDiscount": "👑 VIP: {{price}} $AMZ"
+    },
+    "forge": {
+      "title": "Equipment Forge",
+      "info": "Forge Information",
+      "comingSoon": "Coming Soon",
+      "comingSoonDescription": "The forge system is coming soon! You'll be able to forge equipment to create powerful new items.",
+      "features": "Features",
+      "feature1": "Forge three equipment of the same type",
+      "feature2": "Create higher rarity equipment",
+      "feature3": "Upgrade equipment grades",
+      "feature4": "Chance for critical success",
+      "upgradeChances": "Upgrade Chances",
+      "success": "Success",
+      "criticalSuccess": "Critical Success",
+      "failure": "Failure",
+      "selectEquipment": "Select Equipments",
+      "mergeInGame": "Forge with game AMZ",
+      "merge": "Forge Equipment",
+      "merging": "Forging...",
+      "mergeSuccess": "Forge Successful!",
+      "mergeError": "Forge Failed",
+      "mergeInitiated": "Forge transaction initiated",
+      "maxItemsSelected": "Maximum 4 items can be selected",
+      "required": "Required",
+      "optional": "Optional",
+      "mergeCost": "Forge Cost",
+      "costNote": "Cost is automatically deducted from your AMZ balance",
+      "currentMerge": "Current Forge",
+      "highestGrade": "Highest Grade",
+      "sameGrade": "Same Grade",
+      "upgrade": "Upgrade",
+      "downgrade": "Downgrade",
+      "rules": "Forge Rules",
+      "rule1": "🎮 Use 3 or 4 equipment of the same rarity to forge a new equipment of superior rarity",
+      "rule2": "🎯 If you use 3 or more of the same type: the new one will be of that type",
+      "rule3": "🎲 If they are different: the game randomly selects between types using Gacha values",
+      "rule4": "⭐ Whenever you use an S level equipment, the final result will always be guaranteed S ✨",
+      "rule5": "📊 For equipment below S level, a probability is calculated within the levels of equipment used",
+      "rule6": "🎁 Receive a 10% bonus success chance when upgrading using the fourth equipment",
+      "confirmSelection": "Confirm Selection",
+      "noForgeableItems": "No forgeable equipment found in your inventory",
+      "selectedItems": "Selected Items",
+      "inputEquipment": "Input Equipment",
+      "resultEquipment": "Result Equipment",
+      "selectMoreItems": "Select {{count}} more items",
+      "readyToMerge": "Ready to forge!",
+      "costBreakdown": "Cost breakdown",
+      "howItWorks": "How It Works",
+      "howItWorksDesc": "The forge is like combining small toys to create a cooler one! Combine 3-4 equipment to create a new, more powerful one.",
+      "step1": "Select Equipment",
+      "step1Desc": "Choose 3-4 items from your inventory. Higher grade items increase your chances of getting better results.",
+      "step2": "Pay Fee",
+      "step2Desc": "Pay 250 AMZ tokens to initiate the forge. This fee is automatically deducted from your balance.",
+      "step3": "Receive Result",
+      "step3Desc": "Get a new equipment based on probabilities. The result depends on the grades of your input items.",
+      "gradeExplanation": "The highest grade among your selected equipment determines the base probability for the result.",
+      "sameGradeDesc": "Keep the same grade as your highest input item",
+      "upgradeDesc": "Get a higher grade than your highest input item",
+      "downgradeDesc": "Get a lower grade than your highest input item",
+      "equipmentTypes": "Equipment Type Probabilities",
+      "helmet": "Helmet",
+      "jetpack": "Jetpack",
+      "belt": "Belt",
+      "pickaxe": "Pickaxe",
+      "armor": "Armor",
+      "trinket": "Trinket",
+      "rule1Desc": "🎮 Combine 3 or 4 of your equipment to create a new, more powerful equipment!",
+      "rule2Desc": "🎯 If you have 3 or more equipment of the same type, you get an equipment of that type. If they're different, the game randomly selects!",
+      "rule3Desc": "⭐ If you use any S grade equipment, the result will always be S! It's the most guaranteed way to get a super rare equipment.",
+      "rule4Desc": "💰 Each forge costs 250 AMZ tokens. Make sure you have sufficient balance before attempting.",
+      "tips": "💡 Forge Tips",
+      "tip1": "Use S grade equipment if you want to guarantee an S result! 🌟",
+      "tip2": "Combine equipment of the same type to have more control over the result",
+      "tip3": "Save AMZ for multiple attempts and maximize your chances",
+      "tip4": "Trinkets are rarer (5% chance), so use strategy!",
+      "modalTitle": "Select Equipment for Forge",
+      "modalSubtitle": "Choose equipment of the same rarity",
+      "rarityFilter": "Filter by Rarity",
+      "rarityFilterDesc": "Click on a rarity to filter equipment (optional)",
+      "sameRarityRequired": "⚠️ Only equipment of the same rarity can be forged together",
+      "selectRarityFirst": "First select a rarity to begin",
+      "noItemsForRarity": "No equipment found for this rarity",
+      "rarityUncommon": "Uncommon",
+      "rarityRare": "Rare",
+      "rarityEpic": "Epic",
+      "rarityLegendary": "Legendary",
+      "rarityTimeless": "Timeless",
+      "showAll": "Show All"
+    },
+    "equipped": {
+      "title": "Equipped Items"
+    },
+    "slots": {
+      "helmet": "Helmet",
+      "relic": "Relic",
+      "jetpack": "Jetpack",
+      "pickaxe": "Pickaxe",
+      "armour": "Armour",
+      "trinket": "Trinket",
+      "belt": "Belt"
+    },
+    "allItems": {
+      "title": "All Items",
+      "empty": "No items in inventory"
+    }
+  },
+  "item": {
+    "details": {
+      "overview": "Overview",
+      "category": "Category",
+      "tokenId": "Token ID",
+      "description": "Description",
+      "attributes": "Attributes",
+      "rarity": "Rarity"
+    },
+    "actions": {
+      "equip": "Equip Item",
+      "equipping": "Equipping...",
+      "transfer": "Transfer",
+      "unequip": "Unequip",
+      "unequipping": "Unequipping...",
+      "unequipSuccess": "Item unequipped successfully!"
+    },
+    "transaction": {
+      "error": "Error",
+      "missingData": "Missing required data for transaction",
+      "transactionSent": "Transaction Sent",
+      "approvingAndEquipping": "Approving and equipping item, please wait...",
+      "approvingAndUnequipping": "Approving and unequipping item, please wait...",
+      "itemEquipped": "Item Equipped!",
+      "itemEquippedSuccess": "has been approved and equipped successfully!",
+      "itemUnequipped": "Item Unequipped!",
+      "itemUnequippedSuccess": "has been approved and unequipped successfully!",
+      "transactionFailed": "Transaction Failed",
+      "failedToEquip": "Failed to approve and equip item",
+      "insufficientFunds": "Insufficient Funds",
+      "insufficientFundsDetails": "Required: {{required}} POL | Your balance: {{balance}} POL",
+      "failedToPrepare": "Failed to prepare transaction",
+      "itemAlreadyEquipped": "Item cannot be equipped. It may already be equipped or there may be a contract validation issue.",
+      "approvalFailed": "Item approval failed. Please ensure you own this item and try again.",
+      "notOwner": "You do not own this item or it has already been transferred."
+    },
+    "rarity": {
+      "legendary": {
+        "description": "Ultra-rare items with exceptional power and unique abilities."
+      },
+      "epic": {
+        "description": "Very rare items with significant bonuses and enhanced capabilities."
+      },
+      "rare": {
+        "description": "Uncommon items with moderate bonuses and improved performance."
+      },
+      "common": {
+        "description": "Standard items with basic functionality and attributes."
+      }
+    }
+  },
+  "termsOfUse": {
+    "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Terms of Use</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Welcome to Mythic Miners. These Terms of Use ('Terms') govern your use of our website/application and the services provided by Mythic Miners ('we', 'our', or 'us').</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Acceptance of Terms</h2><p style='margin: 8px 0;'>By accessing or using our website/application, you unconditionally agree to comply with and be legally bound by these Terms and our Privacy Policy. If you do not agree with any of these terms, you must immediately cease using our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Changes to Terms</h2><p style='margin: 8px 0;'>We reserve the right to modify these Terms at any time and at our sole discretion. Changes will be posted on this page with the 'Last Updated' date. It is your responsibility to review the Terms periodically. Continued use of the website/application after any changes constitutes your acceptance of the new Terms.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Use of the Website/App</h2><p style='margin: 8px 0;'><strong>a.</strong> You agree to use our website/application solely for lawful purposes and in accordance with these Terms.</p><p style='margin: 8px 0;'><strong>b.</strong> You must not use our website/application in any manner that could damage, disable, overburden, or impair our servers or networks.</p><p style='margin: 8px 0;'><strong>c.</strong> You must not attempt to gain unauthorized access to any part of our website/application, other accounts, computer systems, or networks connected to our website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. User Content</h2><p style='margin: 8px 0;'><strong>a.</strong> Any content you submit, post, or display on the website/application will be your sole responsibility.</p><p style='margin: 8px 0;'><strong>b.</strong> By submitting User Content, you grant us a worldwide, perpetual, irrevocable, non-exclusive, royalty-free, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform that User Content in connection with the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Intellectual Property Rights</h2><p style='margin: 8px 0;'>All content, including text, graphics, logos, images, and software, is the property of Mythic Miners or its licensors and is protected by copyright and other intellectual property laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Disclaimer of Warranties</h2><p style='margin: 8px 0;'>Our website/application is provided 'as is' and 'as available,' without warranties of any kind, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the website/application will be uninterrupted, error-free, or secure.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. Limitation of Liability</h2><p style='margin: 8px 0;'>To the maximum extent permitted by applicable law, Mythic Miners and its directors, employees, agents, affiliates, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from: (i) your use or inability to use our website/application; (ii) any conduct or content of any third party on the website/application; (iii) any content obtained from the website/application; and (iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damages.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Indemnification</h2><p style='margin: 8px 0;'>You agree to defend, indemnify, and hold harmless Mythic Miners, its directors, employees, agents, affiliates, and partners from any claims, damages, obligations, losses, liabilities, costs, or debts and expenses (including but not limited to attorney's fees) arising from: (i) your use and access to the website/application; (ii) your violation of any term of these Terms; (iii) your violation of any third-party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that your User Content caused damage to a third party.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Governing Law</h2><p style='margin: 8px 0;'>These Terms shall be governed and construed in accordance with the laws of [your state or country], without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located within [specific locality] to resolve any dispute arising from these Terms or the use of the website/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>10. General Provisions</h2><p style='margin: 8px 0;'>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect. These Terms constitute the entire agreement between you and Mythic Miners regarding the use of the website/application, superseding any prior agreements between you and Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>11. Contact</h2><p style='margin: 8px 0;'>If you have any questions about these Terms, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
+  },
+  "privacyPolicy": {
+    "content": "<h1 style='font-size: 28px; font-weight:bold; margin-bottom: 16px;'>Privacy Policy</h1><p style='margin: 8px 0;'><i>Last Updated: July 11, 2024</i></p><p style='margin: 8px 0;'>Mythic Miners ('we', 'our', 'us') is committed to protecting your privacy and ensuring transparency in the use of your personal information. This Privacy Policy describes how we collect, use, and share your information.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>1. Information Collected</h2><p style='margin: 8px 0;'><strong>a. Information Provided by You:</strong> We may collect personal information that you provide directly, such as your name, email, and other contact information.</p><p style='margin: 8px 0;'><strong>b. Automatic Information:</strong> We may automatically collect certain information about your device and usage of our website/application, such as IP address, browser type, pages visited, and time spent on our site/application.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>2. Use of Information</h2><p style='margin: 8px 0;'><strong>a. Purpose:</strong> We use your information to provide, maintain, and improve our services, respond to inquiries, process transactions, and send communications.</p><p style='margin: 8px 0;'><strong>b. Legal Basis:</strong> The processing of personal data is carried out based on your consent, compliance with legal obligations, and/or the legitimate interest of Mythic Miners.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>3. Sharing of Information</h2><p style='margin: 8px 0;'><strong>a. Third Parties:</strong> We may share your information with service providers who assist us in operating the website/application and delivering services.</p><p style='margin: 8px 0;'><strong>b. Legal Requirement:</strong> We may disclose your information if required by law or to protect our legal rights.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>4. Your Rights</h2><p style='margin: 8px 0;'>You have the right to access, correct, delete, and restrict the processing of your personal information. To exercise these rights, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>5. Information Security</h2><p style='margin: 8px 0;'>We implement reasonable security measures to protect your personal information against unauthorized access, use, or disclosure. However, we cannot guarantee absolute security of data transmitted over the internet.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>6. Data Retention</h2><p style='margin: 8px 0;'>We will retain your personal information only for as long as necessary to fulfill the purposes for which it was collected or as required by law.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>7. International Data Transfer</h2><p style='margin: 8px 0;'>Your data may be transferred to and processed in countries outside of Brazil, which may have different data protection laws.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>8. Changes to This Policy</h2><p style='margin: 8px 0;'>We may update this Privacy Policy periodically. The latest version will always be available on our website/application. We recommend that you review this Policy regularly to stay informed about our privacy practices.</p><h2 style='font-size: 18px; font-weight: bold; margin: 12px 0;'>9. Contact</h2><p style='margin: 8px 0;'>If you have any questions or concerns about this Privacy Policy, please contact us at <a href={'mailto:contact@mythicminers.com'}>contact@mythicminers.com</a>.</p>"
+  }
 }
