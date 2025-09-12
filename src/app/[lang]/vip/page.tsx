@@ -15,6 +15,7 @@ import { prepareTransaction } from 'thirdweb/transaction';
 import { useInventoryQuery } from '@/api/inventory';
 import { amazoniteTransferContract } from '@/contracts/amazonite';
 import { chain, client } from '@/lib/thidweb';
+import { formatAMZ } from '@/lib/utils';
 
 type PlanKey = 'vip_1_month' | 'vip_3_months' | 'vip_6_months';
 
@@ -568,7 +569,7 @@ export default function VipPage() {
                                   <span>{t('vip.buyVouchersInGame1')}</span><span>{t('vip.buyVouchersInGame2')}</span>
                                   <span>{` - ${priceAMZ} $AMZ`}</span>
                                   <span className="flex items-center gap-1 rounded-md bg-white/30 p-1 flex-wrap">
-                                    {inventoryData?.data.gameAmazonites ?? 0}{' '}
+                                    {formatAMZ(inventoryData?.data.gameAmazonites ?? 0)}{' '}
                                     <Image
                                       src="/assets/images/in-game-amz.png"
                                       alt="Amazonite"

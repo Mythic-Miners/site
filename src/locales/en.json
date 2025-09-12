@@ -28,6 +28,20 @@
     "general": "Something went wrong",
     "notFound": "Page not found"
   },
+  "username": {
+    "title": "Choose your username",
+    "description": "Create a unique username that will represent your character in the rankings and other game features",
+    "label": "Username",
+    "save": "Save username",
+    "saving": "Saving…",
+    "emptyError": "Please enter a username.",
+    "inUseError": "This username is already in use. Please try another.",
+    "alreadyCompletedTitle": "Already set",
+    "alreadyCompletedDescription": "Your username was already defined.",
+    "successTitle": "Username set!",
+    "successDescription": "Your username has been saved successfully.",
+    "genericError": "Failed to set username. Please try again."
+  },
   "tokenPurchase": {
     "title": "$AMZ Presale",
     "stage": {
@@ -294,6 +308,8 @@
       "rule4": "⭐ Whenever you use an S level equipment, the final result will always be guaranteed S ✨",
       "rule5": "📊 For equipment below S level, a probability is calculated within the levels of equipment used",
       "rule6": "🎁 Receive a 10% bonus success chance when upgrading using the fourth equipment",
+      "rule7": "💹 Forge costs increase with rarity",
+      "timelessNote": "Timeless will only be unlocked last in the Forge.",
       "confirmSelection": "Confirm Selection",
       "noForgeableItems": "No forgeable equipment found in your inventory",
       "selectedItems": "Selected Items",

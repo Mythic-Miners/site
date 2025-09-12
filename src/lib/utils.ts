@@ -19,3 +19,10 @@ export const isEmailValid = (email: string) => {
 
   return FAKE_PROVIDERS.indexOf(emailDomain) <= -1;
 };
+
+// Formats AMZ amounts to 2 decimal places for display
+export const formatAMZ = (value: number | string | null | undefined): string => {
+  const num = Number(value);
+  if (!isFinite(num)) return '0.00';
+  return num.toFixed(2);
+};

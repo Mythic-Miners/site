@@ -18,7 +18,8 @@ import {
   useGachaMutation,
 } from '@/api/inventory';
 import { amazoniteTransferContract } from '@/contracts/amazonite';
-import { getRarityColor } from '@/lib/consts';
+import { GACHA_PRICE_REGULAR, GACHA_PRICE_VIP, getRarityColor } from '@/lib/consts';
+import { formatAMZ } from '@/lib/utils';
 
 interface GachaProps {
   onRefetchInventory: () => void;
@@ -26,9 +27,6 @@ interface GachaProps {
   gameAmazonites: number;
   isVip: boolean;
 }
-
-const GACHA_PRICE_VIP = 80;
-const GACHA_PRICE_REGULAR = 100;
 
 const launchConfetti = () => {
   confetti('tsparticles', {
@@ -386,7 +384,7 @@ export default function Gacha({
                         {GACHA_PRICE_REGULAR} $AMZ
                       </span>
                       <div className="text-green-400 font-bold">
-                        {t('inventory.gacha.saveAmount', { amount: 20 })}
+                        {t('inventory.gacha.saveAmount', { amount: GACHA_PRICE_REGULAR - GACHA_PRICE_VIP })}
                       </div>
                     </div>
                   ) : (
@@ -397,7 +395,7 @@ export default function Gacha({
                         })}
                       </div>
                       <div className="text-green-400">
-                        {t('inventory.gacha.saveAmount', { amount: 20 })}
+                        {t('inventory.gacha.saveAmount', { amount: GACHA_PRICE_REGULAR - GACHA_PRICE_VIP })}
                       </div>
                     </div>
                   )}
@@ -432,9 +430,8 @@ export default function Gacha({
               {/* Loading Button (Fake) */}
               <Button
                 isDisabled
-                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg cursor-not-allowed opacity-75 absolute top-0 left-0 transition-opacity duration-200 h-full ${
-                  isLoading ? 'opacity-100 z-10' : 'opacity-0 -z-10'
-                }`}
+                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg cursor-not-allowed opacity-75 absolute top-0 left-0 transition-opacity duration-200 h-full ${isLoading ? 'opacity-100 z-10' : 'opacity-0 -z-10'
+                  }`}
               >
                 <div className="flex items-center justify-center gap-2">
                   <svg
@@ -465,9 +462,8 @@ export default function Gacha({
               <TransactionButton
                 unstyled
                 disabled={!address || isLoading}
-                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
-                  isLoading ? 'opacity-0' : 'opacity-100'
-                }`}
+                className={`border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${isLoading ? 'opacity-0' : 'opacity-100'
+                  }`}
                 // @ts-ignore
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                   const confirmed = window.confirm(
@@ -564,7 +560,7 @@ export default function Gacha({
                     {t('inventory.gacha.buyVouchersInGame')}{' '}
                     {`${quantity || 0}x${GACHA_PRICE} - ${totalCost || 0} $AMZ`}
                     <span className="flex items-center gap-1 rounded-md bg-white/30 p-1">
-                      {gameAmazonites}{' '}
+                      {formatAMZ(gameAmazonites)}{' '}
                       <Image
                         src="/assets/images/in-game-amz.png"
                         alt="Amazonite"
