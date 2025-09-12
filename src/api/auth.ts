@@ -21,7 +21,7 @@ export const useMeQuery = (enabled: boolean = true) =>
   useQuery<MeResponse>({
     queryKey: ['/auth/me'],
     // Do not retry auth endpoints to avoid duplicate calls and flashes
-    retry: 0,
+    retry: 5,
     enabled,
   });
 
@@ -39,7 +39,7 @@ export const useSetUsernameMutation = () => {
       const json = await res.json().catch(() => ({}));
       return json as UsernameResponse;
     },
-    retry: 0,
+    retry: 2,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['/auth/me'] });
     },

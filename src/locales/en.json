@@ -309,7 +309,7 @@
       "rule5": "📊 For equipment below S level, a probability is calculated within the levels of equipment used",
       "rule6": "🎁 Receive a 10% bonus success chance when upgrading using the fourth equipment",
       "rule7": "💹 Forge costs increase with rarity",
-      "timelessNote": "Timeless will only be unlocked last in the Forge.",
+      "timelessNote": "Timeless will only be unlocked last in the Forge",
       "confirmSelection": "Confirm Selection",
       "noForgeableItems": "No forgeable equipment found in your inventory",
       "selectedItems": "Selected Items",

@@ -10,7 +10,6 @@ export default function UsernameGate() {
   const address = account?.address ?? '';
   const { data, isLoading, refetch, isError } = useMeQuery(!!address);
   const [open, setOpen] = useState(false);
-  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
     if (!isLoading && data && account?.address) {
@@ -21,11 +20,7 @@ export default function UsernameGate() {
         setOpen(!hasUsername);
       }
     }
-    if (isError && !isLoading && account?.address && retry <= 3) {
-      setRetry((r) => r + 1);
-      refetch();
-    }
-  }, [data, isLoading, account?.address, isError, refetch, retry]);
+  }, [data, isLoading, account?.address, isError, refetch]);
 
   return <UsernameModal isOpen={open} onOpenChange={setOpen} />;
 }
