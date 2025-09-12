@@ -1,7 +1,14 @@
 import type { InventoryItem } from '@/api/inventory';
 
-export const MERGE_PRICE_VIP = 160;
-export const MERGE_PRICE_REGULAR = 200;
+export const GACHA_PRICE_VIP = 100;
+export const GACHA_PRICE_REGULAR = 140;
+
+export const MERGE_PRICE_RARITY = {
+    Uncommon: { vip: 160, regular: 200 },
+    Rare: { vip: 240, regular: 300 },
+    Epic: { vip: 416, regular: 520 },
+    Legendary: { vip: 800, regular: 1000 },
+};
 
 export const FAKE_PROVIDERS = [
   '0815.ru',
@@ -660,4 +667,3 @@ export const getRarityColor = (item?: InventoryItem) => {
       return 'border-gray-600 bg-gray-600/10';
   }
 };
-

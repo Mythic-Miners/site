@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react';
 import {
   useActiveAccount,
   useActiveWallet,
@@ -8,11 +8,14 @@ import {
 } from 'thirdweb/react';
 
 import { chain, client, wallets } from '@/lib/thidweb';
+import { useQueryClient } from '@tanstack/react-query';
+import { useMeQuery } from '@/api/auth';
 
 interface AuthContextType {
   isConnected?: boolean;
   isLoading: boolean;
   setIsJwtPresent: (isJwtPresent: boolean) => void;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,28 +33,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const wallet = useActiveWallet();
   const account = useActiveAccount();
+  const qc = useQueryClient();
 
-  useEffect(() => {
-    const handleAccountsChanged = async () => {
-      if (autoConnected && wallet) {
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`);
-        await wallet.disconnect();
-      }
-    };
-
-    if ('ethereum' in window && wallet) {
-      (window.ethereum as any).on?.('accountsChanged', handleAccountsChanged);
+  // Memoized logout action
+  const logout = useCallback(async () => {
+    try {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+    } catch (_) {
+      // ignore
+    } finally {
+      await wallet?.disconnect?.();
+      await qc.invalidateQueries({ queryKey: ['/auth/me'] });
     }
+  }, [qc, wallet]);
 
-    return () => {
-      if ('ethereum' in window) {
-        (window.ethereum as any)?.removeListener?.(
-          'accountsChanged',
-          handleAccountsChanged,
-        );
-      }
-    };
-  }, [wallet, autoConnected]);
 
   useEffect(() => {
     if (autoConnected && account?.address) {
@@ -60,7 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       })
         .then((res) => res.json())
         .then(() => {
-          setIsLoggedIn(undefined);
+          setIsLoggedIn(true);
         })
         .catch(() => {
           setIsLoggedIn(false);
@@ -75,8 +73,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           isLoggedIn === false
             ? false
             : (autoConnected && !!account?.address) || isJwtPresent,
+
         setIsJwtPresent: setIsJwtPresent,
         isLoading,
+        logout,
       }}
     >
       {children}

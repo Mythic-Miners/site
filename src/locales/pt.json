@@ -28,6 +28,20 @@
     "general": "Algo deu errado",
     "notFound": "Página não encontrada"
   },
+  "username": {
+    "title": "Escolha seu nome de usuário",
+    "description": "Crie um nome de usuário único que irá representar seu personagem nos rankings e em outras partes do jogo",
+    "label": "Nome de usuário",
+    "save": "Salvar nome de usuário",
+    "saving": "Salvando…",
+    "emptyError": "Por favor, digite um nome de usuário.",
+    "inUseError": "Este nome de usuário já está em uso. Tente outro.",
+    "alreadyCompletedTitle": "Já definido",
+    "alreadyCompletedDescription": "Seu nome de usuário já foi definido.",
+    "successTitle": "Nome de usuário salvo!",
+    "successDescription": "Seu nome de usuário foi salvo com sucesso.",
+    "genericError": "Falha ao salvar o nome de usuário. Tente novamente."
+  },
   "tokenPurchase": {
     "title": "$AMZ Pré-venda",
     "stage": {
@@ -294,6 +308,8 @@
       "rule4": "⭐ Sempre que usar um equipamento de nível S, o resultado final será sempre S garantido ✨",
       "rule5": "📊 Para equipamentos menores que S é feita uma probabilidade dentro dos níveis dos equipamentos usados",
       "rule6": "🎁 Receba um bônus de 10% na chance de sucesso ao aprimorar usando o quarto equipamento",
+      "rule7": "💹 Os valores da forja aumentam conforme a raridade",
+      "timelessNote": "Timeless só será desbloqueado no últi",
       "confirmSelection": "Confirmar Seleção",
       "noForgeableItems": "Nenhum equipamento forjável encontrado no seu inventário",
       "selectedItems": "Itens Selecionados",

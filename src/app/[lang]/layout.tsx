@@ -11,6 +11,7 @@ import { HeroUIProvider } from '@/components/context/HeroUI';
 import QueryProvider from '@/components/context/QueryProvider';
 import { AuthProvider } from '@/context/AuthContext';
 import { LanguageProvider } from '@/context/LanguageContext';
+import UsernameGate from '@/components/ui/UsernameGate';
 import type { SupportedLanguage } from '@/lib/i18n-server';
 import { getTranslation, supportedLanguages } from '@/lib/i18n-server';
 
@@ -70,7 +71,10 @@ export default async function LangLayout({
           <QueryProvider>
             <AuthProvider>
               <LanguageProvider>
-                <HeroUIProvider>{children}</HeroUIProvider>
+                <HeroUIProvider>
+                  {children}
+                  <UsernameGate />
+                </HeroUIProvider>
               </LanguageProvider>
             </AuthProvider>
           </QueryProvider>

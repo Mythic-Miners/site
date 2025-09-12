@@ -25,7 +25,10 @@ const clearAllStorageAndCookies = () => {
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;`;
   });
 
-  fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`);
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+    method: 'POST',
+    credentials: 'include',
+  });
 };
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
