@@ -133,16 +133,36 @@ export default function VipPage() {
 
   return (
     <>
+      {/* VIP Status */}
+      {inventoryData?.data?.isVip && (
+        <div className="mx-8 md:mx-auto mt-10 p-3 bg-gradient-to-r  from-amber-500 to-orange-500 rounded-2xl shadow-md border-2 border-black md:w-1/2">
+          <div className="flex items-center justify-between text-black">
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-bold">👑 VIP</span>
+              <span className="text-sm">Active</span>
+            </div>
+            {inventoryData.data.vipExpiration && (
+              <span className="text-sm">
+                {(() => {
+                  const expirationDate = new Date(inventoryData.data.vipExpiration);
+                  return expirationDate.getFullYear() > 2100 ? t('vip.expiresInfinity') : t('vip.expires', { date: expirationDate.toLocaleDateString('pt') });
+                })()}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <section className="pt-20 pb-16 relative">
         <div className="container mx-auto px-6 md:px-8 flex flex-col items-center opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]">
           <div className="text-center mb-6">
-            <div
+
+            {/* <div
               className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-black px-4 py-2 rounded-full font-bold text-sm mb-4 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]"
               style={{ animationDelay: '300ms' }}
             >
               ✨ {t('vip.exclusive')}
-            </div>
+            </div> */}
             <h1
               className="text-yellow-50 mythic-text-shadow text-5xl md:text-7xl font-bold mb-4 font-ceaser opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]"
               style={{ animationDelay: '500ms' }}

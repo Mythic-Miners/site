@@ -262,6 +262,8 @@
     "vip_infinity": "VIP Infinity"
   },
   "vip": {
+    "expires": "Expires: {{date}}",
+    "expiresInfinity": "Expires: ∞ (Forever)",
     "title": "Seja VIP",
     "subtitle": "Desbloqueie benefícios exclusivos e domine as minas como nunca antes",
     "exclusive": "ACESSO EXCLUSIVO",

@@ -32,6 +32,7 @@ export interface Inventory {
     totalNFTs: number;
   };
   isVip: boolean;
+  vipExpiration?: Date;
 }
 
 export interface GachaResponse {
