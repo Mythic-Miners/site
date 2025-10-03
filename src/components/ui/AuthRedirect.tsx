@@ -7,7 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 export default function AuthRedirect() {
   const { isConnected } = useAuth();
   if (isConnected) {
-    return redirect('/inventory');
+    return redirect('/leaderboard');
   }
   return null;
 }

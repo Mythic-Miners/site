@@ -22,7 +22,9 @@
   "navigation": {
     "home": "Início",
     "about": "Sobre",
-    "contact": "Contato"
+    "contact": "Contato",
+    "leaderboard": "Ranking",
+    "more": "Mais"
   },
   "errors": {
     "general": "Algo deu errado",
@@ -165,6 +167,78 @@
     "claimableDate": "Resgate disponível em: {{date}}",
     "cliff": "Você está no período de cliff, você conseguirá acompanhar o seus tokens o dia {{date}}.",
     "notAvailable": "Valor a ser determinado"
+  },
+  "leaderboard": {
+    "title": "Ranking Mythic Miners",
+    "subtitle": "Acompanhe os melhores mineradores e veja como seus equipamentos impactam sua pontuação total.",
+    "lastUpdated": "Atualizado em {{date}}",
+    "topHeading": "Top 100 Jogadores",
+    "focusHint": "Quando houver dados, posicionamos você automaticamente no ranking.",
+    "aroundYouSection": "Sua posição",
+    "emptyState": "Nenhum dado do ranking disponível no momento.",
+    "unknownPlayer": "Jogador desconhecido",
+    "scoreLabel": "Pontuação total: {{value}} pts",
+    "currentPlayer": "Você está aqui",
+    "computedAt": "Pontuação calculada",
+    "noTimestamp": "Sem data registrada",
+    "pointsValue": "{{value}} pts",
+    "emptySlot": "Slot vazio",
+    "slots": {
+      "helmet": "Capacete",
+      "pickaxe": "Picareta",
+      "armour": "Armadura",
+      "jetpack": "Jetpack",
+      "belt": "Cinto",
+      "trinket": "Amuleto",
+      "relic": "Relíquia"
+    },
+    "scoring": {
+      "title": "📊 Sistema de Pontuação – Mythic Miners (Equipamentos)",
+      "description": "Entenda como calculamos o rank: combine raridade, grade e tipo de equipamento para maximizar sua pontuação.",
+      "rarityTitle": "1. Raridade (valor base fixo)",
+      "rarityHeader": "Raridade",
+      "pointsHeader": "Pontos Base",
+      "rarity": {
+        "uncommon": "Incomum",
+        "rare": "Raro",
+        "epic": "Épico",
+        "legendary": "Lendário",
+        "timeless": "Atemporal"
+      },
+      "gradeTitle": "2. Grade (multiplicador aplicado ao valor base)",
+      "gradeHeader": "Grade",
+      "multiplierHeader": "Multiplicador",
+      "grades": {
+        "limitedEdition": "Limited Edition"
+      },
+      "typeTitle": "3. Tipo de Equipamento (multiplicador final)",
+      "typeHeader": "Tipo",
+      "types": {
+        "pickaxe": "Picareta",
+        "helmet": "Capacete",
+        "armour": "Armadura",
+        "belt": "Cinto",
+        "jetpack": "Jetpack",
+        "trinket": "Amuleto",
+        "relic": "Relíquia"
+      },
+      "monthlyRewardsTitle": "Prêmios Mensais",
+      "monthlyRewardsPosition": "Posição",
+      "monthlyRewardsPrize": "Prêmio",
+      "monthlyRewardsFirst": "🥇 1º Lugar",
+      "monthlyRewardsSecond": "🥈 2º Lugar",
+      "monthlyRewardsThird": "🥉 3º Lugar",
+      "monthlyRewardsTop10": "4º ao 10º Lugar",
+      "monthlyRewardsFirstPrize": "10 Gacha",
+      "monthlyRewardsSecondPrize": "5 Gacha",
+      "monthlyRewardsThirdPrize": "3 Gacha",
+      "monthlyRewardsTop10Prize": "1 Gacha",
+      "monthlyRewardsNote": "*Os prêmios são distribuídos mensalmente com base na posição no ranking.",
+      "formulaTitle": "⚔️ Fórmula",
+      "formulaDescription": "Pontuação = Raridade Base × Multiplicador de Grade × Multiplicador de Tipo",
+      "exampleTitle": "📌 Exemplo",
+      "exampleDescription": "Épico (500) + Grade A (×1.3) + Trinket (×1.5) = 500 × 1.3 × 1.5 = 975 pts"
+    }
   },
   "airdrop": {
     "title": "Airdrop",

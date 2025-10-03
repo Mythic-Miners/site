@@ -4,7 +4,7 @@ import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useLanguage } from '@/context/LanguageContext';
@@ -16,17 +16,39 @@ export default function Header() {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
   const pathname = usePathname();
+  const moreMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navItems = [
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        moreMenuRef.current &&
+        !moreMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsMoreOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setIsMoreOpen(false);
+  }, [pathname]);
+
+  const leaderboardPaths = [`/${language}`, `/${language}/leaderboard`];
+
+  const primaryNavItems = [
     {
-      name: t('airdrop.title'),
-      href: `/${language}/airdrop`,
-      current: pathname === `/${language}/airdrop`,
+      name: t('navigation.leaderboard'),
+      href: `/${language}/leaderboard`,
+      current: leaderboardPaths.includes(pathname ?? ''),
     },
     {
       name: t('inventory.title'),
@@ -42,6 +64,14 @@ export default function Header() {
       name: t('footer.quickLinks.vip'),
       href: `/${language}/vip`,
       current: pathname === `/${language}/vip`,
+    },
+  ];
+
+  const moreNavItems = [
+    {
+      name: t('airdrop.title'),
+      href: `/${language}/airdrop`,
+      current: pathname === `/${language}/airdrop`,
     },
     {
       name: 'ICO',
@@ -59,6 +89,8 @@ export default function Header() {
       external: true,
     },
   ];
+
+  const isMoreActive = moreNavItems.some((item) => item.current);
 
   return (
     <header
@@ -85,37 +117,87 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex lg:space-x-8 md:space-x-2">
-            {navItems.map((item) => (
+          <nav className="hidden md:flex lg:space-x-8 md:space-x-2 items-center">
+            {primaryNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                target={item.external ? '_blank' : undefined}
-                rel={item.external ? 'noopener noreferrer' : undefined}
-                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center ${
+                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center rounded-md ${
                   item.current
-                    ? 'text-yellow-50 bg-indigo-950/70 rounded-md'
-                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40 rounded-md'
+                    ? 'text-yellow-50 bg-indigo-950/70'
+                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
                 }`}
               >
                 <span className="mt-[3px] text-sm">{item.name}</span>
-                {item.external && (
-                  <svg
-                    className="inline w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                )}
               </Link>
             ))}
+
+            <div className="relative" ref={moreMenuRef}>
+              <button
+                type="button"
+                onClick={() => setIsMoreOpen((prev) => !prev)}
+                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center rounded-md border border-transparent ${
+                  isMoreOpen || isMoreActive
+                    ? 'text-yellow-50 bg-indigo-950/70 border-cyan-400/40'
+                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
+                }`}
+              >
+                <span className="mt-[3px] text-sm">{t('navigation.more')}</span>
+                <svg
+                  className={`ml-1 h-4 w-4 transition-transform ${
+                    isMoreOpen ? 'rotate-180' : 'rotate-0'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {isMoreOpen && (
+                <div className="absolute right-0 z-50 mt-2 w-52 rounded-lg border border-indigo-900 bg-indigo-950/95 shadow-xl">
+                  <div className="py-2">
+                    {moreNavItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
+                        className={`flex items-center justify-between px-4 py-2 text-sm transition-colors duration-200 ${
+                          item.current
+                            ? 'text-yellow-50 bg-indigo-900/70'
+                            : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-900/40'
+                        }`}
+                        onClick={() => setIsMoreOpen(false)}
+                      >
+                        <span>{item.name}</span>
+                        {item.external && (
+                          <svg
+                            className="inline w-4 h-4 ml-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Right side controls */}
@@ -227,37 +309,57 @@ export default function Header() {
         {isMenuOpen && (
           <div className="h-screen md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
+              {primaryNavItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  target={item.external ? '_blank' : undefined}
-                  rel={item.external ? 'noopener noreferrer' : undefined}
-                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
                     item.current
-                      ? 'text-yellow-50 bg-indigo-200/20 rounded-md'
-                      : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40 rounded-md'
+                      ? 'text-yellow-50 bg-indigo-200/20'
+                      : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                  {item.external && (
-                    <svg
-                      className="inline w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  )}
                 </Link>
               ))}
+
+              <div className="mt-6 border-t border-indigo-900/40 pt-4">
+                <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                  {t('navigation.more')}
+                </p>
+                {moreNavItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
+                      item.current
+                        ? 'text-yellow-50 bg-indigo-200/20'
+                        : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                    {item.external && (
+                      <svg
+                        className="inline w-4 h-4 ml-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    )}
+                  </Link>
+                ))}
+              </div>
               <div className="px-2 py-2 [&>button]:w-full!">
                 <AuthButton header />
               </div>

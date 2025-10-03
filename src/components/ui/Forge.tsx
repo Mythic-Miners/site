@@ -288,7 +288,7 @@ export default function Forge({ inventoryItems, onRefetchInventory, gameAmazonit
     const firstNft = selectedEquipments[0];
     const rarityAttr = firstNft?.item.metadata?.attributes?.find((attr: any) => attr.trait_type === 'Rarity');
     const rarity = rarityAttr?.value || 'Uncommon' as 'Uncommon' | 'Rare' | 'Epic' | 'Legendary';
-    console.log({ isVip, rarity, MERGE_PRICE_RARITY });
+
     return isVip ? MERGE_PRICE_RARITY[rarity as keyof typeof MERGE_PRICE_RARITY].vip : MERGE_PRICE_RARITY[rarity as keyof typeof MERGE_PRICE_RARITY].regular;
   }, [isVip, MERGE_PRICE_RARITY, selectedEquipments]);
 
@@ -531,15 +531,15 @@ export default function Forge({ inventoryItems, onRefetchInventory, gameAmazonit
             {t('inventory.forge.rules')}
           </h4>
           <div className='flex justify-between items-center '>
-          <ul className="text-white space-y-1 text-sm">
-            <li className="list-item">• {t('inventory.forge.rule1')}</li>
-            <li className="list-item">• {t('inventory.forge.rule2')}</li>
-            <li className="list-item">• {t('inventory.forge.rule3')}</li>
-            <li className="list-item">• {t('inventory.forge.rule4')}</li>
-            <li className="list-item">• {t('inventory.forge.rule5')}</li>
-            <li className="list-item">• {t('inventory.forge.rule6')}</li>
-            <li className="list-item">• {t('inventory.forge.rule7')}</li>
-          </ul>
+            <ul className="text-white space-y-1 text-sm">
+              <li className="list-item">• {t('inventory.forge.rule1')}</li>
+              <li className="list-item">• {t('inventory.forge.rule2')}</li>
+              <li className="list-item">• {t('inventory.forge.rule3')}</li>
+              <li className="list-item">• {t('inventory.forge.rule4')}</li>
+              <li className="list-item">• {t('inventory.forge.rule5')}</li>
+              <li className="list-item">• {t('inventory.forge.rule6')}</li>
+              <li className="list-item">• {t('inventory.forge.rule7')}</li>
+            </ul>
             <div className="max-w-[250px] flex flex-col items-center justify-center gap-3 p-3 bg-gray-900/40 rounded-md border border-gray-700">
               <Image
                 src="/assets/images/timeless.png"

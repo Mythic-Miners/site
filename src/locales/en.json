@@ -22,7 +22,9 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "leaderboard": "Leaderboard",
+    "more": "More"
   },
   "errors": {
     "general": "Something went wrong",
@@ -159,12 +161,84 @@
     "staking": "Staking",
     "totalClaimable": "Total Claimable",
     "claim": "Claim Tokens",
-    "nextClaim": "Next claim available at",
+    "nextClaim": "Next claim available in",
     "temp": "Soon you will be able to view and track all your tokens here. But don't worry, your staking is already running!",
-    "didNotParticipate": "You didn't invest in the presale yet. Participate in the presale to view your tokens.",
-    "claimableDate": "Claim available at: {{date}}",
-    "cliff": "You are in the cliff period, you will be able to track your tokens on the day {{date}}.",
+    "didNotParticipate": "You haven't invested in the pre-sale yet. Join now to see your tokens.",
+    "claimableDate": "Claim available on: {{date}}",
+    "cliff": "You are in the cliff period, you will be able to track your tokens on {{date}}.",
     "notAvailable": "Value to be determined"
+  },
+  "leaderboard": {
+    "title": "Mythic Miners Leaderboard",
+    "subtitle": "Track the top miners and see how your equipment loadout drives your total score.",
+    "lastUpdated": "Updated at {{date}}",
+    "topHeading": "Top 100 Players",
+    "focusHint": "Whenever data is available we automatically center on your current rank.",
+    "aroundYouSection": "Around you",
+    "emptyState": "No leaderboard data available yet.",
+    "unknownPlayer": "Unknown player",
+    "scoreLabel": "Total score: {{value}} pts",
+    "currentPlayer": "That's you",
+    "computedAt": "Score computed",
+    "noTimestamp": "No timestamp provided",
+    "pointsValue": "{{value}} pts",
+    "emptySlot": "Empty slot",
+    "slots": {
+      "helmet": "Helmet",
+      "pickaxe": "Pickaxe",
+      "armour": "Armour",
+      "jetpack": "Jetpack",
+      "belt": "Belt",
+      "trinket": "Trinket",
+      "relic": "Relic"
+    },
+    "scoring": {
+      "title": "📊 Scoring System – Mythic Miners (Equipment)",
+      "description": "Learn how each rank is calculated: combine rarity, grade, and equipment type to maximize your score.",
+      "rarityTitle": "1. Rarity (fixed base value)",
+      "rarityHeader": "Rarity",
+      "pointsHeader": "Base Points",
+      "rarity": {
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "epic": "Epic",
+        "legendary": "Legendary",
+        "timeless": "Timeless"
+      },
+      "gradeTitle": "2. Grade (multiplier applied to the base value)",
+      "gradeHeader": "Grade",
+      "multiplierHeader": "Multiplier",
+      "grades": {
+        "limitedEdition": "Limited Edition"
+      },
+      "typeTitle": "3. Equipment Type (final multiplier)",
+      "typeHeader": "Type",
+      "types": {
+        "pickaxe": "Pickaxe",
+        "helmet": "Helmet",
+        "armour": "Armour",
+        "belt": "Belt",
+        "jetpack": "Jetpack",
+        "trinket": "Trinket",
+        "relic": "Relic"
+      },
+      "monthlyRewardsTitle": "Monthly Rewards",
+      "monthlyRewardsPosition": "Position",
+      "monthlyRewardsPrize": "Prize",
+      "monthlyRewardsFirst": "🥇 1st Place",
+      "monthlyRewardsSecond": "🥈 2nd Place",
+      "monthlyRewardsThird": "🥉 3rd Place",
+      "monthlyRewardsTop10": "4th to 10th Place",
+      "monthlyRewardsFirstPrize": "10 Gacha",
+      "monthlyRewardsSecondPrize": "5 Gacha",
+      "monthlyRewardsThirdPrize": "3 Gacha",
+      "monthlyRewardsTop10Prize": "1 Gacha",
+      "monthlyRewardsNote": "*Prizes are distributed monthly based on ranking position.",
+      "formulaTitle": "⚔️ Formula",
+      "formulaDescription": "Score = Base Rarity × Grade Multiplier × Type Multiplier",
+      "exampleTitle": "📌 Example",
+      "exampleDescription": "Epic (500) + Grade A (×1.3) + Trinket (×1.5) = 500 × 1.3 × 1.5 = 975 pts"
+    }
   },
   "airdrop": {
     "title": "Airdrop",
