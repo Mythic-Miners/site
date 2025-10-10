@@ -24,6 +24,7 @@
     "about": "Sobre",
     "contact": "Contato",
     "leaderboard": "Ranking",
+    "claim": "Resgate",
     "more": "Mais"
   },
   "errors": {
@@ -254,6 +255,51 @@
     "alreadyMinted": "Você já mintou seus tokens",
     "error": "Erro ao mintar airdrop",
     "toastMinted": "Itens mintados com sucesso"
+  },
+  "claim": {
+    "title": "Resgate Mensal",
+    "subtitle": "Transfira parte dos seus ganhos uma vez por mês. O valor recebido depende da faixa de taxa aplicada ao resgate.",
+    "form": {
+      "heading": "Detalhes do resgate",
+      "description": "Informe a quantidade de $AMZ que deseja transferir. Os taxas são calculados automaticamente e descontados do total.",
+      "amountLabel": "Quantidade para resgatar ($AMZ)",
+      "amountError": "Informe um valor válido maior que zero.",
+      "taxRateLabel": "Alíquota de taxa",
+      "taxRateValue": "{{value}}% de taxa aplicado",
+      "taxRatePlaceholder": "—",
+      "netAmountLabel": "Você receberá",
+      "netAmountPlaceholder": "—",
+      "netAmountHelp": "Valor líquido após a dedução dos taxas.",
+      "submit": "Enviar resgate",
+      "submitLoading": "Processando resgate...",
+      "submitDisabled": "Resgate mensal utilizado"
+    },
+    "status": {
+      "alreadyClaimed": "Você já realizou o resgate deste mês.",
+      "nextClaim": "Próximo resgate disponível em: {{date}}",
+      "available": "Resgate mensal disponível.",
+      "lastClaimedAt": "Último resgate em {{date}}",
+      "lastClaimAmount": "Valor bruto: {{amount}} $AMZ",
+      "lastClaimNetAmount": "Valor líquido: {{amount}} $AMZ"
+    },
+    "feedback": {
+      "successTitle": "Resgate solicitado",
+      "successDescription": "Você receberá {{net}} $AMZ após um taxa de {{rate}}%.",
+      "errorTitle": "Não foi possível enviar o resgate",
+      "errorDescription": "Tente novamente em instantes."
+    },
+    "taxRules": {
+      "title": "Regras de taxa",
+      "description": "Os taxas são descontados do valor resgatado todo mês. Quanto maior o resgate, melhor a alíquota.",
+      "bracketHigh": "≥ 1.500 $AMZ — 0% de taxa.",
+      "bracketMid": "1.000 a 1.499 $AMZ — 20% de taxa.",
+      "bracketLow": "500 a 999 $AMZ — 40% de taxa.",
+      "bracketBase": "< 500 $AMZ — 50% de taxa."
+    },
+    "reminder": {
+      "title": "Um resgate por mês",
+      "description": "Após concluir o resgate, aguarde até o próximo mês para solicitar novamente."
+    }
   },
   "subscription": {
     "vip_1_month": "VIP 1 Mês",

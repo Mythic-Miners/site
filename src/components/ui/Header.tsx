@@ -69,6 +69,11 @@ export default function Header() {
 
   const moreNavItems = [
     {
+      name: t('navigation.claim'),
+      href: `/${language}/claim`,
+      current: pathname === `/${language}/claim`,
+    },
+    {
       name: t('airdrop.title'),
       href: `/${language}/airdrop`,
       current: pathname === `/${language}/airdrop`,

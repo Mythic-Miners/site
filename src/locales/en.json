@@ -24,6 +24,7 @@
     "about": "About",
     "contact": "Contact",
     "leaderboard": "Leaderboard",
+    "claim": "Claim",
     "more": "More"
   },
   "errors": {
@@ -254,6 +255,51 @@
     "alreadyMinted": "You have already minted your tokens",
     "error": "Error minting airdrop",
     "toastMinted": "Tokens minted successfully"
+  },
+  "claim": {
+    "title": "Monthly Claim",
+    "subtitle": "Transfer part of your earnings once per month. The amount you receive depends on the tax bracket applied to your claim.",
+    "form": {
+      "heading": "Claim details",
+      "description": "Enter the amount of $AMZ you wish to transfer. Taxes are calculated automatically and deducted from the total.",
+      "amountLabel": "Amount to claim ($AMZ)",
+      "amountError": "Enter a valid amount greater than zero.",
+      "taxRateLabel": "Tax rate",
+      "taxRateValue": "{{value}}% tax applied",
+      "taxRatePlaceholder": "—",
+      "netAmountLabel": "You will receive",
+      "netAmountPlaceholder": "—",
+      "netAmountHelp": "Net amount after taxes are deducted.",
+      "submit": "Submit claim",
+      "submitLoading": "Processing claim...",
+      "submitDisabled": "Monthly claim used"
+    },
+    "status": {
+      "alreadyClaimed": "You have already claimed this month.",
+      "nextClaim": "Next claim available: {{date}}",
+      "available": "Monthly claim available.",
+      "lastClaimedAt": "Last claim made on {{date}}",
+      "lastClaimAmount": "Gross amount: {{amount}} $AMZ",
+      "lastClaimNetAmount": "Net received: {{amount}} $AMZ"
+    },
+    "feedback": {
+      "successTitle": "Claim requested",
+      "successDescription": "You will receive {{net}} $AMZ after a {{rate}}% tax.",
+      "errorTitle": "Unable to submit claim",
+      "errorDescription": "Please try again in a moment."
+    },
+    "taxRules": {
+      "title": "Tax rules",
+      "description": "Taxes are deducted from the amount you claim each month. Higher claims unlock better tax rates.",
+      "bracketHigh": "≥ 1,500 $AMZ — 0% tax applied.",
+      "bracketMid": "1,000 to 1,499 $AMZ — 20% tax applied.",
+      "bracketLow": "500 to 999 $AMZ — 40% tax applied.",
+      "bracketBase": "< 500 $AMZ — 50% tax applied."
+    },
+    "reminder": {
+      "title": "One claim per month",
+      "description": "Once your claim is processed you must wait until the next month to claim again."
+    }
   },
   "subscription": {
     "vip_1_month": "VIP 1 Month",

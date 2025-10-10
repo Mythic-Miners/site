@@ -287,7 +287,7 @@ export default function VipPage() {
                     {(() => {
                       const months =
                         key === 'vip_1_month' ? 1 : key === 'vip_3_months' ? 3 : 6;
-                      const baseAmz = 500 * months;
+                      const baseAmz = 1000 * months;
                       const discountPercent = savings
                         ? parseFloat(savings)
                         : 0;
@@ -412,7 +412,7 @@ export default function VipPage() {
                   ) : (
                     (() => {
                       const months = key === 'vip_1_month' ? 1 : key === 'vip_3_months' ? 3 : 6;
-                      const baseAmz = 500 * months;
+                      const baseAmz = 1000 * months;
                       const discountPercent = savings ? parseFloat(savings) || 0 : 0;
                       const priceAMZ = Math.round(baseAmz * (1 - discountPercent / 100));
 
