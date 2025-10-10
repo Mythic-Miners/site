@@ -124,8 +124,9 @@ export default function ClaimPage() {
   const taxRatePercentage = Math.round(taxDetails.rate * 100);
   const netAmountDisplay = formatAmount(taxDetails.net);
 
-  const isButtonDisabled =
-    !isAmountValid || hasClaimedThisMonth || isSubmitting;
+  // const isButtonDisabled =
+  //   !isAmountValid || hasClaimedThisMonth || isSubmitting;
+  const isButtonDisabled = true;
 
   return (
     <div className="text-neutral-100">
@@ -232,11 +233,12 @@ export default function ClaimPage() {
                 onPress={handleSubmit}
                 className="border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-xl transition-transform hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {isSubmitting
+                {/* {isSubmitting
                   ? t('claim.form.submitLoading')
                   : hasClaimedThisMonth
                     ? t('claim.form.submitDisabled')
-                    : t('claim.form.submit')}
+                    : t('claim.form.submit')} */}
+                Coming Soon
               </Button>
             </div>
           </Card>
