@@ -229,9 +229,9 @@ export default function ClaimPage() {
 
             <div className="relative">
               <Button
-                isDisabled={isButtonDisabled}
+                // isDisabled={isButtonDisabled}
                 onPress={handleSubmit}
-                className="border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-xl transition-transform hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed"
+                className="border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-xl transition-transform hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed !opacity-disabled"
               >
                 {/* {isSubmitting
                   ? t('claim.form.submitLoading')

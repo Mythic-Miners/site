@@ -1,13 +1,13 @@
 import type { InventoryItem } from '@/api/inventory';
 
-export const GACHA_PRICE_VIP = 100;
-export const GACHA_PRICE_REGULAR = 140;
+export const GACHA_PRICE_VIP = 160;
+export const GACHA_PRICE_REGULAR = 200;
 
 export const MERGE_PRICE_RARITY = {
-    Uncommon: { vip: 160, regular: 200 },
-    Rare: { vip: 240, regular: 300 },
-    Epic: { vip: 416, regular: 520 },
-    Legendary: { vip: 800, regular: 1000 },
+  Uncommon: { vip: 200, regular: 240 },
+  Rare: { vip: 300, regular: 400 },
+  Epic: { vip: 480, regular: 600 },
+  Legendary: { vip: 800, regular: 1000 },
 };
 
 export const FAKE_PROVIDERS = [
