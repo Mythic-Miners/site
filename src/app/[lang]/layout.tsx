@@ -68,6 +68,7 @@ export default async function LangLayout({
   return (
     <html lang={lang}>
       <head>
+        <meta name="facebook-domain-verification" content="26qgow5y3tec540v8n4mda3lrto40s" />
       </head>
       <body className={`${ceaserfont.variable} ${senFont.className}`}>
         <ThirdwebProvider>
