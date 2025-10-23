@@ -19,7 +19,7 @@ export default async function App({ params }: HomeProps) {
           <h1 className="text-yellow-50 mythic-text-shadow text-5xl md:text-7xl font-bold mb-4 font-ceaser">
             {getTranslation(lang, 'hero.title')}
           </h1>
-          <p className="absolute top-0 text-gray-300 text-xs">
+          <p className="absolute top-0 text-transparent text-xs">
             RAFAEL BIROCHI CERRI CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA
           </p>
           <div className="mt-14 md:mt-20">
