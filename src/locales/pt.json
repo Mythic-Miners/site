@@ -273,7 +273,7 @@
       "submit": "Enviar resgate",
       "submitLoading": "Processando resgate...",
       "submitDisabled": "Resgate mensal utilizado",
-      "inGameBalance": "Rasgate - Saldo in-game: {{balance}} $AMZ",
+      "inGameBalance": "- {{balance}} $AMZ",
       "inGameBalanceLoading": "Verificando o seu saldo in-game..."
     },
     "status": {

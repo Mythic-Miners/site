@@ -273,7 +273,7 @@
       "submit": "Submit claim",
       "submitLoading": "Processing claim...",
       "submitDisabled": "Monthly claim used",
-      "inGameBalance": "Claim - In-game balance: {{balance}} $AMZ",
+      "inGameBalance": "- {{balance}} $AMZ",
       "inGameBalanceLoading": "Checking your in-game balance..."
     },
     "status": {

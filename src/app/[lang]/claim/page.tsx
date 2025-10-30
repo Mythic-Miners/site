@@ -254,10 +254,7 @@ export default function ClaimPage() {
                 disabled={isButtonDisabled}
               >
                 <div className="flex w-full flex-col items-center text-center">
-                  <span>{buttonLabel}</span>
-                  <span className="mt-1 text-xs text-white/90">
-                    {inGameBalanceLabel}
-                  </span>
+                  <span>{buttonLabel} {inGameBalanceLabel}</span>
                 </div>
               </Button>
             </div>
