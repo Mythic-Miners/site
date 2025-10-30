@@ -11,6 +11,7 @@ import {
   useClaimMutation,
   useClaimStatusQuery,
 } from '@/api/claim';
+import { useInventoryQuery } from '@/api/inventory';
 import { useLanguage } from '@/context/LanguageContext';
 
 const getTaxRate = (amount: number) => {
@@ -31,6 +32,11 @@ export default function ClaimPage() {
     isLoading: isStatusLoading,
     refetch,
   } = useClaimStatusQuery();
+
+  const {
+    data: inventoryData,
+    isLoading: isInventoryLoading,
+  } = useInventoryQuery();
 
   const {
     mutate: submitClaim,
@@ -58,7 +64,7 @@ export default function ClaimPage() {
     };
   }, [parsedAmount]);
 
-  const hasClaimedThisMonth = false;
+  const hasClaimedThisMonth = statusData?.data?.claimed ?? false;
 
   const isAmountValid = parsedAmount > 99;
 
@@ -123,6 +129,21 @@ export default function ClaimPage() {
 
   const taxRatePercentage = Math.round(taxDetails.rate * 100);
   const netAmountDisplay = formatAmount(taxDetails.net);
+
+  const inGameBalance = inventoryData?.data?.gameAmazonites ?? null;
+  const inGameBalanceDisplay = formatAmount(inGameBalance ?? 0) ?? '0.00';
+
+  const buttonLabel = isSubmitting
+    ? t('claim.form.submitLoading')
+    : hasClaimedThisMonth
+      ? t('claim.form.submitDisabled')
+      : t('claim.form.submit');
+
+  const inGameBalanceLabel = isInventoryLoading
+    ? t('claim.form.inGameBalanceLoading')
+    : t('claim.form.inGameBalance', {
+      balance: inGameBalanceDisplay,
+    });
 
   const isButtonDisabled =
     !isAmountValid || hasClaimedThisMonth || isSubmitting;
@@ -232,11 +253,12 @@ export default function ClaimPage() {
                 className="border-2 border-black w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-xl transition-transform hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed"
                 disabled={isButtonDisabled}
               >
-                {isSubmitting
-                  ? t('claim.form.submitLoading')
-                  : hasClaimedThisMonth
-                    ? t('claim.form.submitDisabled')
-                    : t('claim.form.submit')}
+                <div className="flex w-full flex-col items-center text-center">
+                  <span>{buttonLabel}</span>
+                  <span className="mt-1 text-xs text-white/90">
+                    {inGameBalanceLabel}
+                  </span>
+                </div>
               </Button>
             </div>
           </Card>

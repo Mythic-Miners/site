@@ -261,7 +261,7 @@
     "subtitle": "Transfer part of your earnings once per month. The amount you receive depends on the tax bracket applied to your claim.",
     "form": {
       "heading": "Claim details",
-      "description": "Enter the amount of $AMZ you wish to transfer. Taxes are calculated automatically and deducted from the total.",
+      "description": "Enter the amount of your in-game $AMZ you wish to transfer. Taxes are calculated automatically and deducted from the total.",
       "amountLabel": "Amount to claim ($AMZ)",
       "amountError": "Enter a valid amount greater than 99",
       "taxRateLabel": "Tax rate",
@@ -272,7 +272,9 @@
       "netAmountHelp": "Net amount after taxes are deducted.",
       "submit": "Submit claim",
       "submitLoading": "Processing claim...",
-      "submitDisabled": "Monthly claim used"
+      "submitDisabled": "Monthly claim used",
+      "inGameBalance": "Claim - In-game balance: {{balance}} $AMZ",
+      "inGameBalanceLoading": "Checking your in-game balance..."
     },
     "status": {
       "alreadyClaimed": "You have already claimed this month.",

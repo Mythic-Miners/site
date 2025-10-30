@@ -261,7 +261,7 @@
     "subtitle": "Transfira parte dos seus ganhos uma vez por mês. O valor recebido depende da faixa de taxa aplicada ao resgate.",
     "form": {
       "heading": "Detalhes do resgate",
-      "description": "Informe a quantidade de $AMZ que deseja transferir. Os taxas são calculados automaticamente e descontados do total.",
+      "description": "Informe a quantidade do seu $AMZ do jogo que deseja transferir. As taxas são calculadas automaticamente e descontadas do total.",
       "amountLabel": "Quantidade para resgatar ($AMZ)",
       "amountError": "Informe um valor válido maior que 99.",
       "taxRateLabel": "Alíquota de taxa",
@@ -272,7 +272,9 @@
       "netAmountHelp": "Valor líquido após a dedução dos taxas.",
       "submit": "Enviar resgate",
       "submitLoading": "Processando resgate...",
-      "submitDisabled": "Resgate mensal utilizado"
+      "submitDisabled": "Resgate mensal utilizado",
+      "inGameBalance": "Rasgate - Saldo in-game: {{balance}} $AMZ",
+      "inGameBalanceLoading": "Verificando o seu saldo in-game..."
     },
     "status": {
       "alreadyClaimed": "Você já realizou o resgate deste mês.",
