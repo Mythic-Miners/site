@@ -58,9 +58,9 @@ export default function ClaimPage() {
     };
   }, [parsedAmount]);
 
-  const hasClaimedThisMonth = statusData?.data?.claimed ?? false;
+  const hasClaimedThisMonth = false;
 
-  const isAmountValid = parsedAmount > 0;
+  const isAmountValid = parsedAmount > 99;
 
   const formatAmount = (value?: number | null) => {
     if (value === null || value === undefined || Number.isNaN(value)) {
@@ -176,7 +176,7 @@ export default function ClaimPage() {
               </label>
               <Input
                 type="number"
-                min="0"
+                min="99"
                 max="1500"
                 placeholder="1500"
                 value={amount}

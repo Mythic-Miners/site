@@ -263,7 +263,7 @@
       "heading": "Claim details",
       "description": "Enter the amount of $AMZ you wish to transfer. Taxes are calculated automatically and deducted from the total.",
       "amountLabel": "Amount to claim ($AMZ)",
-      "amountError": "Enter a valid amount greater than zero.",
+      "amountError": "Enter a valid amount greater than 99",
       "taxRateLabel": "Tax rate",
       "taxRateValue": "{{value}}% tax applied",
       "taxRatePlaceholder": "—",

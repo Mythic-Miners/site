@@ -3,7 +3,7 @@ import type { InventoryItem } from '@/api/inventory';
 export const GACHA_PRICE_VIP = 160;
 export const GACHA_PRICE_REGULAR = 200;
 
-export const MERGE_PRICE_RARITY = {
+export const  MERGE_PRICE_RARITY = {
   Uncommon: { vip: 200, regular: 240 },
   Rare: { vip: 300, regular: 400 },
   Epic: { vip: 480, regular: 600 },

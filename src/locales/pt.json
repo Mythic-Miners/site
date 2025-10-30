@@ -263,7 +263,7 @@
       "heading": "Detalhes do resgate",
       "description": "Informe a quantidade de $AMZ que deseja transferir. Os taxas são calculados automaticamente e descontados do total.",
       "amountLabel": "Quantidade para resgatar ($AMZ)",
-      "amountError": "Informe um valor válido maior que zero.",
+      "amountError": "Informe um valor válido maior que 99.",
       "taxRateLabel": "Alíquota de taxa",
       "taxRateValue": "{{value}}% de taxa aplicado",
       "taxRatePlaceholder": "—",
