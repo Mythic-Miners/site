@@ -3,10 +3,19 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function MaintenanceBlock() {
   const router = useRouter();
   const pathname = usePathname();
+  const { logout, isConnected } = useAuth();
+
+  useEffect(() => {
+    // Logout user in maintenance mode
+    if (isConnected) {
+      logout();
+    }
+  }, [isConnected, logout]);
 
   useEffect(() => {
     // Extract language from current pathname
