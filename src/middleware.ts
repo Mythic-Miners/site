@@ -9,36 +9,7 @@ import {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // MAINTENANCE MODE: Allow only home pages, API routes, and static files
-  
-  // Check if it's a home page (e.g., /en, /pt, /es)
-  const isHomePage = supportedLanguages.some(
-    (lang) => pathname === `/${lang}` || pathname === `/${lang}/`,
-  );
-
-  // Allow home pages
-  if (isHomePage) {
-    return NextResponse.next();
-  }
-
-  // Allow API routes, static files, and Next.js internal files
-  if (
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/_next/') ||
-    pathname.includes('.') ||
-    pathname === '/favicon.ico'
-  ) {
-    return NextResponse.next();
-  }
-
-  // MAINTENANCE MODE: Redirect all other routes to home page
-  
-  // Extract language from pathname if it exists
-  const pathLang = supportedLanguages.find((lang) =>
-    pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`,
-  );
-
-  // Redirect /app/* to home
+  // Redirect /app/* to /
   if (
     pathname.startsWith('/pt/app/') ||
     pathname === '/pt/app' ||
@@ -48,20 +19,33 @@ export function middleware(request: NextRequest) {
     pathname === '/es/app' ||
     pathname === '/app'
   ) {
-    const lang = pathname.startsWith('/pt') ? 'pt' : pathname.startsWith('/en') ? 'en' : 'pt';
-    const newUrl = new URL(`/${lang}`, request.url);
+    const newUrl = new URL('/pt', request.url);
+    // Preserve query parameters if any
     newUrl.search = request.nextUrl.search;
     return NextResponse.redirect(newUrl);
   }
 
-  // If path has a language prefix but is not home, redirect to home
-  if (pathLang) {
-    const newUrl = new URL(`/${pathLang}`, request.url);
-    newUrl.search = request.nextUrl.search;
-    return NextResponse.redirect(newUrl);
+  // Check if the path already has a language prefix
+  const hasLanguagePrefix = supportedLanguages.some(
+    (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`,
+  );
+
+  // Skip middleware for:
+  // - Already prefixed paths
+  // - API routes
+  // - Static files (images, fonts, etc.)
+  // - Next.js internal files
+  if (
+    hasLanguagePrefix ||
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/_next/') ||
+    pathname.includes('.') ||
+    pathname === '/favicon.ico'
+  ) {
+    return NextResponse.next();
   }
 
-  // For paths without language prefix, detect language and redirect to home
+  // Detect user's preferred language
   const acceptLanguage = request.headers.get('accept-language') || '';
   const detectedLanguage = detectLanguageFromHeaders(acceptLanguage);
 
@@ -72,13 +56,13 @@ export function middleware(request: NextRequest) {
       ? savedLanguage
       : detectedLanguage;
 
-  // Redirect to home page with language prefix
-  const newUrl = new URL(`/${preferredLanguage}`, request.url);
+  // Create the new URL with language prefix
+  const newUrl = new URL(`/${preferredLanguage}${pathname}`, request.url);
   newUrl.search = request.nextUrl.search;
 
   const response = NextResponse.redirect(newUrl);
 
-  // Set cookie for future visits
+  // Redirect to the language-prefixed URL
   response.cookies.set('preferred-language', preferredLanguage, {
     maxAge: 365 * 24 * 60 * 60, // 1 year
     httpOnly: false, // Allow client-side access
