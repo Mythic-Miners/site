@@ -44,7 +44,7 @@ export default function AuthButton({ header }: { header?: boolean }) {
       client={client}
       wallets={wallets}
       theme="dark"
-      autoConnect={false}
+      autoConnect={{ timeout: 10000 }}
       connectModal={{
         size: 'compact',
         termsOfServiceUrl: 'https://mythicminers.com/terms-of-use',
@@ -87,16 +87,41 @@ export default function AuthButton({ header }: { header?: boolean }) {
       }}
       auth={{
         isLoggedIn: async () => {
-          // MAINTENANCE MODE: Always return false to prevent login
-          return false;
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/is-logged-in`,
+            {
+              credentials: 'include',
+            },
+          );
+          const data = await response.json();
+          return data.data;
         },
         doLogin: async (params) => {
-          // MAINTENANCE MODE: Block login attempts
-          throw new Error('Site is under maintenance. Login is temporarily disabled.');
+          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(params),
+          });
+          setIsJwtPresent(true);
         },
         getLoginPayload: async ({ address }) => {
-          // MAINTENANCE MODE: Block login payload requests
-          throw new Error('Site is under maintenance. Login is temporarily disabled.');
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/login-payload`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              credentials: 'include',
+              body: JSON.stringify({ address }),
+            },
+          );
+
+          const data = await response.json();
+          return data.data;
         },
         doLogout: async () => {
           await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
