@@ -392,6 +392,26 @@
       "saveAmount": "Save {{amount}} $AMZ!",
       "vipDiscount": "👑 VIP: {{price}} $AMZ"
     },
+    "christmasGacha": {
+      "title": "Christmas Gacha",
+      "play": "Open Gift and Mint NFT",
+      "playing": "Opening and minting...",
+      "info": "Christmas Gacha Information",
+      "giftsLabel": "Gifts",
+      "description": "Use 1 Gift to open the Christmas gacha and mint a limited Christmas equipment NFT.",
+      "poolTitle": "Equipment Pool",
+      "detailsTitle": "Drop Details",
+      "rarity": "Rarity",
+      "rarityValue": "Uncommon",
+      "grade": "Grade",
+      "gradeValue": "Grade A",
+      "edition": "Edition",
+      "editionValue": "Christmas",
+      "playingToastTitle": "Opening Christmas Gacha: Good luck!!",
+      "playingToastDescription": "Please wait... Your gift is being opened! This may take a few seconds.",
+      "errorTitle": "Error!",
+      "errorDescription": "Failed to open Christmas gacha. Please try again."
+    },
     "forge": {
       "title": "Equipment Forge",
       "info": "Forge Information",

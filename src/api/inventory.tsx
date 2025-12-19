@@ -24,6 +24,7 @@ export interface InventoryItem {
 export interface Inventory {
   gameAmazonites: number;
   gachaVouchers: number;
+  gifts: number;
   inventory: InventoryItem[];
   summary: {
     totalEquipments: number;
@@ -37,6 +38,23 @@ export interface Inventory {
 
 export interface GachaResponse {
   data: {
+    equipment: {
+      image: string;
+      name: string;
+      description: string;
+      attributes: Array<{
+        trait_type: string;
+        value: string | number;
+        display_type?: string;
+      }>;
+    };
+    message: string;
+  };
+}
+
+export interface ChristmasGachaResponse {
+  data: {
+    tokenId: number;
     equipment: {
       image: string;
       name: string;
@@ -84,6 +102,24 @@ export const useGachaMutation = () =>
         },
       );
       if (!response.ok) throw new Error('Failed to call gacha');
+      return response.json();
+    },
+  });
+
+export const useChristmasGachaMutation = () =>
+  useMutation<ChristmasGachaResponse, Error>({
+    mutationFn: async () => {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/inventory/gacha/christmas`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        },
+      );
+      if (!response.ok) throw new Error('Failed to call christmas gacha');
       return response.json();
     },
   });

@@ -13,6 +13,7 @@ interface LayoutWrapperProps {
 
 // Function to clear all cookies and localStorage
 const clearAllStorageAndCookies = () => {
+  if (typeof window === 'undefined') return;
   // Clear localStorage
   localStorage.clear();
   // Clear sessionStorage

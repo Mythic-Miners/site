@@ -6,8 +6,8 @@ import type { Metadata } from 'next';
 import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
-import { ThirdwebProvider } from 'thirdweb/react';
 
+import { ThirdwebProvider } from '@/components/context/Thirdweb';
 import { HeroUIProvider } from '@/components/context/HeroUI';
 import QueryProvider from '@/components/context/QueryProvider';
 import { AuthProvider } from '@/context/AuthContext';

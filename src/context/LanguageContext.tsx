@@ -10,24 +10,35 @@ import { detectPreferredLanguage } from '@/lib/i18n-client';
 import enTranslations from '@/locales/en.json';
 import ptTranslations from '@/locales/pt.json';
 
-// Initialize i18next
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: enTranslations,
+function ensureI18nInitialized() {
+  // Next.js may evaluate this module during SSR even though it's a client component.
+  // Guard any browser-only initialization to prevent crashes (e.g. localStorage access).
+  if (typeof window === 'undefined') return;
+  if (i18n.isInitialized) return;
+
+  i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+      resources: {
+        en: {
+          translation: enTranslations,
+        },
+        pt: {
+          translation: ptTranslations,
+        },
       },
-      pt: {
-        translation: ptTranslations,
+      fallbackLng: 'en',
+      detection: {
+        // Avoid localStorage/sessionStorage during detection (can break in some runtimes)
+        order: ['path', 'cookie', 'navigator'],
+        caches: ['cookie'],
       },
-    },
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+      interpolation: {
+        escapeValue: false,
+      },
+    });
+}
 
 interface LanguageContextType {
   language: string;
@@ -39,6 +50,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  ensureI18nInitialized();
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {

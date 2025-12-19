@@ -394,6 +394,26 @@
       "saveAmount": "Economize {{amount}} $AMZ!",
       "vipDiscount": "👑 VIP: {{price}} $AMZ"
     },
+    "christmasGacha": {
+      "title": "Gacha de Natal",
+      "play": "Abrir Presente e Mintar NFT",
+      "playing": "Abrindo e mintando...",
+      "info": "Informações do Gacha de Natal",
+      "giftsLabel": "Presentes",
+      "description": "Use 1 Presente para abrir o gacha de Natal e mintar um equipamento NFT limitado de Natal.",
+      "poolTitle": "Pool de Equipamentos",
+      "detailsTitle": "Detalhes do Drop",
+      "rarity": "Raridade",
+      "rarityValue": "Incomum",
+      "grade": "Nível",
+      "gradeValue": "Nível A",
+      "edition": "Edição",
+      "editionValue": "Natal",
+      "playingToastTitle": "Abrindo Gacha de Natal: Boa sorte!!",
+      "playingToastDescription": "Aguarde um momento... Seu presente está sendo aberto! Isso pode levar alguns segundos.",
+      "errorTitle": "Erro!",
+      "errorDescription": "Falha ao abrir o gacha de Natal. Por favor, tente novamente."
+    },
     "forge": {
       "title": "Forja de Equipamentos",
       "info": "Informações da Forja",
