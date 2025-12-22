@@ -54,7 +54,11 @@ export default function InventoryPage() {
 
   const handleItemClick = (item: InventoryItem) => {
     setSelectedItem(item);
-    setIsModalOpen(true);
+    // Delay opening to the next tick so the click that selected the item
+    // doesn't immediately count as an "outside click" and dismiss the modal.
+    setTimeout(() => {
+      setIsModalOpen(true);
+    }, 0);
   };
 
   return (

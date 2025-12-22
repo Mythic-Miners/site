@@ -15,9 +15,13 @@ interface LayoutWrapperProps {
 const clearAllStorageAndCookies = () => {
   if (typeof window === 'undefined') return;
   // Clear localStorage
-  localStorage.clear();
+  if (typeof localStorage?.clear === 'function') {
+    localStorage.clear();
+  }
   // Clear sessionStorage
-  sessionStorage.clear();
+  if (typeof sessionStorage?.clear === 'function') {
+    sessionStorage.clear();
+  }
 
   // Clear all cookies
   document.cookie.split(';').forEach((cookie) => {

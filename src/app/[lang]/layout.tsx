@@ -7,14 +7,9 @@ import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 
-import { ThirdwebProvider } from '@/components/context/Thirdweb';
-import { HeroUIProvider } from '@/components/context/HeroUI';
-import QueryProvider from '@/components/context/QueryProvider';
-import { AuthProvider } from '@/context/AuthContext';
-import { LanguageProvider } from '@/context/LanguageContext';
-import UsernameGate from '@/components/ui/UsernameGate';
 import type { SupportedLanguage } from '@/lib/i18n-server';
 import { getTranslation, supportedLanguages } from '@/lib/i18n-server';
+import { ClientOnlyProviders } from '@/components/context/ClientOnlyProviders';
 
 interface LangLayoutProps {
   children: React.ReactNode;
@@ -71,18 +66,9 @@ export default async function LangLayout({
         <meta name="facebook-domain-verification" content="26qgow5y3tec540v8n4mda3lrto40s" />
       </head>
       <body className={`${ceaserfont.variable} ${senFont.className}`}>
-        <ThirdwebProvider>
-          <QueryProvider>
-            <AuthProvider>
-              <LanguageProvider>
-                <HeroUIProvider>
-                  {children}
-                  <UsernameGate />
-                </HeroUIProvider>
-              </LanguageProvider>
-            </AuthProvider>
-          </QueryProvider>
-        </ThirdwebProvider>
+        <ClientOnlyProviders>
+          {children}
+        </ClientOnlyProviders>
         <div id="tsparticles" style={{ pointerEvents: 'none' }} />
         <Script
           id="watson-assistant-chat"
