@@ -5,7 +5,6 @@ import { useMemo, useState } from 'react';
 import type { InventoryItem } from '@/api/inventory';
 import { useInventoryQuery } from '@/api/inventory';
 import EquipedEquipments from '@/components/ui/EquipedEquipments';
-import ChristmasGacha from '@/components/ui/ChristmasGacha';
 import Forge from '@/components/ui/Forge';
 import Gacha from '@/components/ui/Gacha';
 import Inventory from '@/components/ui/Inventory';
@@ -72,11 +71,6 @@ export default function InventoryPage() {
           isVip={inventoryData?.data?.isVip || false}
         />
 
-        {/* Christmas Gacha Section */}
-        <ChristmasGacha
-          onRefetchInventory={refetchInventory}
-          gifts={inventoryData?.data?.gifts || 0}
-        />
 
         {/* Forge Section */}
         <Forge
