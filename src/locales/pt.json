@@ -7,7 +7,27 @@
     "description": "Mergulhe no mundo místico de Mythic Miners, um jogo Web 3 onde você explora cavernas, minera rochas, melhora seu minerador, troca NFTs e ganha dinheiro real. Comece sua aventura agora!"
   },
   "hero": {
-    "title": "Mythic Miners"
+    "title": "Mythic Miners",
+    "description": {
+      "desktop": "Minere, colete e negocie artefatos lendários em um mundo de aventura",
+      "mobile": "Minere, colete e negocie artefatos lendários em um mundo de aventura"
+    }
+  },
+  "landing": {
+    "wishlist": {
+      "title": "Lista de desejos da Steam",
+      "announcement": "Estamos felizes em anunciar",
+      "description": "A lista de desejos abrirá nos próximos dias. Fique atento!",
+      "link": "Ir para Lista de desejos",
+      "thanks": "Obrigado a todos que jogaram o jogo em Web3 até agora. Estamos migrando para a Steam.",
+      "comingSoon": "Em breve"
+    },
+    "players": {
+      "title": "Jogadores Web3",
+      "description": "Jogou o jogo Web3? Entre para resgatar a sua carteira e NFTs.",
+      "inventory": "Inventário",
+      "leaderboard": "Ranking"
+    }
   },
   "common": {
     "welcome": "Bem-vindo",
@@ -184,6 +204,14 @@
     "noTimestamp": "Sem data registrada",
     "pointsValue": "{{value}} pts",
     "emptySlot": "Slot vazio",
+    "announcement": {
+      "wishlist": "A wishlist na Steam será lançada em breve.",
+      "thanks": "Como forma de agradecimento, vamos liberar 1 key de acesso na Steam para todos os jogadores até o ranking 200 do leaderboard de pontos.",
+      "rewardsTitle": "🎁 Recompensas para Fundadores e Top Players",
+      "rewardsIntro": "Como reconhecimento por fazerem parte do topo da nossa história",
+      "founder": "Quem adquiriu o Pacote de Fundador vai receber: 1 key extra + Itens e recompensas especiais dentro do jogo",
+      "top10": "Além disso, os Top 10 do leaderboard também vão ganhar: a key de acesso + Itens e recompensas especiais dentro do jogo"
+    },
     "slots": {
       "helmet": "Capacete",
       "pickaxe": "Picareta",

@@ -44,7 +44,7 @@ export default function AuthButton({ header }: { header?: boolean }) {
       client={client}
       wallets={wallets}
       theme="dark"
-      autoConnect={{ timeout: 10000 }}
+      autoConnect={false}
       connectModal={{
         size: 'compact',
         termsOfServiceUrl: 'https://mythicminers.com/terms-of-use',

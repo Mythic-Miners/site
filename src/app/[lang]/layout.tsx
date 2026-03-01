@@ -1,7 +1,6 @@
 import '@/app/globals.css';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
-import Script from 'next/script';
 import type { Metadata } from 'next';
 import { Sen } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -70,25 +69,6 @@ export default async function LangLayout({
           {children}
         </ClientOnlyProviders>
         <div id="tsparticles" style={{ pointerEvents: 'none' }} />
-        <Script
-          id="watson-assistant-chat"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.watsonAssistantChatOptions = {
-                integrationID: "36636c81-169a-41f9-a38c-737836a680b2",
-                region: "us-south",
-                serviceInstanceID: "b5007c1b-a3ae-45c0-8864-c48e9008b277",
-                onLoad: async (instance) => { await instance.render(); }
-              };
-              setTimeout(function(){
-                const t=document.createElement('script');
-                t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-                document.head.appendChild(t);
-              });
-            `,
-          }}
-        />
       </body>
       <GoogleAnalytics gaId="G-L1MYJR2KXB" />
     </html>

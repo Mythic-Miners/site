@@ -179,6 +179,24 @@ export default function LeaderboardPage() {
           </h1>
         </section>
 
+        <section className="mb-8 relative">
+          <div className="relative rounded-2xl border-2 border-amber-400/60 bg-gradient-to-br from-amber-950/90 to-indigo-950/90 p-6 shadow-lg shadow-amber-500/10">
+            <div className="absolute -bottom-3 left-8 w-6 h-6 rotate-45 border-r-2 border-b-2 border-amber-400/60 bg-gradient-to-br from-amber-950/90 to-indigo-950/90" />
+            <div className="space-y-3 text-neutral-100">
+              <p className="text-base sm:text-lg">{t('leaderboard.announcement.wishlist')}</p>
+              <p className="text-base sm:text-lg">{t('leaderboard.announcement.thanks')}</p>
+              <h3 className="pt-2 text-lg sm:text-xl font-semibold text-amber-200">
+                {t('leaderboard.announcement.rewardsTitle')}
+              </h3>
+              <p className="text-base text-neutral-200">{t('leaderboard.announcement.rewardsIntro')}</p>
+              <ul className="list-disc list-inside space-y-1 text-base text-neutral-200">
+                <li>{t('leaderboard.announcement.founder')}</li>
+                <li>{t('leaderboard.announcement.top10')}</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-indigo-950 border-2 border-black rounded-2xl shadow-lg p-6 sm:p-8">
           <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>

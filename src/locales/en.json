@@ -7,7 +7,28 @@
     "description": "Dive into the mystical world of Mythic Miners, a Web 3 game where you explore caves, mine rocks, upgrade your miner, trade NFTs, and win real money. Start your adventure now!"
   },
   "hero": {
-    "title": "Mythic Miners"
+    "title": "Mythic Miners",
+    "description": {
+      "desktop": "Mine, collect, and trade legendary artifacts in a world of adventure",
+      "mobile": "Mine, collect, and trade legendary artifacts in a world of adventure"
+    }
+  },
+  "landing": {
+    "wishlist": {
+      "title": "Steam wishlist",
+      "announcement": "We are happy to announce",
+      "description": "The wishlist will open in the coming days. Stay tuned!",
+      "link": "Go to Wishlist",
+      "thanks": "Thanks to everyone who has played the game in Web3 until now. We are migrating to Steam.",
+      "comingSoon": "Coming soon"
+    },
+    "players": {
+      "title": "Web3 Players",
+      "description": "Connect your wallet and claim your NFTs.",
+      "cta": "Join to follow the prize rankings and secure your spot among the top players.",
+      "inventory": "Inventory",
+      "leaderboard": "Leaderboard"
+    }
   },
   "common": {
     "welcome": "Welcome",
@@ -184,6 +205,14 @@
     "noTimestamp": "No timestamp provided",
     "pointsValue": "{{value}} pts",
     "emptySlot": "Empty slot",
+    "announcement": {
+      "wishlist": "The Steam wishlist will be launching soon.",
+      "thanks": "As a thank you, we will give 1 Steam access key to all players up to rank 200 on the points leaderboard.",
+      "rewardsTitle": "🎁 Rewards for Founders and Top Players",
+      "rewardsIntro": "In recognition of being part of the top of our history",
+      "founder": "Those who purchased the Founder Pack will receive: 1 extra key + Special in-game items and rewards",
+      "top10": "Additionally, the Top 10 on the leaderboard will also receive: access key + Special in-game items and rewards"
+    },
     "slots": {
       "helmet": "Helmet",
       "pickaxe": "Pickaxe",

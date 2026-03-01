@@ -55,53 +55,14 @@ export default function Header() {
       href: `/${language}/inventory`,
       current: pathname === `/${language}/inventory`,
     },
-    {
-      name: t('footer.quickLinks.game'),
-      href: `/${language}/game`,
-      current: pathname === `/${language}/game`,
-    },
-    {
-      name: t('footer.quickLinks.vip'),
-      href: `/${language}/vip`,
-      current: pathname === `/${language}/vip`,
-    },
   ];
 
-  const moreNavItems = [
-    {
-      name: t('navigation.claim'),
-      href: `/${language}/claim`,
-      current: pathname === `/${language}/claim`,
-    },
-    {
-      name: t('airdrop.title'),
-      href: `/${language}/airdrop`,
-      current: pathname === `/${language}/airdrop`,
-    },
-    {
-      name: 'ICO',
-      href: 'https://ico.mythicminers.com',
-      current: false,
-      external: true,
-    },
-    {
-      name: t('footer.quickLinks.whitepaper'),
-      href:
-        language === 'pt'
-          ? 'https://whitepaper.mythicminers.com/mythic-miners-whitepaper-pt-br'
-          : 'https://whitepaper.mythicminers.com',
-      current: false,
-      external: true,
-    },
-  ];
-
-  const isMoreActive = moreNavItems.some((item) => item.current);
+  const isMoreActive = false;
 
   return (
     <header
-      className={`backdrop-blur-md border-b-2 border-black shadow-[0_0_10px_0_rgb(0,0,0)] sticky top-0 z-50 ${
-        isMenuOpen ? 'bg-indigo-950' : 'bg-indigo-950/60'
-      }`}
+      className={`backdrop-blur-md border-b-2 border-black shadow-[0_0_10px_0_rgb(0,0,0)] sticky top-0 z-50 ${isMenuOpen ? 'bg-indigo-950' : 'bg-indigo-950/60'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -127,82 +88,15 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center rounded-md ${
-                  item.current
-                    ? 'text-yellow-50 bg-indigo-950/70'
-                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center rounded-md ${item.current
+                  ? 'text-yellow-50 bg-indigo-950/70'
+                  : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
+                  }`}
               >
                 <span className="mt-[3px] text-sm">{item.name}</span>
               </Link>
             ))}
 
-            <div className="relative" ref={moreMenuRef}>
-              <button
-                type="button"
-                onClick={() => setIsMoreOpen((prev) => !prev)}
-                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center justify-center rounded-md border border-transparent ${
-                  isMoreOpen || isMoreActive
-                    ? 'text-yellow-50 bg-indigo-950/70 border-cyan-400/40'
-                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
-                }`}
-              >
-                <span className="mt-[3px] text-sm">{t('navigation.more')}</span>
-                <svg
-                  className={`ml-1 h-4 w-4 transition-transform ${
-                    isMoreOpen ? 'rotate-180' : 'rotate-0'
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {isMoreOpen && (
-                <div className="absolute right-0 z-50 mt-2 w-52 rounded-lg border border-indigo-900 bg-indigo-950/95 shadow-xl">
-                  <div className="py-2">
-                    {moreNavItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        target={item.external ? '_blank' : undefined}
-                        rel={item.external ? 'noopener noreferrer' : undefined}
-                        className={`flex items-center justify-between px-4 py-2 text-sm transition-colors duration-200 ${
-                          item.current
-                            ? 'text-yellow-50 bg-indigo-900/70'
-                            : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-900/40'
-                        }`}
-                        onClick={() => setIsMoreOpen(false)}
-                      >
-                        <span>{item.name}</span>
-                        {item.external && (
-                          <svg
-                            className="inline w-4 h-4 ml-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
           </nav>
 
           {/* Right side controls */}
@@ -318,11 +212,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
-                    item.current
-                      ? 'text-yellow-50 bg-indigo-200/20'
-                      : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
-                  }`}
+                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${item.current
+                    ? 'text-yellow-50 bg-indigo-200/20'
+                    : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -339,11 +232,10 @@ export default function Header() {
                     href={item.href}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
-                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
-                      item.current
-                        ? 'text-yellow-50 bg-indigo-200/20'
-                        : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
-                    }`}
+                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${item.current
+                      ? 'text-yellow-50 bg-indigo-200/20'
+                      : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
+                      }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
