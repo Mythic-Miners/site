@@ -25,6 +25,7 @@
     "players": {
       "title": "Jogadores Web3",
       "description": "Jogou o jogo Web3? Entre para resgatar a sua carteira e NFTs.",
+      "cta": "Entre para acompanhar o ranking de prêmios e garantir seu lugar entre os melhores.",
       "inventory": "Inventário",
       "leaderboard": "Ranking"
     }
