@@ -221,42 +221,6 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-
-              <div className="mt-6 border-t border-indigo-900/40 pt-4">
-                <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                  {t('navigation.more')}
-                </p>
-                {moreNavItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noopener noreferrer' : undefined}
-                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${item.current
-                      ? 'text-yellow-50 bg-indigo-200/20'
-                      : 'text-neutral-200 hover:text-neutral-100 hover:bg-indigo-950/40'
-                      }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                    {item.external && (
-                      <svg
-                        className="inline w-4 h-4 ml-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    )}
-                  </Link>
-                ))}
-              </div>
               <div className="px-2 py-2 [&>button]:w-full!">
                 <AuthButton header />
               </div>
